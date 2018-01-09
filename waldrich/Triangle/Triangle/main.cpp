@@ -14,12 +14,6 @@ struct triangle {
     int pointA;
     int pointB;
     int pointC;
-    float lengthSideA;
-    float lengthSideB;
-    float lengthSideC;
-    float angleA;
-    float angleB;
-    float angleC;
 };
 
 
@@ -30,20 +24,32 @@ double findLength(int x, int y) {
 
 void triangleComputations(string triangles) {
     
-    for (int i = 0; i < triangles.length(); i+1) {
-        
-    }
+//    for (int i = 0; i < triangles.length(); i+1) {
+//
+//    }
     
 }
 
 
 
 void getInput() {
-    string triangles;
-    cout << "Please enter points for triangle(s): ";
-    cin >> triangles;
+    int numberOfTriangles = -1;
+    
+    while (numberOfTriangles < 0){
+        cout << "Please enter how many triangles you would like to test: ";
+        cin >> numberOfTriangles;
+    }
+    triangle allTriangles [numberOfTriangles];
+
+    string triangles = "";
+    for(int i = 0; i < numberOfTriangles; i++){
+        cout << "Please enter points for triangle " << i+1 << " ";
+        cin >> triangles;
+        
+    }
     
     triangleComputations(triangles);
+    return;
 }
 
 
