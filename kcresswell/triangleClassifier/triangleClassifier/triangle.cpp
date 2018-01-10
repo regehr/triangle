@@ -11,14 +11,13 @@
 
 std::string getTriangleType(int aX, int aY, int bX, int bY, int cX, int cY){
     //calculate each side length
-    //d = sqrt((x2 - x1)^2 + (y2 - y1)^2)
-    float lengthA, lengthB, lengthC;
-    lengthA = sqrt((cX - bX)^2 + (cY - bY)^2);
-    lengthB = sqrt((cX - aX)^2 + (cY - aY)^2);
-    lengthC = sqrt((bX - aX)^2 + (bY - aY)^2);
+    double lengthA, lengthB, lengthC = 0;
+    lengthA = sqrt(pow(cX - bX, 2) + pow(cY - bY, 2));
+    lengthB = sqrt(pow(cX - aX, 2) + pow(cY - aY, 2));
+    lengthC = sqrt(pow(bX - aX, 2) + pow(bY - aY, 2));
     
     //calculate each angle
-    float angleAlpha, angleBravo, angleCharlie;
+    double angleAlpha, angleBravo, angleCharlie = 0;
     angleAlpha = acos((pow(lengthB, 2.0) + pow(lengthC, 2.0) - pow(lengthA, 2.0)) / 2 * lengthB * lengthC);
     angleBravo = acos((pow(lengthC, 2.0) + pow(lengthA, 2.0) - pow(lengthB, 2.0)) / 2 * lengthC * lengthA);
     angleCharlie = acos((pow(lengthA, 2.0) + pow(lengthB, 2.0) - pow(lengthC, 2.0)) / 2 * lengthA * lengthB);
@@ -33,21 +32,20 @@ std::string getTriangleType(int aX, int aY, int bX, int bY, int cX, int cY){
         std::cout << "isosceles\n";
     }
     
-    //equilateral: all sides same length
-    else if(lengthA == lengthB && lengthA == lengthC){
-        std::cout << "equilateral\n";
-    }
-    
     //obtuse: one angle >90
     else if(angleAlpha > 90 || angleBravo > 90 || angleCharlie > 90){
         std::cout << "obtuse\n";
+    }
+    
+    //equilateral: all sides same length
+    else if(lengthA == lengthB && lengthA == lengthC){
+        std::cout << "equilateral\n";
     }
     
     //acute: all angles <90
     else if(angleAlpha < 90 || angleBravo < 90 || angleCharlie < 90){
         std::cout << "acute\n";
     }
-    
     //scalene: none of the above
     else{
         std::cout << "scalene\n";
