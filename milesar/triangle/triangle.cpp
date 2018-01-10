@@ -98,38 +98,6 @@ vector<double> getAngles (vector<double> sides) {
     angles[1] = B * 180.0 / PI;
     angles[2] = 180 - (A + B) * 180.0 / PI;
 
-//    switch (longestSide) {
-//        case 0:
-//            A = acos((pow(sides[1], 2) + pow(sides[2], 2) - pow(sides[0], 2)) / (2 * sides[1] * sides[2]));
-//
-//            B = asin(sides[2] * sin(A) / sides[0]);
-//
-//            angles[0] = A * 180.0 / PI;
-//            angles[1] = B * 180.0 / PI;
-//            angles[2] = 180 - (A + B) * 180 / PI;
-//            break;
-//        case 1: // original
-//            B = acos((pow(sides[0], 2) + pow(sides[2], 2) - pow(sides[1], 2)) / (2 * sides[0] * sides[2]));
-//
-//            A = asin(sides[0] * sin(B) / sides[1]);
-//
-//            angles[0] = A * 180.0 / PI;
-//            angles[1] = B * 180.0 / PI;
-//            angles[2] = 180 - (A + B) * 180.0 / PI;
-//
-//            break;
-//        case 2:
-//            C = acos((pow(sides[1], 2) + pow(sides[0], 2) - pow(sides[2], 2)) / (2 * sides[0] * sides[1]));
-//
-//            B = asin(sides[0] * sin(B) / sides[1]);
-//
-//            angles[1] = B * 180.0 / PI;
-//            angles[2] = C * 180.0 / PI;
-//            angles[0] = 180 - (B + C) * 180.0 / PI;
-//
-//            break;
-//    }
-
     return angles;
 
 }

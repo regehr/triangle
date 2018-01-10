@@ -36,21 +36,11 @@
       <file leaf-file-name="triangle.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/triangle.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="255" column="30" lean-forward="false" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+            <state relative-caret-position="322">
+              <caret line="325" column="0" lean-forward="true" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
               <folding>
                 <element signature="e#399#418#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iterator" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iterator">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="1518" column="0" lean-forward="false" selection-start-line="1518" selection-start-column="0" selection-end-line="1518" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -144,12 +134,12 @@
       <updated>1515517686570</updated>
       <workItem from="1515517687938" duration="1072000" />
       <workItem from="1515520090850" duration="103000" />
-      <workItem from="1515520260372" duration="19960000" />
+      <workItem from="1515520260372" duration="32956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21135000" />
+    <option name="totallyTimeSpent" value="34131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -183,9 +173,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>else if (floor(angle) == 90)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/triangle.cpp">
@@ -232,6 +231,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="3546" column="0" lean-forward="false" selection-start-line="3546" selection-start-column="0" selection-end-line="3546" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iterator">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -242,8 +249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/triangle.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="255" column="30" lean-forward="false" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+        <state relative-caret-position="322">
+          <caret line="325" column="0" lean-forward="true" selection-start-line="325" selection-start-column="0" selection-end-line="325" selection-end-column="0" />
           <folding>
             <element signature="e#399#418#0" expanded="true" />
           </folding>
