@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  triangle.cpp
 //  Triangle
 //
 //  Created by Sydney Sturgeon on 1/9/18.
