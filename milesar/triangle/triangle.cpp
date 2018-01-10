@@ -178,46 +178,57 @@ string classify (vector<double> points) {
     vector<double> sides = getLengths(points);
     vector<double> angles = getAngles(sides);
 
-    printVector(sides);
-    printVector(angles);
-
-    /** once the input vertices have been validated to describe a triangle withing the specificd coordinate space,
+    /** once the input vertices have been validated to describe a triangle withing the specified coordinate space,
      * classify the constituent angles.
      *
      */
     for (double angle : angles) {
-        if (floor(angle) > 90) {
+        if (floor(angle) > 90.0) {
             result += "obtuse ";
             break;
-        } else if (floor(angle) == 90) {
+        } else if (floor(angle) == 90.0) {
             result += "right ";
             break;
         }
     }
-    if (sides[0] != sides[1] && sides[1] != sides[2] && result == ""){
+
+    if (((floor(sides[0]) != floor(sides[1])) && (floor(sides[1]) != floor(sides[2])) &&
+            (floor(sides[0]) != floor(sides[2]))) && result == ""){
         result += "acute ";
     }
 
-    /** next select the correct descriptor based on the number of congruent sides, and append to the angualr
+    /** next select the correct descriptor based on the number of congruent sides, and append to the angular
      * descriptor. the special case 'equilateral' is handled at the very end of the sequence, having already
      * verified that a combination of equal angles above (60 60 60) has not been classified.
      *
      */
-    double firstSide = sides[0];
     int congruentSides = 0;
-    for (double side : sides) {
-        if (floor(firstSide) == floor(side)) {
-            congruentSides++;
-        }
+
+    if ((sides[0]) == (sides[2]) || sides[1] == (sides[2])) {
+        congruentSides = 2;
+    }
+    else if ((sides[0]) == (sides[2]) && sides[1] == (sides[2])) {
+        congruentSides = 3;
     }
 
-    if (congruentSides == 1) {
+    if (congruentSides == 0) {
         result += "scalene ";
     } else if (congruentSides == 2) {
         result += "isosceles ";
-    } else {
+    } else if (congruentSides == 3){
         result += "equilateral ";
     }
+
+    /** debugging print statements
+     *
+     */
+    cout << "\n" << result + "triangle:" << endl;
+    cout << "sides: ";
+    printVector(sides);
+    cout << "angles: ";
+    printVector(angles);
+    cout << "congruent sides:" << congruentSides;
+
 
     /** append 'triangle' to the end of the descriptors, after navigating the table of 7 combinations.
      *
@@ -314,14 +325,34 @@ void classificationTests () {
      *
      */
     vector<vector<double>> acuteIsoscelesTriangles;
-    acuteIsoscelesTriangles.push_back(vector<double> {0,80,40,80,20,0});
-    acuteIsoscelesTriangles.push_back(vector<double> {0,0,20,4,4,0});
+    acuteIsoscelesTriangles.push_back(vector<double> {0,8,2,8,1,0});
+    acuteIsoscelesTriangles.push_back(vector<double> {0,0,8,4,4,0});
 
     for (vector<double> triangle : acuteIsoscelesTriangles) {
         assert(classify(triangle) == "acute isosceles triangle");
     }
 
+    /** right isosceles triangle test
+     *
+     */
+    vector<vector<double>> rightIsoscelesTriangles;
+    rightIsoscelesTriangles.push_back(vector<double> {0,0,0,1,1,0});
+    rightIsoscelesTriangles.push_back(vector<double> {0,100,100,100,100,0});
 
+    for (vector<double> triangle : rightIsoscelesTriangles) {
+        assert(classify(triangle) == "right isosceles triangle");
+    }
+
+    /** right isosceles triangle test
+     *
+     */
+    vector<vector<double>> obtuseIsoscelesTriangles;
+    obtuseIsoscelesTriangles.push_back(vector<double> {0,0,50,0,25,10});
+    obtuseIsoscelesTriangles.push_back(vector<double> {0,100,100,100,50,90});
+
+    for (vector<double> triangle : obtuseIsoscelesTriangles) {
+        assert(classify(triangle) == "obtuse isosceles triangle");
+    }
 
 }
 
