@@ -16,6 +16,7 @@
 #include <vector>
 #include <sstream>
 #include <cmath>
+#include <assert.h>
 
 #define PI 3.14159265
 
@@ -175,8 +176,9 @@ string classify (vector<double> points) {
     }
 
     vector<double> sides = getLengths(points);
-    printVector(sides);
     vector<double> angles = getAngles(sides);
+
+    printVector(sides);
     printVector(angles);
 
     /** once the input vertices have been validated to describe a triangle withing the specificd coordinate space,
@@ -204,8 +206,8 @@ string classify (vector<double> points) {
     double firstSide = sides[0];
     int congruentSides = 0;
     for (double side : sides) {
-        if (firstSide == side) {
-            congruentSides += 1;
+        if (floor(firstSide) == floor(side)) {
+            congruentSides++;
         }
     }
 
@@ -241,8 +243,14 @@ vector<vector<double>> getTriangles () {
         points = getTriangle(triangleInput);
 
         if (points.size() != 6) {
-            cout << "Invalid input.\nInput must be 6 integers separated by spaces (ax ay bx by cx cy):" << endl;
+            cout << "Invalid input.\nInput must be 6 integers separated by spaces (ax ay bx by cx cy)." << endl;
             continue;
+        }
+
+        for (double point : points) {
+            if (point > 100 || point < 0) {
+                cout << "Invalid input.\n Coordinates must be integers within the range 0-100." << endl;
+            }
         }
 
         triangles.push_back(points);
@@ -253,10 +261,66 @@ vector<vector<double>> getTriangles () {
 
 }
 
-/** performs a series of tests
+/** performs a series of tests, to validate the performance of the triangle classification and related
+ * functionality.
  *
  */
-void tests () {
+void classificationTests () {
+    /** degenerate triangle test
+     *
+     */
+    vector<vector<double>> degenerateTriangles;
+    degenerateTriangles.push_back(vector<double> {0,0,90,90,0,0});
+    degenerateTriangles.push_back(vector<double> {10,0,10,70,10,5});
+
+    for (vector<double> triangle : degenerateTriangles) {
+        assert(classify(triangle) == "not a triangle");
+    }
+
+    /** accute scalene triangle test
+     *
+     */
+    vector<vector<double>> accuteScaleneTriangles;
+    accuteScaleneTriangles.push_back(vector<double> {5,85,90,90,40,15});
+    accuteScaleneTriangles.push_back(vector<double> {10,0,50,70,80,5});
+
+    for (vector<double> triangle : accuteScaleneTriangles) {
+        assert(classify(triangle) == "acute scalene triangle");
+    }
+
+    /** right scalene triangle test
+     *
+     */
+    vector<vector<double>> rightScaleneTriangles;
+    rightScaleneTriangles.push_back(vector<double> {0,0,0,3,4,0});
+    rightScaleneTriangles.push_back(vector<double> {0,0,0,1,2,0});
+
+    for (vector<double> triangle : rightScaleneTriangles) {
+        assert(classify(triangle) == "right scalene triangle");
+    }
+
+    /** obtuse scalene triangle test
+     *
+     */
+    vector<vector<double>> obtuseScaleneTriangles;
+    obtuseScaleneTriangles.push_back(vector<double> {2,0,0,3,7,0});
+    obtuseScaleneTriangles.push_back(vector<double> {5,5,20,80,20,20});
+
+    for (vector<double> triangle : obtuseScaleneTriangles) {
+        assert(classify(triangle) == "obtuse scalene triangle");
+    }
+
+    /** acute isosceles triangle test
+     *
+     */
+    vector<vector<double>> acuteIsoscelesTriangles;
+    acuteIsoscelesTriangles.push_back(vector<double> {0,80,40,80,20,0});
+    acuteIsoscelesTriangles.push_back(vector<double> {0,0,20,4,4,0});
+
+    for (vector<double> triangle : acuteIsoscelesTriangles) {
+        assert(classify(triangle) == "acute isosceles triangle");
+    }
+
 
 
 }
@@ -273,6 +337,8 @@ int main() {
     for (vector<double> triangle : triangles) {
         cout << classify(triangle) << endl;
     }
+
+    classificationTests();
 
     return 0;
 }
