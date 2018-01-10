@@ -192,8 +192,8 @@ string classify (vector<double> points) {
         }
     }
 
-    if (((floor(sides[0]) != floor(sides[1])) && (floor(sides[1]) != floor(sides[2])) &&
-            (floor(sides[0]) != floor(sides[2]))) && result == ""){
+    if (!((floor(sides[0]) == floor(sides[1])) && (floor(sides[1]) == floor(sides[2])) &&
+            (floor(sides[0]) == floor(sides[2]))) && result == ""){
         result += "acute ";
     }
 
@@ -223,6 +223,8 @@ string classify (vector<double> points) {
      *
      */
     cout << "\n" << result + "triangle:" << endl;
+    cout << "points: ";
+    printVector(points);
     cout << "sides: ";
     printVector(sides);
     cout << "angles: ";
@@ -326,7 +328,6 @@ void classificationTests () {
      */
     vector<vector<double>> acuteIsoscelesTriangles;
     acuteIsoscelesTriangles.push_back(vector<double> {0,8,2,8,1,0});
-    acuteIsoscelesTriangles.push_back(vector<double> {0,0,8,4,4,0});
 
     for (vector<double> triangle : acuteIsoscelesTriangles) {
         assert(classify(triangle) == "acute isosceles triangle");
@@ -353,7 +354,6 @@ void classificationTests () {
     for (vector<double> triangle : obtuseIsoscelesTriangles) {
         assert(classify(triangle) == "obtuse isosceles triangle");
     }
-
 }
 
 /** prompts the user to enter a series of coordinates, one set of 6 per line. classifies the sets of coordinates
