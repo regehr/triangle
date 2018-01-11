@@ -65,9 +65,9 @@ int main(int argc, const char * argv[]) {
     triangleClassifier(8, 2, 11, 13, 2, 6)  ;
     triangleClassifier(-3, -3, 0, 5, 3, -3)  ;
     // Obtuse
-   triangleClassifier(0, 0, -1, 4, 4, 0)  ;
+    triangleClassifier(0, 0, -1, 4, 4, 0)  ;
     //Acute
-triangleClassifier(9, 0, 0, 0, 4, 6) ;
+    triangleClassifier(9, 0, 0, 0, 4, 6) ;
     
   return 0;
 }
