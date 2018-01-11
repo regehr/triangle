@@ -41,11 +41,12 @@
  
  */
 
-
+//find lengths
 float findLength(int coorA[], int coorB[]){
     return sqrtf(pow((coorA[0] - coorB[0]),2) + pow((coorA[1] - coorB[1]),2));
 }
 
+//finding angles
 float findLargestAngle(float longestSide, float side2, float side3) {
     //use cos rule to calculate largest angle
     float cosValue = (pow(side2, 2) + pow(side3, 2) - pow(longestSide, 2))/(2 * side2 * side3);
@@ -53,6 +54,10 @@ float findLargestAngle(float longestSide, float side2, float side3) {
     
     //convert to degrees
     return (radians * 180)/M_PI;
+}
+
+float calculateFinalAngle(float largestAngle, float angle2){
+    return 180 - largestAngle - angle2;
 }
 
 float caluclateSINAngle(float largestAngle, float largestSide, float side2){
@@ -67,6 +72,13 @@ float caluclateSINAngle(float largestAngle, float largestSide, float side2){
     return (radians * 180)/M_PI;
 }
 
+static void findAllAngles(float &finalAngle, float &largestAngle, float largestSide, float length1, float length2, float &sinAngle) {
+    largestAngle = findLargestAngle(largestSide, length1, length2);
+    sinAngle = caluclateSINAngle(largestAngle, largestSide, length1);
+    finalAngle = calculateFinalAngle(largestAngle, sinAngle);
+}
+
+//main method to run tests
 int main(int argc, const char * argv[]) {
     int x1, y1, x2, y2, x3, y3;
     
@@ -97,28 +109,30 @@ int main(int argc, const char * argv[]) {
     float angleAB, angleAC, angleBC;
     float largestSide;
     float largestAngle;
+    float sinAngle;
+    float finalAngle;
     
     if(lengthB > lengthA && lengthB > lengthC) {
         largestSide = lengthB;
-        largestAngle = findLargestAngle(largestSide, lengthA, lengthC);
-        angleAC = largestAngle;
+        findAllAngles(finalAngle, largestAngle, largestSide, lengthA, lengthC, sinAngle);
         
-        angleBC = caluclateSINAngle(largestAngle, largestSide, lengthA);
-        angleAB = 180 - angleAC - angleBC;
+        angleAC = largestAngle;
+        angleBC = sinAngle;
+        angleAB = finalAngle;
     } else if (lengthC > lengthA && lengthC > lengthB) {
         largestSide = lengthC;
-        largestAngle = findLargestAngle(largestSide, lengthA, lengthB);
-        angleAB = largestAngle;
+        findAllAngles(finalAngle, largestAngle, largestSide, lengthA, lengthB, sinAngle);
         
-        angleBC = caluclateSINAngle(largestAngle, largestSide, lengthA);
-        angleAC = 180 - angleAB - angleBC;
+        angleAB = largestAngle;
+        angleBC = sinAngle;
+        angleAC = finalAngle;
     } else {
         largestSide = lengthA;
-        largestAngle = findLargestAngle(largestSide, lengthB, lengthC);
-        angleBC = largestAngle;
+        findAllAngles(finalAngle, largestAngle, largestSide, lengthC, lengthB, sinAngle);
         
-        angleAB = caluclateSINAngle(largestAngle, largestSide, lengthC);
-        angleAC = 180 - angleAB - angleBC;
+        angleBC = largestAngle;
+        angleAB = sinAngle;
+        angleAC = finalAngle;
     }
     
     std::cout << "Largest Angle: " << largestAngle <<  std::endl;
