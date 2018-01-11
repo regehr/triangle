@@ -31,7 +31,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
     angleA = findAngle(side2, side3, side1) ;
     angleB = findAngle(side3, side1, side2) ;
     
-    if (angleA == 90 || angleB == 90 || angleC == 90) {
+    if (angleA == 90.0 || angleB == 90.0 || angleC == 90.0) {
         std:: cout << "This is a right triangle. \n" ;
     } else if (side1 == side2 || side1 == side3 || side2 == side3) {
         std::cout << "This is an isosceles triangle. \n" ;
@@ -41,9 +41,8 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
         std::cout << "This is an obtuse triangle. \n" ;
     } else if (angleA < 90 && angleB < 90 && angleC < 90) {
         std::cout << "This is an acute angle. \n" ;
-    } else {
-        std::cout << "This is a scalene triangle." ;
     }
+    
 }
 
 int main(int argc, const char * argv[]) {
