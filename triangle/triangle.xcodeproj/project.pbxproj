@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EBF90276200538B000CCDD64 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBF90274200538B000CCDD64 /* triangle.cpp */; };
+		D2517CAE20053C59004EE407 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2517CAD20053C59004EE407 /* triangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EBF902682005385D00CCDD64 /* CopyFiles */ = {
+		D2517CA820053C59004EE407 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,13 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EBF9026A2005385D00CCDD64 /* Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Triangle; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBF90274200538B000CCDD64 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
-		EBF902782007AF2B00CCDD64 /* tests.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tests.txt; sourceTree = "<group>"; };
+		D2517CAA20053C59004EE407 /* triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = triangle; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2517CAD20053C59004EE407 /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EBF902672005385D00CCDD64 /* Frameworks */ = {
+		D2517CA720053C59004EE407 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,96 +38,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EBF902612005385D00CCDD64 = {
+		D2517CA120053C59004EE407 = {
 			isa = PBXGroup;
 			children = (
-				EBF9026C2005385D00CCDD64 /* Triangle */,
-				EBF9026B2005385D00CCDD64 /* Products */,
+				D2517CAC20053C59004EE407 /* triangle */,
+				D2517CAB20053C59004EE407 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EBF9026B2005385D00CCDD64 /* Products */ = {
+		D2517CAB20053C59004EE407 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBF9026A2005385D00CCDD64 /* Triangle */,
+				D2517CAA20053C59004EE407 /* triangle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EBF9026C2005385D00CCDD64 /* Triangle */ = {
+		D2517CAC20053C59004EE407 /* triangle */ = {
 			isa = PBXGroup;
 			children = (
-				EBF902782007AF2B00CCDD64 /* tests.txt */,
-				EBF90274200538B000CCDD64 /* triangle.cpp */,
+				D2517CAD20053C59004EE407 /* triangle.cpp */,
 			);
-			path = Triangle;
+			path = triangle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EBF902692005385D00CCDD64 /* Triangle */ = {
+		D2517CA920053C59004EE407 /* triangle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBF902712005385D00CCDD64 /* Build configuration list for PBXNativeTarget "Triangle" */;
+			buildConfigurationList = D2517CB120053C59004EE407 /* Build configuration list for PBXNativeTarget "triangle" */;
 			buildPhases = (
-				EBF902662005385D00CCDD64 /* Sources */,
-				EBF902672005385D00CCDD64 /* Frameworks */,
-				EBF902682005385D00CCDD64 /* CopyFiles */,
+				D2517CA620053C59004EE407 /* Sources */,
+				D2517CA720053C59004EE407 /* Frameworks */,
+				D2517CA820053C59004EE407 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Triangle;
-			productName = Triangle;
-			productReference = EBF9026A2005385D00CCDD64 /* Triangle */;
+			name = triangle;
+			productName = triangle;
+			productReference = D2517CAA20053C59004EE407 /* triangle */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EBF902622005385D00CCDD64 /* Project object */ = {
+		D2517CA220053C59004EE407 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = "Sydney Sturgeon";
+				ORGANIZATIONNAME = "Jennifer Niang";
 				TargetAttributes = {
-					EBF902692005385D00CCDD64 = {
+					D2517CA920053C59004EE407 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = EBF902652005385D00CCDD64 /* Build configuration list for PBXProject "Triangle" */;
+			buildConfigurationList = D2517CA520053C59004EE407 /* Build configuration list for PBXProject "triangle" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = EBF902612005385D00CCDD64;
-			productRefGroup = EBF9026B2005385D00CCDD64 /* Products */;
+			mainGroup = D2517CA120053C59004EE407;
+			productRefGroup = D2517CAB20053C59004EE407 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EBF902692005385D00CCDD64 /* Triangle */,
+				D2517CA920053C59004EE407 /* triangle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EBF902662005385D00CCDD64 /* Sources */ = {
+		D2517CA620053C59004EE407 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF90276200538B000CCDD64 /* triangle.cpp in Sources */,
+				D2517CAE20053C59004EE407 /* triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EBF9026F2005385D00CCDD64 /* Debug */ = {
+		D2517CAF20053C59004EE407 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -176,14 +174,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		EBF902702005385D00CCDD64 /* Release */ = {
+		D2517CB020053C59004EE407 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -225,13 +223,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		EBF902722005385D00CCDD64 /* Debug */ = {
+		D2517CB220053C59004EE407 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -239,7 +237,7 @@
 			};
 			name = Debug;
 		};
-		EBF902732005385D00CCDD64 /* Release */ = {
+		D2517CB320053C59004EE407 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -250,25 +248,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EBF902652005385D00CCDD64 /* Build configuration list for PBXProject "Triangle" */ = {
+		D2517CA520053C59004EE407 /* Build configuration list for PBXProject "triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EBF9026F2005385D00CCDD64 /* Debug */,
-				EBF902702005385D00CCDD64 /* Release */,
+				D2517CAF20053C59004EE407 /* Debug */,
+				D2517CB020053C59004EE407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBF902712005385D00CCDD64 /* Build configuration list for PBXNativeTarget "Triangle" */ = {
+		D2517CB120053C59004EE407 /* Build configuration list for PBXNativeTarget "triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EBF902722005385D00CCDD64 /* Debug */,
-				EBF902732005385D00CCDD64 /* Release */,
+				D2517CB220053C59004EE407 /* Debug */,
+				D2517CB320053C59004EE407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EBF902622005385D00CCDD64 /* Project object */;
+	rootObject = D2517CA220053C59004EE407 /* Project object */;
 }

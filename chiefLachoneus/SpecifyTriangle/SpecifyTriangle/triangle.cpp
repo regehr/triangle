@@ -43,7 +43,7 @@
 
 
 float findLength(int coorA[], int coorB[]){
-    return sqrtf(pow((coorA[1] - coorB[1]),2) + pow((coorA[0] - coorB[0]),2));
+    return sqrtf(pow((coorA[0] - coorB[0]),2) + pow((coorA[1] - coorB[1]),2));
 }
 
 float findLargestAngle(float longestSide, float side2, float side3) {
@@ -70,24 +70,31 @@ float caluclateSINAngle(float largestAngle, float largestSide, float side2){
 int main(int argc, const char * argv[]) {
     int x1, y1, x2, y2, x3, y3;
     
-    
+    //ask for points of triangle
     std::cout << "Please provide 3 points for a triangle in this format (x1 y1 x2 y2 x3 y3):" << std::endl;
     std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
     
-    std::cout << "Your responses: " << x1 << " " << y1  << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
-    
+    //assign values to coordinates
     int coor1[] = {x1, y1};
     int coor2[] = {x2, y2};
     int coor3[] = {x3, y3};
+    
+    //confirm points of triangle
+    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1]  << ") ("
+        << coor2[0] << ", " << coor2[1] << ") ("
+        << coor3[0] << ", " << coor3[1] << ")";
+    std::cout << std::endl;
+    std::cout << std::endl;
     
     float lengthA = findLength(coor1, coor2);
     float lengthB = findLength(coor2, coor3);
     float lengthC = findLength(coor1, coor3);
     
-    std::cout << lengthA << " " << lengthB << " " << lengthC << std::endl;
+    std::cout << lengthA << " " << lengthB << " " << lengthC;
+    std::cout << std::endl;
+    std::cout << std::endl;
     
     float angleAB, angleAC, angleBC;
-    
     float largestSide;
     float largestAngle;
     
@@ -115,6 +122,9 @@ int main(int argc, const char * argv[]) {
     }
     
     std::cout << "Largest Angle: " << largestAngle <<  std::endl;
+    std::cout << std::endl;
+    
+    //print all angles
     std::cout << angleAB <<  std::endl;
     std::cout << angleAC <<  std::endl;
     std::cout << angleBC <<  std::endl;
