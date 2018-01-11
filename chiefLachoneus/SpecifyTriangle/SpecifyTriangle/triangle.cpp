@@ -18,8 +18,6 @@ int main(int argc, const char * argv[]) {
     std::cout << "Your responses: " << x1 << " " << y1  << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
     std::cout << "Your responses: " << x1 << y1 << x2 << y2 << x3 << y3  << std::endl;
     
-    
-    
     return 0;
 }
 
