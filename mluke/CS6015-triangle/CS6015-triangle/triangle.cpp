@@ -56,15 +56,15 @@ int main(int argc, const char * argv[]) {
         std::cout << "Enter 6 points for a triangle. \n" ;
         std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 ;
         triangleClassifier(x1, y1, x2, y2, x3, y3) ;
-    }
+}
     
     // Right triangle.
     triangleClassifier(-1, 1, 4, 4, 6, 2) ;
     // Isosceleses.
-    triangleClassifier(8, 2, 11, 13, 2, 6)  ;
-    triangleClassifier(-3, -3, 0, 5, 3, -3)  ;
+    triangleClassifier(8, 2, 11, 13, 2, 6) ;
+    triangleClassifier(-3, -3, 0, 5, 3, -3) ;
     // Obtuse
-    triangleClassifier(0, 0, -1, 4, 4, 0)  ;
+    triangleClassifier(0, 0, -1, 4, 4, 0) ;
     //Acute
     triangleClassifier(9, 0, 0, 0, 4, 6) ;
     

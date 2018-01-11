@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62BDC2E4200550740023A970 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62BDC2E3200550740023A970 /* main.cpp */; };
+		62BDC2E4200550740023A970 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62BDC2E3200550740023A970 /* triangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		62BDC2E0200550740023A970 /* CS6015-triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CS6015-triangle"; sourceTree = BUILT_PRODUCTS_DIR; };
-		62BDC2E3200550740023A970 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		62BDC2E3200550740023A970 /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,7 @@
 		62BDC2E2200550740023A970 /* CS6015-triangle */ = {
 			isa = PBXGroup;
 			children = (
-				62BDC2E3200550740023A970 /* main.cpp */,
+				62BDC2E3200550740023A970 /* triangle.cpp */,
 			);
 			path = "CS6015-triangle";
 			sourceTree = "<group>";
@@ -119,7 +119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62BDC2E4200550740023A970 /* main.cpp in Sources */,
+				62BDC2E4200550740023A970 /* triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
