@@ -35,22 +35,20 @@ bool doublesEqual(double a, double b);
 
 int main(int argc, const char * argv[]) {
 
-    std::cout << "Please enter 6 values representing 3 cartesian points. To exit, enter -1 as the first value.\n";
+    std::cout << "Please enter 6 values representing 3 cartesian points.\n";
     
     while(true){
         // Get the three point coordinates
         int x1, y1, x2, y2, x3, y3;
-        std::cin >> x1;
-        if(x1 == -1) {
+        if ( !(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3) ) {
             break;
         }
-        std::cin >> y1 >> x2 >> y2 >> x3 >> y3;
         
         // Get the type of the triangle
         std::string type = getTriangleType(x1, y1, x2, y2, x3, y3);
         
         // Print out the type of triangle
-        std::cout << type << "\n";
+        std::cout << "\n" << type;
     }
 
     return 0;
@@ -102,11 +100,6 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3){
     // If all angles are < 90 degrees
     else if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
         triangleType = "acute";
-    }
-    
-    // If we're this far, we know it's a triangle and the sides are different lengths
-    else{
-        triangleType = "scalene";
     }
     
     return triangleType;
