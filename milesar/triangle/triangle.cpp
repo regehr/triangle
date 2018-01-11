@@ -151,17 +151,17 @@ string classify (vector<double> points) {
      *
      */
     for (double angle : angles) {
-        if (floor(angle) > 90.0) {
+        if (round(angle) > 90.0) {
             result += "obtuse ";
             break;
-        } else if (floor(angle) == 90.0) {
+        } else if (round(angle) == 90.0) {
             result += "right ";
             break;
         }
     }
 
-    if (!((floor(sides[0]) == floor(sides[1])) && (floor(sides[1]) == floor(sides[2])) &&
-            (floor(sides[0]) == floor(sides[2]))) && result == ""){
+    if (!((round(sides[0]) == round(sides[1])) && (round(sides[1]) == round(sides[2])) &&
+            (round(sides[0]) == round(sides[2]))) && result == ""){
         result += "acute ";
     }
 
@@ -172,7 +172,7 @@ string classify (vector<double> points) {
      */
     int congruentSides = 0;
 
-    if ((sides[0]) == (sides[2]) || sides[1] == (sides[2])) {
+    if ((sides[0] == sides[2]) || (sides[1] == sides[2]) || (sides[0] == sides[1])) {
         congruentSides = 2;
     }
     else if ((sides[0]) == (sides[2]) && sides[1] == (sides[2])) {
@@ -306,7 +306,7 @@ void classificationTests () {
      */
     vector<vector<double>> rightIsoscelesTriangles;
     rightIsoscelesTriangles.push_back(vector<double> {0,0,0,1,1,0});
-    rightIsoscelesTriangles.push_back(vector<double> {0,100,100,100,100,0});
+    rightIsoscelesTriangles.push_back(vector<double> {0,1,1,1,1,0});
 
     for (vector<double> triangle : rightIsoscelesTriangles) {
         assert(classify(triangle) == "right isosceles triangle");
