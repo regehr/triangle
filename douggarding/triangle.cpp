@@ -84,25 +84,25 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3){
     
     // If one of the angles is 90 degrees, right triangle
     if (doublesEqual(angleA, 90.0) || doublesEqual(angleB, 90.0) || doublesEqual(angleC, 90.0)){
-        triangleType = "right triangle";
+        return "right triangle";
     }
     
     // If two or more sides are the same, isosceles triangle
-    else if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
-        triangleType = "isosceles";
+    if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
+        return "isosceles";
     }
     
     // If one of the angles is > 90 degrees, obtuse triangle
-    else if (angleA > 90 || angleB > 90 || angleC > 90){
-        triangleType = "obtuse";
+    if (angleA > 90 || angleB > 90 || angleC > 90){
+        return "obtuse";
     }
     
     // If all angles are < 90 degrees
-    else if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
-        triangleType = "acute";
+    if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
+        return "acute";
     }
     
-    return triangleType;
+    return "degenerate";
 }
 
 
