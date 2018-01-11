@@ -1,11 +1,11 @@
-//  main.cpp
+//  triangle.cpp
 //  TriangleClassifier
 //
 //  Created by Mason West on 1/9/18.
 //  Copyright © 2018 Mason West. All rights reserved.
 //
 /*  This program takes an entered input of 3 coordinates and it calculates it the coordinates make a triangle and what
-    type of triangle it creates.
+ type of triangle it creates.
  */
 
 #include <iostream>
@@ -16,8 +16,8 @@
 #define PI 3.14159265359
 
 /* findDistance finds the length of each side of the triangle using
-   the Pythagorean Theorem to solve
-*/
+ the Pythagorean Theorem to solve
+ */
 double findDistance (double x1, double y1, double x2, double y2)
 {
     double xSquares = pow((x2 - x1), 2.0);
@@ -43,7 +43,7 @@ double findAngleB(double c, double b, double a, double A)
 }
 
 /* Checks if the triangle is a right triangle by checking if
-   one of the angles is greater than 90 degrees
+ one of the angles is greater than 90 degrees
  */
 bool isRight (double A, double B, double C)
 {
@@ -132,7 +132,7 @@ int main(int argc, const char * argv[]) {
         double A = round(findAngleA(c, b, a) * (180/PI));
         double B = round(findAngleB(c, b, a, A) * (180/PI));
         double C = 180.0 - A - B;
-
+        
         //Checks triangle type
         if(isRight(A, B, C))
         {
@@ -174,3 +174,4 @@ int main(int argc, const char * argv[]) {
 //
 //    }
 //}
+

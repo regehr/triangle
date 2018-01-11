@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DD6E1B320052F15002FF4A9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DD6E1B220052F15002FF4A9 /* main.cpp */; };
+		3D7448EC2008156D00817B7E /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D7448EB2008156D00817B7E /* triangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3DD6E1AD20052F15002FF4A9 /* CopyFiles */ = {
+		3D7448E62008156D00817B7E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3DD6E1AF20052F15002FF4A9 /* TriangleClassifier */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TriangleClassifier; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DD6E1B220052F15002FF4A9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3D7448E82008156D00817B7E /* triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = triangle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D7448EB2008156D00817B7E /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3DD6E1AC20052F15002FF4A9 /* Frameworks */ = {
+		3D7448E52008156D00817B7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,95 +38,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DD6E1A620052F15002FF4A9 = {
+		3D7448DF2008156D00817B7E = {
 			isa = PBXGroup;
 			children = (
-				3DD6E1B120052F15002FF4A9 /* TriangleClassifier */,
-				3DD6E1B020052F15002FF4A9 /* Products */,
+				3D7448EA2008156D00817B7E /* triangle */,
+				3D7448E92008156D00817B7E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3DD6E1B020052F15002FF4A9 /* Products */ = {
+		3D7448E92008156D00817B7E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3DD6E1AF20052F15002FF4A9 /* TriangleClassifier */,
+				3D7448E82008156D00817B7E /* triangle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3DD6E1B120052F15002FF4A9 /* TriangleClassifier */ = {
+		3D7448EA2008156D00817B7E /* triangle */ = {
 			isa = PBXGroup;
 			children = (
-				3DD6E1B220052F15002FF4A9 /* main.cpp */,
+				3D7448EB2008156D00817B7E /* triangle.cpp */,
 			);
-			path = TriangleClassifier;
+			path = triangle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3DD6E1AE20052F15002FF4A9 /* TriangleClassifier */ = {
+		3D7448E72008156D00817B7E /* triangle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3DD6E1B620052F15002FF4A9 /* Build configuration list for PBXNativeTarget "TriangleClassifier" */;
+			buildConfigurationList = 3D7448EF2008156D00817B7E /* Build configuration list for PBXNativeTarget "triangle" */;
 			buildPhases = (
-				3DD6E1AB20052F15002FF4A9 /* Sources */,
-				3DD6E1AC20052F15002FF4A9 /* Frameworks */,
-				3DD6E1AD20052F15002FF4A9 /* CopyFiles */,
+				3D7448E42008156D00817B7E /* Sources */,
+				3D7448E52008156D00817B7E /* Frameworks */,
+				3D7448E62008156D00817B7E /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TriangleClassifier;
-			productName = TriangleClassifier;
-			productReference = 3DD6E1AF20052F15002FF4A9 /* TriangleClassifier */;
+			name = triangle;
+			productName = triangle;
+			productReference = 3D7448E82008156D00817B7E /* triangle */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3DD6E1A720052F15002FF4A9 /* Project object */ = {
+		3D7448E02008156D00817B7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Mason West";
 				TargetAttributes = {
-					3DD6E1AE20052F15002FF4A9 = {
+					3D7448E72008156D00817B7E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 3DD6E1AA20052F15002FF4A9 /* Build configuration list for PBXProject "TriangleClassifier" */;
+			buildConfigurationList = 3D7448E32008156D00817B7E /* Build configuration list for PBXProject "triangle" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 3DD6E1A620052F15002FF4A9;
-			productRefGroup = 3DD6E1B020052F15002FF4A9 /* Products */;
+			mainGroup = 3D7448DF2008156D00817B7E;
+			productRefGroup = 3D7448E92008156D00817B7E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3DD6E1AE20052F15002FF4A9 /* TriangleClassifier */,
+				3D7448E72008156D00817B7E /* triangle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3DD6E1AB20052F15002FF4A9 /* Sources */ = {
+		3D7448E42008156D00817B7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD6E1B320052F15002FF4A9 /* main.cpp in Sources */,
+				3D7448EC2008156D00817B7E /* triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3DD6E1B420052F15002FF4A9 /* Debug */ = {
+		3D7448ED2008156D00817B7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -174,14 +174,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		3DD6E1B520052F15002FF4A9 /* Release */ = {
+		3D7448EE2008156D00817B7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -223,13 +223,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		3DD6E1B720052F15002FF4A9 /* Debug */ = {
+		3D7448F02008156D00817B7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -237,7 +237,7 @@
 			};
 			name = Debug;
 		};
-		3DD6E1B820052F15002FF4A9 /* Release */ = {
+		3D7448F12008156D00817B7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -248,25 +248,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3DD6E1AA20052F15002FF4A9 /* Build configuration list for PBXProject "TriangleClassifier" */ = {
+		3D7448E32008156D00817B7E /* Build configuration list for PBXProject "triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3DD6E1B420052F15002FF4A9 /* Debug */,
-				3DD6E1B520052F15002FF4A9 /* Release */,
+				3D7448ED2008156D00817B7E /* Debug */,
+				3D7448EE2008156D00817B7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3DD6E1B620052F15002FF4A9 /* Build configuration list for PBXNativeTarget "TriangleClassifier" */ = {
+		3D7448EF2008156D00817B7E /* Build configuration list for PBXNativeTarget "triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3DD6E1B720052F15002FF4A9 /* Debug */,
-				3DD6E1B820052F15002FF4A9 /* Release */,
+				3D7448F02008156D00817B7E /* Debug */,
+				3D7448F12008156D00817B7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3DD6E1A720052F15002FF4A9 /* Project object */;
+	rootObject = 3D7448E02008156D00817B7E /* Project object */;
 }
