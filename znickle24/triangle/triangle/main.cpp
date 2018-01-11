@@ -50,41 +50,40 @@ std::vector<double> angleCalculator (std::vector<double> lengths) {
     angles.push_back(c);
     return angles;
 }
-
-int main(int argc, const char * argv[]) {
-    //to be added when ready to accept multiple entries from a user
-//    std::cout << "Please enter the number of triangles you'll be providing: \n";
-//    std:: cin >> numberOfTriangles;
-   
-    std::cout << "Please enter the coordinates for your triangle (format: x1 y1 x2 y2 x3 y3): \n";
-    std::cin >> x;
-    std::cin >> y;
-    std::cin >> x2;
-    std::cin >> y2;
-    std::cin >> x3;
-    std::cin >> y3;
-    if (x < 0 || x2 <0 || x3 < 0 || y < 0 || y2 < 0 || y3 < 0 || x > 100 || x2 > 100 || x3 > 100 || y > 100 || y2 > 100 || y3 > 100) {
-        std::cout << "This is an invalid input and will not be considered. Must be between 0 and 100. \n ";
-        exit(1);
-    }
-    if (x == x2 || x2 == x3 || x == x3 || y == y2 || y == y3 || y2 == y3) {
-        std::cout << "This is a degenerate and cannot be a triangle! \n";
-        exit(1);
-    }
-    std:: vector<double> lineLengths = calculateLineLengths(x, y, x2, y2, x3, y3);
-    std::vector<double> angles = angleCalculator(lineLengths);
-    
+void typeOfTriangle(std::vector<double> lineLengths, std::vector<double> angles) {
     if (!(lineLengths[0] != lineLengths[1] || lineLengths[1] != lineLengths[2] || lineLengths[2] != lineLengths[0])) {
-        std::cout << "This is an equilibrium triangle. \n";
-    }
-    if (angles[0] > 90 || angles[1] > 90 || angles[2] > 90) {
+        std::cout << "This is an equilateral triangle. \n";
+    } else if (lineLengths[0] == lineLengths[1] || lineLengths[1] == lineLengths[2] || lineLengths[0] == lineLengths[2]) {
+        std::cout << "This is an isosceles triangle. \n";
+    } else if (angles[0] > 90 || angles[1] > 90 || angles[2] > 90) {
         std::cout << "This is an obtuse triangle. \n";
-    }
-    if (angles[0] == 90 || angles[1] == 90 || angles[2] == 90) {
+    } else if (angles[0] == 90 || angles[1] == 90 || angles[2] == 90) {
         std::cout << "This is a right triangle. \n";
+    }else if (angles[0] < 90 && angles[1] < 90 && angles[2] < 90) {
+        std::cout << "This is an acute triangle. \n";
     }
-    if (angles[0] < 90 && angles[1] < 90 && angles[2] < 90) {
-        std::cout << "This is an acute triangle. \n"; 
+}
+int main(int argc, const char * argv[]) {
+    //took this idea to loop through the number of triangles from Sydney
+    std::cout << "Please enter the number of triangles you'll be providing: \n";
+    std:: cin >> numberOfTriangles;
+    for (int i = 0; i < numberOfTriangles; i++) {
+        std::cout << "Please enter the coordinates for your triangle (format: x1 y1 x2 y2 x3 y3): \n";
+        std::cin >> x;
+        std::cin >> y;
+        std::cin >> x2;
+        std::cin >> y2;
+        std::cin >> x3;
+        std::cin >> y3;
+        if (x < 0 || x2 <0 || x3 < 0 || y < 0 || y2 < 0 || y3 < 0 || x > 100 || x2 > 100 || x3 > 100 || y > 100 || y2 > 100 || y3 > 100) {
+            std::cout << "This is an invalid input and will not be considered. Must be between 0 and 100. \n ";
+        } else if (x == x2 || x2 == x3 || x == x3 || y == y2 || y == y3 || y2 == y3) {
+            std::cout << "This is a degenerate and cannot be a triangle! \n";
+        } else {
+            std:: vector<double> lineLengths = calculateLineLengths(x, y, x2, y2, x3, y3);
+            std::vector<double> angles = angleCalculator(lineLengths);
+            typeOfTriangle(lineLengths, angles);
+        }
     }
     return 0;
 }
