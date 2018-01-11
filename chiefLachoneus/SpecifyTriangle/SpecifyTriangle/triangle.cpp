@@ -43,18 +43,27 @@
 
 
 float findLength(int coorA[], int coorB[]){
-    return sqrtf(pow((coorA[1] - coorA[0]),2) + pow((coorB[1] - coorB[0]),2));
+    return sqrtf(pow((coorA[1] - coorB[1]),2) + pow((coorA[0] - coorB[0]),2));
 }
 
 float findLargestAngle(float longestSide, float side2, float side3) {
+    //use cos rule to calculate largest angle
     float cosValue = (pow(side2, 2) + pow(side3, 2) - pow(longestSide, 2))/(2 * side2 * side3);
     float radians = acos(cosValue);
+    
+    //convert to degrees
     return (radians * 180)/M_PI;
 }
 
 float caluclateSINAngle(float largestAngle, float largestSide, float side2){
-    float sinValue = (side2 * sin(largestAngle))/largestSide;
+    //convert to radians
+    float degreesOfLargestAngle = largestAngle * M_PI / 180;
+    
+    //use sin rule to calcualte second side
+    float sinValue = side2 * sin(degreesOfLargestAngle)/ largestSide;
     float radians = asin(sinValue);
+    
+    //convert back to degrees
     return (radians * 180)/M_PI;
 }
 
@@ -105,7 +114,7 @@ int main(int argc, const char * argv[]) {
         angleAC = 180 - angleAB - angleBC;
     }
     
-    std::cout << largestAngle <<  std::endl;
+    std::cout << "Largest Angle: " << largestAngle <<  std::endl;
     std::cout << angleAB <<  std::endl;
     std::cout << angleAC <<  std::endl;
     std::cout << angleBC <<  std::endl;
