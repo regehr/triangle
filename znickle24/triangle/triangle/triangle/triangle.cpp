@@ -56,8 +56,6 @@ void typeOfTriangle(std::vector<double> lineLengths, std::vector<double> angles)
         std::cout << "This is an invalid input and will not be considered. Must be between 0 and 100. \n ";
     } else if ((x == x2 && y == y2) || (x2 == x2 && y2 == y3) || (x3 == x && y3 == y)) {
         std::cout << "This is a degenerate and cannot be a triangle! \n";
-    } else if (!(lineLengths[0] != lineLengths[1] || lineLengths[1] != lineLengths[2] || lineLengths[2] != lineLengths[0])) {
-        std::cout << "This is an equilateral triangle. \n";
     } else if (lineLengths[0] == lineLengths[1] || lineLengths[1] == lineLengths[2] || lineLengths[0] == lineLengths[2]) {
         std::cout << "This is an isosceles triangle. \n";
     } else if (angles[0] > 90 || angles[1] > 90 || angles[2] > 90) {
