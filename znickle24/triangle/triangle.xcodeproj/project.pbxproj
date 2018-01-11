@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EE23E9720053BF6001DBF5A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE23E9620053BF6001DBF5A /* main.cpp */; };
+		2EE23EC62007DB7C001DBF5A /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EE23EC52007DB7C001DBF5A /* triangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2EE23E9120053BF6001DBF5A /* CopyFiles */ = {
+		2EE23EA42007D8D1001DBF5A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2EE23E9320053BF6001DBF5A /* triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = triangle; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EE23E9620053BF6001DBF5A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2EE23EA62007D8D1001DBF5A /* triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = triangle; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EE23EC52007DB7C001DBF5A /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = triangle/triangle.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2EE23E9020053BF6001DBF5A /* Frameworks */ = {
+		2EE23EA32007D8D1001DBF5A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,26 +38,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2EE23E8A20053BF6001DBF5A = {
+		2EE23E9D2007D8D1001DBF5A = {
 			isa = PBXGroup;
 			children = (
-				2EE23E9520053BF6001DBF5A /* triangle */,
-				2EE23E9420053BF6001DBF5A /* Products */,
+				2EE23EA82007D8D1001DBF5A /* triangle */,
+				2EE23EA72007D8D1001DBF5A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2EE23E9420053BF6001DBF5A /* Products */ = {
+		2EE23EA72007D8D1001DBF5A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2EE23E9320053BF6001DBF5A /* triangle */,
+				2EE23EA62007D8D1001DBF5A /* triangle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2EE23E9520053BF6001DBF5A /* triangle */ = {
+		2EE23EA82007D8D1001DBF5A /* triangle */ = {
 			isa = PBXGroup;
 			children = (
-				2EE23E9620053BF6001DBF5A /* main.cpp */,
+				2EE23EC52007DB7C001DBF5A /* triangle.cpp */,
 			);
 			path = triangle;
 			sourceTree = "<group>";
@@ -65,13 +65,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2EE23E9220053BF6001DBF5A /* triangle */ = {
+		2EE23EA52007D8D1001DBF5A /* triangle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EE23E9A20053BF6001DBF5A /* Build configuration list for PBXNativeTarget "triangle" */;
+			buildConfigurationList = 2EE23EAD2007D8D1001DBF5A /* Build configuration list for PBXNativeTarget "triangle" */;
 			buildPhases = (
-				2EE23E8F20053BF6001DBF5A /* Sources */,
-				2EE23E9020053BF6001DBF5A /* Frameworks */,
-				2EE23E9120053BF6001DBF5A /* CopyFiles */,
+				2EE23EA22007D8D1001DBF5A /* Sources */,
+				2EE23EA32007D8D1001DBF5A /* Frameworks */,
+				2EE23EA42007D8D1001DBF5A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -79,54 +79,54 @@
 			);
 			name = triangle;
 			productName = triangle;
-			productReference = 2EE23E9320053BF6001DBF5A /* triangle */;
+			productReference = 2EE23EA62007D8D1001DBF5A /* triangle */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2EE23E8B20053BF6001DBF5A /* Project object */ = {
+		2EE23E9E2007D8D1001DBF5A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Zander Nickle";
 				TargetAttributes = {
-					2EE23E9220053BF6001DBF5A = {
+					2EE23EA52007D8D1001DBF5A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 2EE23E8E20053BF6001DBF5A /* Build configuration list for PBXProject "triangle" */;
+			buildConfigurationList = 2EE23EA12007D8D1001DBF5A /* Build configuration list for PBXProject "triangle" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 2EE23E8A20053BF6001DBF5A;
-			productRefGroup = 2EE23E9420053BF6001DBF5A /* Products */;
+			mainGroup = 2EE23E9D2007D8D1001DBF5A;
+			productRefGroup = 2EE23EA72007D8D1001DBF5A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2EE23E9220053BF6001DBF5A /* triangle */,
+				2EE23EA52007D8D1001DBF5A /* triangle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2EE23E8F20053BF6001DBF5A /* Sources */ = {
+		2EE23EA22007D8D1001DBF5A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EE23E9720053BF6001DBF5A /* main.cpp in Sources */,
+				2EE23EC62007DB7C001DBF5A /* triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2EE23E9820053BF6001DBF5A /* Debug */ = {
+		2EE23EAB2007D8D1001DBF5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -181,7 +181,7 @@
 			};
 			name = Debug;
 		};
-		2EE23E9920053BF6001DBF5A /* Release */ = {
+		2EE23EAC2007D8D1001DBF5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +229,7 @@
 			};
 			name = Release;
 		};
-		2EE23E9B20053BF6001DBF5A /* Debug */ = {
+		2EE23EAE2007D8D1001DBF5A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -237,7 +237,7 @@
 			};
 			name = Debug;
 		};
-		2EE23E9C20053BF6001DBF5A /* Release */ = {
+		2EE23EAF2007D8D1001DBF5A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -248,25 +248,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2EE23E8E20053BF6001DBF5A /* Build configuration list for PBXProject "triangle" */ = {
+		2EE23EA12007D8D1001DBF5A /* Build configuration list for PBXProject "triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EE23E9820053BF6001DBF5A /* Debug */,
-				2EE23E9920053BF6001DBF5A /* Release */,
+				2EE23EAB2007D8D1001DBF5A /* Debug */,
+				2EE23EAC2007D8D1001DBF5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EE23E9A20053BF6001DBF5A /* Build configuration list for PBXNativeTarget "triangle" */ = {
+		2EE23EAD2007D8D1001DBF5A /* Build configuration list for PBXNativeTarget "triangle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EE23E9B20053BF6001DBF5A /* Debug */,
-				2EE23E9C20053BF6001DBF5A /* Release */,
+				2EE23EAE2007D8D1001DBF5A /* Debug */,
+				2EE23EAF2007D8D1001DBF5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2EE23E8B20053BF6001DBF5A /* Project object */;
+	rootObject = 2EE23E9E2007D8D1001DBF5A /* Project object */;
 }
