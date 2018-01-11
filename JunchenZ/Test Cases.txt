@@ -1,0 +1,2 @@
+Test Cases
+1. input: 0 0 0 1 1 0    output: right triangle, isosceles triangle2. input: 0 0 -2 1 2 1    output: obtuse triangle, isosceles triangle3. input: 0 0 1 0 2 1    output: obtuse triangle, scalene triangle4. input: 0 0 3 0 1 2    output: acute triangle, scalene triangle5. input: 0 0 0 1 2 0    output: right triangle, scalene triangle6. input: 0 0 1 0 2 0    output: not a triangle7. input: 0 0 2 0 1 2    output: acute triangle, isosceles triangle
