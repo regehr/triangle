@@ -1,23 +1,17 @@
-Test Cases for Triangle HW
-Sturgeon
-
-//Test right triangle
-    (0,0)(4,0)(4,3)
-    (0,0)(1,0)(1,1)
-
-//Test isoceles triangle
-    (2,1)(7,1)(5,5)
-
-//Test equilateral triangle - difficult to find three integer points that make up an equilateral triangle
-
-//Test obtuse triangle
-    (0,2)(10,0)(18,2)
-
-//Test acute triangle
-    (0,0)(10,2)(4,30)
-
-//Test scalene triangle - triangle will be classified as something else before being classified as scalene
-
-//Test degenerate
-    (0,0)(10,5)(0,0) - two points are the same
-    (0,0)(5,0)(10,0) - points lie on the same line
+0 0 4 0 4 3
+0 0 1 0 1 1
+2 1 7 1 5 5
+5 5 2 1 7 1
+7 1 5 5 2 1
+0 2 10 0 18 2
+15 30 30 30 20 35
+0 0 10 2 4 30
+0 0 30 4 2 10
+0 0 10 5 0 0
+65 35 1 1 65 35
+0 0 5 0 10 0
+50 4 10 4 40 4
+1 2 3 4 5 6
+100 90 80 70 60 50
+-1 0 40 10 0 15
+50 101 40 33 20 70

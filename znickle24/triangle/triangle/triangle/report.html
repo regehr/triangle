@@ -1,0 +1,122 @@
+<!doctype html><html><head><meta name='viewport' content='width=device-width,initial-scale=1'><meta charset='UTF-8'><style>.red {
+  background-color: #ffd0d0;
+}
+.cyan {
+  background-color: cyan;
+}
+body {
+  font-family: -apple-system, sans-serif;
+}
+pre {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+.source-name-title {
+  padding: 5px 10px;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #eee;
+  line-height: 35px;
+}
+.centered {
+  display: table;
+  margin-left: left;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+.expansion-view {
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+}
+table {
+  border-collapse: collapse;
+}
+.light-row {
+  background: #ffffff;
+  border: 1px solid #dbdbdb;
+}
+.column-entry {
+  text-align: right;
+}
+.column-entry-left {
+  text-align: left;
+}
+.column-entry-yellow {
+  text-align: right;
+  background-color: #ffffd0;
+}
+.column-entry-red {
+  text-align: right;
+  background-color: #ffd0d0;
+}
+.column-entry-green {
+  text-align: right;
+  background-color: #d0ffd0;
+}
+.line-number {
+  text-align: right;
+  color: #aaa;
+}
+.covered-line {
+  text-align: right;
+  color: #0080ff;
+}
+.uncovered-line {
+  text-align: right;
+  color: #ff3300;
+}
+.tooltip {
+  position: relative;
+  display: inline;
+  background-color: #b3e6ff;
+  text-decoration: none;
+}
+.tooltip span.tooltip-content {
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+  color: #FFFFFF;
+  background: #000000;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.tooltip span.tooltip-content:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid #000000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+:hover.tooltip span.tooltip-content {
+  visibility: visible;
+  opacity: 0.8;
+  bottom: 30px;
+  left: 50%;
+  z-index: 999;
+}
+th, td {
+  vertical-align: top;
+  padding: 2px 5px;
+  border-collapse: collapse;
+  border-right: solid 1px #eee;
+  border-left: solid 1px #eee;
+}
+td:first-child {
+  border-left: none;
+}
+td:last-child {
+  border-right: none;
+}
+</style></head><body><div class='centered'><table><div class='source-name-title'><pre>/Users/znickle/CS 6015-001 Spring 2018/triangle/znickle24/triangle/triangle/triangle/triangle.cpp</pre></div><tr><td><pre>Line</pre></td><td><pre>Count</pre></td><td><pre>Source</pre></td></tr><tr><td class='line-number'><a name='L1' href='#L1'><pre>1</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//</pre></td></tr><tr><td class='line-number'><a name='L2' href='#L2'><pre>2</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//  triangle.cpp</pre></td></tr><tr><td class='line-number'><a name='L3' href='#L3'><pre>3</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//  triangle</pre></td></tr><tr><td class='line-number'><a name='L4' href='#L4'><pre>4</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//</pre></td></tr><tr><td class='line-number'><a name='L5' href='#L5'><pre>5</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//  Created by Zander Nickle on 1/11/18.</pre></td></tr><tr><td class='line-number'><a name='L6' href='#L6'><pre>6</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//  Copyright © 2018 Zander Nickle. All rights reserved.</pre></td></tr><tr><td class='line-number'><a name='L7' href='#L7'><pre>7</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>//</pre></td></tr><tr><td class='line-number'><a name='L8' href='#L8'><pre>8</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L9' href='#L9'><pre>9</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;stdio.h&gt;</pre></td></tr><tr><td class='line-number'><a name='L10' href='#L10'><pre>10</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;iostream&gt;</pre></td></tr><tr><td class='line-number'><a name='L11' href='#L11'><pre>11</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;cmath&gt;</pre></td></tr><tr><td class='line-number'><a name='L12' href='#L12'><pre>12</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;string&gt;</pre></td></tr><tr><td class='line-number'><a name='L13' href='#L13'><pre>13</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>#include &lt;vector&gt;</pre></td></tr><tr><td class='line-number'><a name='L14' href='#L14'><pre>14</pre></a></td><td class='uncovered-line'></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L15' href='#L15'><pre>15</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>double x, y, x2, y2, x3, y3;</pre></td></tr><tr><td class='line-number'><a name='L16' href='#L16'><pre>16</pre></a></td><td class='uncovered-line'></td><td class='code'><pre>int numberOfTriangles;</pre></td></tr><tr><td class='line-number'><a name='L17' href='#L17'><pre>17</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>std::vector&lt;double&gt; calculateLineLengths (double x, double y, double x2, double y2, double x3, double y3) {</pre></td></tr><tr><td class='line-number'><a name='L18' href='#L18'><pre>18</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    std::vector&lt;double&gt; lineLengths;</pre></td></tr><tr><td class='line-number'><a name='L19' href='#L19'><pre>19</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double lineLength1 = 0.0;</pre></td></tr><tr><td class='line-number'><a name='L20' href='#L20'><pre>20</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double lineLength2 = 0.0;</pre></td></tr><tr><td class='line-number'><a name='L21' href='#L21'><pre>21</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double lineLength3 = 0.0;</pre></td></tr><tr><td class='line-number'><a name='L22' href='#L22'><pre>22</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double dx1 = x2 - x;</pre></td></tr><tr><td class='line-number'><a name='L23' href='#L23'><pre>23</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double dy1 = y2 - y;</pre></td></tr><tr><td class='line-number'><a name='L24' href='#L24'><pre>24</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    lineLength1 = sqrt(dx1*dx1+dy1*dy1);</pre></td></tr><tr><td class='line-number'><a name='L25' href='#L25'><pre>25</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double dx2 = x3 - x;</pre></td></tr><tr><td class='line-number'><a name='L26' href='#L26'><pre>26</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double dy2 = y3 - y;</pre></td></tr><tr><td class='line-number'><a name='L27' href='#L27'><pre>27</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    lineLength2 = sqrt(dx2*dx2 + dy2*dy2);</pre></td></tr><tr><td class='line-number'><a name='L28' href='#L28'><pre>28</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double dx3 = x3 - x2;</pre></td></tr><tr><td class='line-number'><a name='L29' href='#L29'><pre>29</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double dy3 = y3 - y2;</pre></td></tr><tr><td class='line-number'><a name='L30' href='#L30'><pre>30</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    lineLength3 = sqrt(dx3*dx3 + dy3*dy3);</pre></td></tr><tr><td class='line-number'><a name='L31' href='#L31'><pre>31</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    lineLengths.push_back(lineLength1);</pre></td></tr><tr><td class='line-number'><a name='L32' href='#L32'><pre>32</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    lineLengths.push_back(lineLength2);</pre></td></tr><tr><td class='line-number'><a name='L33' href='#L33'><pre>33</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    lineLengths.push_back(lineLength3);</pre></td></tr><tr><td class='line-number'><a name='L34' href='#L34'><pre>34</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    return lineLengths;</pre></td></tr><tr><td class='line-number'><a name='L35' href='#L35'><pre>35</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L36' href='#L36'><pre>36</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>std::vector&lt;double&gt; angleCalculator (std::vector&lt;double&gt; lengths) {</pre></td></tr><tr><td class='line-number'><a name='L37' href='#L37'><pre>37</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    std:: vector&lt;double&gt; angles;</pre></td></tr><tr><td class='line-number'><a name='L38' href='#L38'><pre>38</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double a = lengths[0];</pre></td></tr><tr><td class='line-number'><a name='L39' href='#L39'><pre>39</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double b = lengths[1];</pre></td></tr><tr><td class='line-number'><a name='L40' href='#L40'><pre>40</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double c = lengths[2];</pre></td></tr><tr><td class='line-number'><a name='L41' href='#L41'><pre>41</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double angleA, angleB, angleC = 0;</pre></td></tr><tr><td class='line-number'><a name='L42' href='#L42'><pre>42</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    double pi = 3.141592653589793238463;</pre></td></tr><tr><td class='line-number'><a name='L43' href='#L43'><pre>43</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    //angle in radians</pre></td></tr><tr><td class='line-number'><a name='L44' href='#L44'><pre>44</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    //then convert from radians to degrees</pre></td></tr><tr><td class='line-number'><a name='L45' href='#L45'><pre>45</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    angleA = acos(((pow(b,2) + pow(c,2) - pow(a,2)))/(2*b*c)) * 180/pi;</pre></td></tr><tr><td class='line-number'><a name='L46' href='#L46'><pre>46</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    angleB = acos(((pow(c,2) + pow(a,2) - pow(b,2)))/(2*a*c)) * 180/pi;</pre></td></tr><tr><td class='line-number'><a name='L47' href='#L47'><pre>47</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    angleC = acos(((pow(a,2) + pow(b, 2) - pow(c,2)))/(2*a*b)) * 180/pi;</pre></td></tr><tr><td class='line-number'><a name='L48' href='#L48'><pre>48</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L49' href='#L49'><pre>49</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    angles.push_back(angleA);</pre></td></tr><tr><td class='line-number'><a name='L50' href='#L50'><pre>50</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    angles.push_back(angleB);</pre></td></tr><tr><td class='line-number'><a name='L51' href='#L51'><pre>51</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    angles.push_back(angleC);</pre></td></tr><tr><td class='line-number'><a name='L52' href='#L52'><pre>52</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    return angles;</pre></td></tr><tr><td class='line-number'><a name='L53' href='#L53'><pre>53</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L54' href='#L54'><pre>54</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>void typeOfTriangle(std::vector&lt;double&gt; lineLengths, std::vector&lt;double&gt; angles) {</pre></td></tr><tr><td class='line-number'><a name='L55' href='#L55'><pre>55</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    if (x &lt; 0 || x2 &lt;0 || x3 &lt; 0 || y &lt; 0 || y2 &lt; 0 || y3 &lt; 0 || x &gt; 100 || x2 &gt; 100 || x3 &gt; 100 || y &gt; 100 || y2 &gt; 100 || y3 &gt; 100) {</pre></td></tr><tr><td class='line-number'><a name='L56' href='#L56'><pre>56</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        std::cout &lt;&lt; &quot;This is an invalid input and will not be considered. Must be between 0 and 100. \n &quot;;</pre></td></tr><tr><td class='line-number'><a name='L57' href='#L57'><pre>57</pre></a></td><td class='covered-line'><pre>5</pre></td><td class='code'><pre>    } else if ((x == x2 &amp;&amp; y == y2) || (x2 == x2 &amp;&amp; y2 == y3) || (x3 == x &amp;&amp; y3 == y)) {</pre></td></tr><tr><td class='line-number'><a name='L58' href='#L58'><pre>58</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        std::cout &lt;&lt; &quot;This is a degenerate and cannot be a triangle! \n&quot;;</pre></td></tr><tr><td class='line-number'><a name='L59' href='#L59'><pre>59</pre></a></td><td class='covered-line'><pre>4</pre></td><td class='code'><pre>    } else if (lineLengths[0] == lineLengths[1] || lineLengths[1] == lineLengths[2] || lineLengths[0] == lineLengths[2]) {</pre></td></tr><tr><td class='line-number'><a name='L60' href='#L60'><pre>60</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        std::cout &lt;&lt; &quot;This is an isosceles triangle. \n&quot;;</pre></td></tr><tr><td class='line-number'><a name='L61' href='#L61'><pre>61</pre></a></td><td class='covered-line'><pre>3</pre></td><td class='code'><pre>    } else if (angles[0] &gt; 90 || angles[1] &gt; 90 || angles[2] &gt; 90) {</pre></td></tr><tr><td class='line-number'><a name='L62' href='#L62'><pre>62</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        std::cout &lt;&lt; &quot;This is an obtuse triangle. \n&quot;;</pre></td></tr><tr><td class='line-number'><a name='L63' href='#L63'><pre>63</pre></a></td><td class='covered-line'><pre>2</pre></td><td class='code'><pre>    } else if (angles[0] == 90 || angles[1] == 90 || angles[2] == 90) {</pre></td></tr><tr><td class='line-number'><a name='L64' href='#L64'><pre>64</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        std::cout &lt;&lt; &quot;This is a right triangle. \n&quot;;</pre></td></tr><tr><td class='line-number'><a name='L65' href='#L65'><pre>65</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    }else if (angles[0] &lt; 90 &amp;&amp; angles[1] &lt; 90 &amp;&amp; angles[2] &lt; 90) {</pre></td></tr><tr><td class='line-number'><a name='L66' href='#L66'><pre>66</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        std::cout &lt;&lt; &quot;This is an acute triangle. \n&quot;;</pre></td></tr><tr><td class='line-number'><a name='L67' href='#L67'><pre>67</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L68' href='#L68'><pre>68</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>}</pre></td></tr><tr><td class='line-number'><a name='L69' href='#L69'><pre>69</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>int main(int argc, const char * argv[]) {</pre></td></tr><tr><td class='line-number'><a name='L70' href='#L70'><pre>70</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    //took this idea to loop through the number of triangles from Sydney</pre></td></tr><tr><td class='line-number'><a name='L71' href='#L71'><pre>71</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    std::cout &lt;&lt; &quot;Please enter the coordinates for your triangle (format: x1 y1 x2 y2 x3 y3): \n&quot;;</pre></td></tr><tr><td class='line-number'><a name='L72' href='#L72'><pre>72</pre></a></td><td class='covered-line'><pre>7</pre></td><td class='code'><pre>    while (true) {</pre></td></tr><tr><td class='line-number'><a name='L73' href='#L73'><pre>73</pre></a></td><td class='covered-line'><pre>7</pre></td><td class='code'><pre>        if (!(std::cin &gt;&gt; x &gt;&gt; y &gt;&gt; x2 &gt;&gt; y2 &gt;&gt; x3 &gt;&gt; y3)) {</pre></td></tr><tr><td class='line-number'><a name='L74' href='#L74'><pre>74</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>            break;</pre></td></tr><tr><td class='line-number'><a name='L75' href='#L75'><pre>75</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>        }</pre></td></tr><tr><td class='line-number'><a name='L76' href='#L76'><pre>76</pre></a></td><td class='covered-line'><pre>7</pre></td><td class='code'><pre>        </pre></td></tr><tr><td class='line-number'><a name='L77' href='#L77'><pre>77</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        std:: vector&lt;double&gt; lineLengths = calculateLineLengths(x, y, x2, y2, x3, y3);</pre></td></tr><tr><td class='line-number'><a name='L78' href='#L78'><pre>78</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        std::vector&lt;double&gt; angles = angleCalculator(lineLengths);</pre></td></tr><tr><td class='line-number'><a name='L79' href='#L79'><pre>79</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>        typeOfTriangle(lineLengths, angles);</pre></td></tr><tr><td class='line-number'><a name='L80' href='#L80'><pre>80</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre></pre></td></tr><tr><td class='line-number'><a name='L81' href='#L81'><pre>81</pre></a></td><td class='covered-line'><pre>6</pre></td><td class='code'><pre>    }</pre></td></tr><tr><td class='line-number'><a name='L82' href='#L82'><pre>82</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>    return 0;</pre></td></tr><tr><td class='line-number'><a name='L83' href='#L83'><pre>83</pre></a></td><td class='covered-line'><pre>1</pre></td><td class='code'><pre>}</pre></td></tr></table></div></body></html>
