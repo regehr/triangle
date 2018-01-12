@@ -78,6 +78,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   // equilateral: all sides same length
   // obtuse: one angle > 90 degrees
   // acute: all angles < 90 degrees
+  // scalene: none of the above
 
   // if any of the angles are 0 it is degenerate
   if ((angleA == 0.0f) || (angleB == 0.0f) || (angleC == 0.0f)) {
@@ -112,7 +113,6 @@ void triangle() {
     int x1, y1, x2, y2, x3, y3; // represent three x,y points
     // cout << "\nEnter the three points of triangle " << i+1 << " in the
     // following format (spaces in between): x1 y1 x2 y2 x3 y3\n";
-    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
     if (!(cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
       break; // stops program
     }
@@ -176,6 +176,97 @@ void testTriangle() {
   // Test incorrect inputs
   //-1 0 40 10 0 15
   // 50 101 40 33 20 70
+
+  // More test cases with points and corresponding outputs below
+  //    0 0 4 0 4 3
+  //    0 0 1 0 1 1
+  //    2 1 7 1 5 5
+  //    5 5 2 1 7 1
+  //    7 1 5 5 2 1
+  //    0 2 10 0 18 2
+  //    15 30 30 30 20 35
+  //    0 0 10 2 4 30
+  //    0 0 30 4 2 10
+  //    0 0 10 5 0 0
+  //    65 35 1 1 65 35
+  //    0 0 5 0 10 0
+  //    50 4 10 4 40 4
+  //    1 2 3 4 5 6
+  //    100 90 80 70 60 50
+  //    -1 0 40 10 0 15
+  //    50 101 40 33 20 70
+  //    0 1 6 0 3 5
+  //    1 1 1 6 6 1
+  //    0 1 0 2 3 0
+  //    0 0 0 2 3 0
+  //    0 0 0 0 0 0
+  //    1 2 3 4 5 6
+  //    0 0 2 0 0 2
+  //    0 0 1 3 2 0
+  //    1 1 100 0 0 100
+  //    0 0 1 1 2 2
+  //    0 0 0 2 0 47
+  //    0 0 1 1 99 99
+  //    100 100 0 0 50 25
+  //    0 0 3 5 5 1
+  //    12 21 13 31 14 41
+  //    0 0 50 50 0 50
+  //    50 35 15 40 15 35
+  //    15 10 45 10 30 45
+  //    2 3 8 3 5 8
+  //    15 10 45 10 56 30
+  //    15 10 35 10 30 35
+  //    15 10 35 10 20 35
+  //    15 10 30 15 45 20
+  //    0 0 5 0 0 5
+  //    0 0 10 0 5 5
+  //    1 1 3 1 2 2
+  //    0 0 4 0 2 3
+  //    5 7 2 3 12 8
+  //    0 1 1 0 0 6
+  //    0 0 1 5 1 6
+  //
+  //    Right triangle
+  //    Right triangle
+  //    Isoceles
+  //    Isoceles
+  //    Isoceles
+  //    Obtuse
+  //    Obtuse
+  //    Acute
+  //    Acute
+  //    Degenerate. Not a triangle. 2 or more points are the same.
+  //    Degenerate. Not a triangle. 2 or more points are the same.
+  //    Degenerate. Not a triangle. Points lie on the same line.
+  //    Degenerate. Not a triangle. Points lie on the same line.
+  //    Degenerate. Not a triangle. One of the angles is 0.
+  //    Degenerate. Not a triangle. One of the angles is 0.
+  //    Incorrect inputs. Points should be integers between 0 and 100
+  //    inclusively. Incorrect inputs. Points should be integers between 0 and
+  //    100 inclusively. Acute Right triangle Obtuse Right triangle Degenerate.
+  //    Not a triangle. 2 or more points are the same. Degenerate. Not a
+  //    triangle. One of the angles is 0. Right triangle Isoceles Isoceles
+  //    Degenerate. Not a triangle. One of the angles is 0.
+  //    Degenerate. Not a triangle. Points lie on the same line.
+  //    Degenerate. Not a triangle. One of the angles is 0.
+  //    Obtuse
+  //    Acute
+  //    Degenerate. Not a triangle. One of the angles is 0.
+  //    Right triangle
+  //    Right triangle
+  //    Isoceles
+  //    Isoceles
+  //    Obtuse
+  //    Acute
+  //    Acute
+  //    Degenerate. Not a triangle. One of the angles is 0.
+  //    Right triangle
+  //    Right triangle
+  //    Right triangle
+  //    Isoceles
+  //    Obtuse
+  //    Obtuse
+  //    Obtuse
 }
 
 int main(int argc, const char *argv[]) {
