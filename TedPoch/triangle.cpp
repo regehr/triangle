@@ -1,6 +1,5 @@
 //
-//  main.cpp
-//  triangleClassifier
+//  triangle.cpp
 //
 //  Created by Ted Pochmara on 1/9/18.
 //  Copyright © 2018 Ted Pochmara. All rights reserved.
@@ -27,17 +26,15 @@ struct Triangle {
 
 
 /**
- Function that calculates the Euclidean length of a triangle's side using
+ Function that calculates the length of a triangle's side using
  two end points (x, y)
- 
- TODO: modify this or make another function to return normal space length
 
  @param a first end point that contains x/y coords
  @param b other end point with x/y coords
  @return length of line between the two input points
  */
 int sideLength (Point a, Point b){
-    return sqrt(pow((b.x - a.x),2) + pow((b.y - a.y),2));
+    return pow((a.x - b.x),2) + pow((a.y - b.y),2);
 }
 
 /**
@@ -49,8 +46,8 @@ int sideLength (Point a, Point b){
  @return true if the triangle object is truly a triangle
  */
 bool isTriangle (Triangle tri){
-    return !((tri.p1.x == tri.p2.x) && (tri.p1.x == tri.p3.x)) ||
-           ((tri.p1.y == tri.p2.y) && (tri.p1.y == tri.p3.y));
+    return !(((tri.p1.x == tri.p2.x) && (tri.p2.x == tri.p3.x)) ||
+           ((tri.p1.y == tri.p2.y) && (tri.p2.y == tri.p3.y)));
 }
 
 int main(int argc, const char * argv[]) {
@@ -61,30 +58,24 @@ int main(int argc, const char * argv[]) {
         Triangle tri = {p1, p2, p3,0,0,0};
         if (isTriangle(tri)){
             sides[0] = sideLength(p1, p2);
-            sides[1] = sideLength(p2, p3);
-            sides[2] = sideLength(p3, p1);
+            sides[1] = sideLength(p1, p3);
+            sides[2] = sideLength(p2, p3);
             std::sort(sides, sides + 3);
             tri.sideA = sides[0];
             tri.sideB = sides[1];
             tri.sideC = sides[2];
             
-            if ((pow(tri.sideA, 2) + pow(tri.sideB, 2)) == pow(tri.sideC, 2)) {
+            if ((tri.sideA + tri.sideB) == tri.sideC) {
                 std::cout << "right" << std::endl;
             }
             else if ((tri.sideA == tri.sideB) || (tri.sideB == tri.sideC)){
                 std::cout << "isosceles" << std::endl;
             }
-            else if ((tri.sideA == tri.sideB) && (tri.sideB == tri.sideC)){
-                std::cout << "equilateral" << std::endl;
-            }
-            else if ((pow(tri.sideA, 2) + pow(tri.sideB, 2)) < pow(tri.sideC, 2)){
+            else if ((tri.sideA + tri.sideB) < tri.sideC){
                 std::cout << "obtuse" << std::endl;
             }
-            else if ((pow(tri.sideA, 2) + pow(tri.sideB, 2)) > pow(tri.sideC, 2)){
+            else if ((tri.sideA + tri.sideB) > tri.sideC){
                 std::cout << "acute" << std::endl;
-            }
-            else {
-                std::cout << "scalene" << std::endl;
             }
         }
         else {
