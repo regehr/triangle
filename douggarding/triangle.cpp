@@ -35,22 +35,20 @@ bool doublesEqual(double a, double b);
 
 int main(int argc, const char * argv[]) {
 
-    std::cout << "Please enter 6 values representing 3 cartesian points. To exit, enter -1 as the first value.\n";
+    std::cout << "Please enter 6 values representing 3 cartesian points.\n";
     
     while(true){
         // Get the three point coordinates
         int x1, y1, x2, y2, x3, y3;
-        std::cin >> x1;
-        if(x1 == -1) {
+        if ( !(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3) ) {
             break;
         }
-        std::cin >> y1 >> x2 >> y2 >> x3 >> y3;
         
         // Get the type of the triangle
         std::string type = getTriangleType(x1, y1, x2, y2, x3, y3);
         
         // Print out the type of triangle
-        std::cout << type << "\n";
+        std::cout << "\n" << type;
     }
 
     return 0;
@@ -86,30 +84,25 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3){
     
     // If one of the angles is 90 degrees, right triangle
     if (doublesEqual(angleA, 90.0) || doublesEqual(angleB, 90.0) || doublesEqual(angleC, 90.0)){
-        triangleType = "right triangle";
+        return "right triangle";
     }
     
     // If two or more sides are the same, isosceles triangle
-    else if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
-        triangleType = "isosceles";
+    if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
+        return "isosceles";
     }
     
     // If one of the angles is > 90 degrees, obtuse triangle
-    else if (angleA > 90 || angleB > 90 || angleC > 90){
-        triangleType = "obtuse";
+    if (angleA > 90 || angleB > 90 || angleC > 90){
+        return "obtuse";
     }
     
     // If all angles are < 90 degrees
-    else if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
-        triangleType = "acute";
+    if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
+        return "acute";
     }
     
-    // If we're this far, we know it's a triangle and the sides are different lengths
-    else{
-        triangleType = "scalene";
-    }
-    
-    return triangleType;
+    return "degenerate";
 }
 
 

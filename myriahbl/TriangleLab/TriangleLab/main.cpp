@@ -64,6 +64,12 @@ string classifyTriangle(int x1, int y1, int x2, int y2, int x3, int y3){
         cout << "right triangle: one 90 degree angle" << endl;
         return "right triangle: one 90 degree angle";
         
+    } else if (side1 == side2 && side1 == side3 && side2 == side3){
+        
+        cout << "equilateral: all sides same length" << endl;
+        return "equilateral: all sides same length";
+        
+        
     } else if((side1 == side2) || (side1 == side3) || (side2 == side3)){
         cout << "isoceles: two sides same length" << endl;
         return "isoceles: two sides same length";
@@ -108,13 +114,51 @@ void runTests(){
         
     }
     
-    if(classifyTriangle(0, 0, -1, 1, 1, 1) == "isoceles: two sides same length" ){
+    if(classifyTriangle(0, 0, -1, 2, 1, 2) == "isoceles: two sides same length" ){
         
         cout << "Test3 passed" << endl;
         
     } else {
         
         cout << "Test3 failed" << endl;
+        
+    }
+    
+    if(classifyTriangle(0, 0, -2, 1, 2, 1) == "obtuse: one angle greater than 90 degrees" ){
+        
+        cout << "Test4 passed" << endl;
+        
+    } else {
+        
+        cout << "Test4 failed" << endl;
+        
+    }
+    if(classifyTriangle(0, 0, -1, 2, 1, 3) == "acute: all angles less than 90 degrees" ){
+        
+        cout << "Test5 passed" << endl;
+        
+    } else {
+        
+        cout << "Test5 failed" << endl;
+        
+    }
+    if(classifyTriangle(0, 0, -1, 2, 1, 3) != "scalene: none of the above" ){
+        
+        cout << "Test6 passed" << endl;
+        
+    } else {
+        
+        cout << "Test6 failed" << endl;
+        
+    }
+    
+    if(classifyTriangle(0, 0, -1, 2, 1, 3) != "equilateral: all sides same length" ){
+        
+        cout << "Test7 passed" << endl;
+        
+    } else {
+        
+        cout << "Test7 failed" << endl;
         
     }
     

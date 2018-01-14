@@ -1,0 +1,33 @@
+        if(x1 == x2 && y1 == y2){
+            std::cout << "Degenerate: Not a triangle\n";
+            continue;
+        }
+        if(x2 == x3 && y2 == y3){
+            std::cout << "Degenerate: Not a triangle\n";
+            continue;
+        }
+        if(x1 == x3 && y1 == y3){
+            std::cout << "Degenerate: Not a triangle\n";
+            continue;
+        }
+        
+//slope check
+        
+if(slope(x1,x2,y1,y2)==slope(x2,x3,y2,y3) || slope(x1,x2,y1,y2)==slope(x1,x3,y1,y3)){
+            std::cout << "Degenerate: Not a triangle\n";
+            continue;
+        }
+
+assert(lengthA > 0 && lengthB > 0 && lengthC > 0);
+assert(angleA > 0 && angleB > 0 && angleC > 0);
+
+//(test for Equilateral)
+        //(coordinates =
+        //(test for Right)
+        //(coordinates = 0 0 0 1 1 0)
+        //(test for Isosceles)
+        //(coordinates = -1 0 1 0 0 2)
+        //(test for Scalene Acute)
+        //(coordinates = 0 0 4 0 1 3)
+        //(test for Scalene Obtuse)
+        //(coordinates = 0 0 5 0 6 1)
