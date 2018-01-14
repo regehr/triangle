@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
     int sides[3];
     while (!std::cin.eof()){
         std::cin >> p1.x >> p1.y >> p2.x >> p2.y >> p3.x >> p3.y;
-        Triangle tri {p1, p2, p3,0,0,0};
+        Triangle tri = {p1, p2, p3,0,0,0};
         if (isTriangle(tri)){
             sides[0] = sideLength(p1, p2);
             sides[1] = sideLength(p2, p3);
