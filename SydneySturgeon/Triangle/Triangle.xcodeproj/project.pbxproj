@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		EBF9026A2005385D00CCDD64 /* Triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Triangle; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF90274200538B000CCDD64 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle.cpp; sourceTree = "<group>"; };
-		EBF90275200538B000CCDD64 /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
+		EBF902782007AF2B00CCDD64 /* tests.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tests.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 		EBF9026C2005385D00CCDD64 /* Triangle */ = {
 			isa = PBXGroup;
 			children = (
-				EBF90275200538B000CCDD64 /* test.txt */,
+				EBF902782007AF2B00CCDD64 /* tests.txt */,
 				EBF90274200538B000CCDD64 /* triangle.cpp */,
 			);
 			path = Triangle;
