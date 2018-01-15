@@ -15,12 +15,15 @@
 
 // An instance of Triangle does not guarantee a valid triangle. Invoking the
 // is_valid() method determines its existence.
-struct Triangle {
-  int x1, y1, x2, y2, x3, y3;
+class Triangle {
+private:
   double len1, len2, len3, ang1, ang2, ang3;
-  Triangle(int x1, int y1, int x2, int y2, int x3, int y3);
-  void print_values();
+  void calc_lens(int x1, int y1, int x2, int y2, int x3, int y3);
+  void calc_angs();
   bool is_valid();
+
+public:
+  Triangle(int x1, int y1, int x2, int y2, int x3, int y3);
   bool is_right();
   bool is_isosceles();
   bool is_obtuse();
@@ -28,13 +31,23 @@ struct Triangle {
   std::string classify();
 };
 
-// Calculates side length and angles (in degrees). Implements the distance
-// formula and the law of cosines.
-Triangle::Triangle(int x1, int y1, int x2, int y2, int x3, int y3)
-    : x1(x1), y1(y1), x2(x2), y2(y2), x3(x3), y3(y3) {
+// Calculates side length and angles (in degrees).
+Triangle::Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+  calc_lens(x1, y1, x2, y2, x3, y3);
+  calc_angs();
+}
+
+// Determines the length of each of the three sides based on the three
+// coordinate points. Implements the distance formula.
+void Triangle::calc_lens(int x1, int y1, int x2, int y2, int x3, int y3) {
   len1 = sqrt((pow(x2 - x1, 2)) + (pow(y2 - y1, 2)));
   len2 = sqrt((pow(x3 - x2, 2)) + (pow(y3 - y2, 2)));
   len3 = sqrt((pow(x1 - x3, 2)) + (pow(y1 - y3, 2)));
+}
+
+// Determines the degree of each of the three angles. Implements the law of
+// cosines.
+void Triangle::calc_angs() {
   ang1 =
       acos(((pow(len2, 2) + pow(len3, 2)) - pow(len1, 2)) / (2 * len2 * len3)) *
       180 / PI;
