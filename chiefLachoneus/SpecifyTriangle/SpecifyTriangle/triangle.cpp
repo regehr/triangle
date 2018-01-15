@@ -72,20 +72,13 @@ float caluclateSINAngle(float largestAngle, float largestSide, float side2){
     return (radians * 180)/M_PI;
 }
 
-static void findAllAngles(float &finalAngle, float &largestAngle, float largestSide, float length1, float length2, float &sinAngle) {
+void findAllAngles(float &finalAngle, float &largestAngle, float largestSide, float length1, float length2, float &sinAngle) {
     largestAngle = findLargestAngle(largestSide, length1, length2);
     sinAngle = caluclateSINAngle(largestAngle, largestSide, length1);
     finalAngle = calculateFinalAngle(largestAngle, sinAngle);
 }
 
-//main method to run tests
-int main(int argc, const char * argv[]) {
-    int x1, y1, x2, y2, x3, y3;
-    
-    //ask for points of triangle
-    std::cout << "Please provide 3 points for a triangle in this format (x1 y1 x2 y2 x3 y3):" << std::endl;
-    std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-    
+static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
     //assign values to coordinates
     int coor1[] = {x1, y1};
     int coor2[] = {x2, y2};
@@ -93,8 +86,8 @@ int main(int argc, const char * argv[]) {
     
     //confirm points of triangle
     std::cout << "Your points: (" << coor1[0] << ", " << coor1[1]  << ") ("
-        << coor2[0] << ", " << coor2[1] << ") ("
-        << coor3[0] << ", " << coor3[1] << ")";
+    << coor2[0] << ", " << coor2[1] << ") ("
+    << coor3[0] << ", " << coor3[1] << ")";
     std::cout << std::endl;
     std::cout << std::endl;
     
@@ -142,7 +135,20 @@ int main(int argc, const char * argv[]) {
     std::cout << angleAB <<  std::endl;
     std::cout << angleAC <<  std::endl;
     std::cout << angleBC <<  std::endl;
+}
+
+//main method to run tests
+int main(int argc, const char * argv[]) {
+    int x1, y1, x2, y2, x3, y3;
     
+    while (true) {
+        //ask for points of triangle
+        if (!(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
+            break;
+        }
+        
+        buildTriangles(x1, y1, x2, y2, x3, y3);
+    }
     
     return 0;
 }

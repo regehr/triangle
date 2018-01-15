@@ -1,0 +1,1 @@
+Enter a triangle, defined by 3 points, or six integers separated by spaces (ax ay bx by cx cy):
