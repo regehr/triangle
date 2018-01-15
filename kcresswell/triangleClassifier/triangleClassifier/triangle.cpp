@@ -49,17 +49,17 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     }
     
     // If two or more sides are the same, isosceles triangle
-    if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
+    else if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
         std::cout << "isosceles\n";
     }
     
     // If one of the angles is > 90 degrees, obtuse triangle
-    if (angleA > 90 || angleB > 90 || angleC > 90){
+    else if (angleA > 90 || angleB > 90 || angleC > 90){
         std::cout << "obtuse\n";
     }
     
     // If all angles are < 90 degrees
-    if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
+    else if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
         std::cout << "acute\n";
     }
     
