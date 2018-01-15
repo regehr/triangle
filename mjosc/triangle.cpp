@@ -21,6 +21,7 @@ private:
   void calc_lens(int x1, int y1, int x2, int y2, int x3, int y3);
   void calc_angs();
   bool is_valid();
+
 public:
   Triangle(int x1, int y1, int x2, int y2, int x3, int y3);
   bool is_right();
@@ -48,11 +49,11 @@ void Triangle::calc_lens(int x1, int y1, int x2, int y2, int x3, int y3) {
 // cosines.
 void Triangle::calc_angs() {
   ang1 =
-  acos(((pow(len2, 2) + pow(len3, 2)) - pow(len1, 2)) / (2 * len2 * len3)) *
-  180 / PI;
+      acos(((pow(len2, 2) + pow(len3, 2)) - pow(len1, 2)) / (2 * len2 * len3)) *
+      180 / PI;
   ang2 =
-  acos(((pow(len3, 2) + pow(len1, 2)) - pow(len2, 2)) / (2 * len3 * len1)) *
-  180 / PI;
+      acos(((pow(len3, 2) + pow(len1, 2)) - pow(len2, 2)) / (2 * len3 * len1)) *
+      180 / PI;
   ang3 = 180 - (ang1 + ang2);
 }
 
@@ -69,7 +70,7 @@ bool Triangle::is_valid() {
 bool Triangle::is_right() {
   const double e = 0.0001;
   return is_valid() &&
-  (abs(ang1 - 90.0) < e || abs(ang2 - 90.0) < e || abs(ang3 - 90.0) < e);
+         (abs(ang1 - 90.0) < e || abs(ang2 - 90.0) < e || abs(ang3 - 90.0) < e);
 }
 
 // Returns true if a valid triangle and at least two of the three side lengths
@@ -125,4 +126,3 @@ int main() {
   triangle_util();
   return 0;
 }
-
