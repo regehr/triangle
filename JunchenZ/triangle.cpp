@@ -3,15 +3,6 @@
 
 using namespace std;
 
-bool validInput(int p[]) {
-  for (int i = 0; i < 6; i++) {
-    if (p[i] < 0 || p[i] > 100) {
-      return false;
-    }
-  }
-  return true;
-}
-
 void sortS(int s[]) {
   for (int i = 0; i < 2; i++) {
     int min = i;
@@ -36,11 +27,6 @@ int main(int argc, const char *argv[]) {
   while (!cin.eof()) {
     for (int i = 0; i < 6; i++) {
       cin >> p[i];
-    }
-
-    if (!validInput(p)) {
-      cout << "invalid input" << endl;
-      continue;
     }
 
     int s[3] = {};

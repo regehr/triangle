@@ -1,0 +1,6 @@
+How many triangles? 
+This is an obtuse triangle. 
+This is an isosceles triangle. 
+This is an isosceles triangle. 
+This is an obtuse triangle. 
+This is an acute angle. 
