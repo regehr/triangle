@@ -42,22 +42,19 @@
  */
 
 //define Triangle Struct
-struct Triangle {
-    Triangle();
-    
-    ~Triangle();
-    
-    //copier
-    Triangle(const Triangle& triangle);
-    
-    int *coor1 = new int[2];
-    int *coor2 = new int[2];
-    int *coor3 = new int[2];
-    float lengthA, lengthB, lengthC;
-    float longestLength;
-    float angleAB, angleAC, angleBC;
-    float largestAngle;
-};
+//struct Triangle {
+//    Triangle();
+//
+//    Triangle(int coor1[], int coor2[], int coor3[]);
+//
+//    int *coor1 = new int[2];
+//    int *coor2 = new int[2];
+//    int *coor3 = new int[2];
+//    float lengthA, lengthB, lengthC;
+//    float longestLength;
+//    float angleAB, angleAC, angleBC;
+//    float largestAngle;
+//};
 
 // find lengths
 float findLength(int coorA[], int coorB[]) {
@@ -100,60 +97,68 @@ void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
     finalAngle = calculateFinalAngle(largestAngle, sinAngle);
 }
 
-void printDetails(const Triangle& triangle) {
-    // confirm points of triangle
-    std::cout << "Your points: (" << triangle.coor1[0] << ", " << triangle.coor1[1] << ") ("
-    << triangle.coor2[0] << ", " << triangle.coor2[1] << ") (" << triangle.coor3[0] << ", "
-    << triangle.coor3[1] << ")";
-    std::cout << std::endl;
-    std::cout << std::endl;
-    
-    std::cout << triangle.lengthA << " " << triangle.lengthB << " " << triangle.lengthC;
-    std::cout << std::endl;
-    std::cout << std::endl;
-    
-    std::cout << "Largest Angle: " << triangle.largestAngle << std::endl;
-    std::cout << std::endl;
-    
-    // print all angles
-    std::cout << triangle.angleAB << std::endl;
-    std::cout << triangle.angleAC << std::endl;
-    std::cout << triangle.angleBC << std::endl;
-}
+// used for evaluation of numbers to help produce testing.
+//void printDetails(int coor1[], int coor2[], int coor3[], float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle) {
+//    // confirm points of triangle
+//    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1] << ") ("
+//    << coor2[0] << ", " << coor2[1] << ") (" << coor3[0] << ", "
+//    << coor3[1] << ")" << "\n";
+//
+//    std::cout << lengthA << " " << lengthB << " " << lengthC << "\n";
+//    std::cout << "Largest Angle: " << largestAngle << "\n";
+//
+//    // print all angles
+//    std::cout << angleAB << "\n";
+//    std::cout << angleAC << "\n";
+//    std::cout << angleBC << "\n\n";
+//
+//}
+
+/*
+ * Borrowed this code method from Doug Garding, and updated to floats from doubles
+ * Returns true if two floats are equal to each other with
+ * a margin of error of .001
+ */
+bool floatsEqual(float a, float b) { return abs(a - b) < 0.001; }
 
 //analyze triangles
-std::string analyzeTrinagle(Triangle triangle){
-    if (triangle.lengthA == triangle.lengthB && triangle.lengthA == triangle.lengthC) {
-        return "equilateral\n";
-    }
-    if (triangle.lengthA == triangle.lengthB || triangle.lengthA == triangle.lengthC || triangle.lengthB == triangle.lengthC) {
-        return "isosceles\n";
-    } else if (triangle.largestAngle == 90.0) {
-        return "right triangle\n";
-    } else if (triangle.largestAngle > 90.0) {
-        return "obtuse\n";
-    } else if (triangle.largestAngle < 90.0) {
-        return "acute\n";
-    } else {
+std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle){
+    if (lengthA == 0 || lengthB == 0 || lengthC == 0) {
         return "degenerate\n";
+    } else if (floatsEqual(180, largestAngle)) {
+        return "degenerate\n";
+    }
+    
+    if (floatsEqual(90, largestAngle)) {
+        return "right triangle\n";
+    } else if (lengthA == lengthB || lengthA == lengthC || lengthB == lengthC) {
+        return "isosceles\n";
+    } else if (largestAngle > 90.0) {
+        return "obtuse\n";
+    } else {
+        return "acute\n";
     }
 }
 
 static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
     // assign values to coordinates
-    Triangle triangle;
-    triangle.coor1[0] = x1;
-    triangle.coor1[1] = y1;
     
-    triangle.coor2[0] = x2;
-    triangle.coor2[1] = y2;
+    int *coor1 = new int[2];
+    int *coor2 = new int[2];
+    int *coor3 = new int[2];
     
-    triangle.coor3[0] = x3;
-    triangle.coor3[1] = y3;
+    coor1[0] = x1;
+    coor1[1] = y1;
     
-    float lengthA = findLength(triangle.coor1, triangle.coor2);
-    float lengthB = findLength(triangle.coor2, triangle.coor3);
-    float lengthC = findLength(triangle.coor1, triangle.coor3);
+    coor2[0] = x2;
+    coor2[1] = y2;
+    
+    coor3[0] = x3;
+    coor3[1] = y3;
+    
+    float lengthA = findLength(coor1, coor2);
+    float lengthB = findLength(coor2, coor3);
+    float lengthC = findLength(coor1, coor3);
     float longestLength;
     
     float angleAB, angleAC, angleBC;
@@ -187,12 +192,12 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
         angleAC = finalAngle;
     }
     
-    triangle.longestLength = longestLength;
-    triangle.largestAngle = largestAngle;
+    longestLength = longestLength;
+    largestAngle = largestAngle;
     
-    std::cout << analyzeTrinagle(triangle);
+    std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
     
-    printDetails(triangle);
+//    printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
 }
 
 // main method to run tests
