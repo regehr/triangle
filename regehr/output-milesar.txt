@@ -1,3 +1,0 @@
-Enter a triangle, defined by 3 points, or six integers separated by spaces (ax ay bx by cx cy):
-Invalid input.
- Coordinates must be integers within the range 0-100.
