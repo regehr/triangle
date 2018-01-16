@@ -56,15 +56,23 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
 
   // calculate the lengths of the sides of the triangle
   float lineLength12 = lineLength(x1, y1, x2, y2);
+    //cout << lineLength12 << endl;
   float lineLength13 = lineLength(x1, y1, x3, y3);
+    //cout << lineLength12 << endl;
   float lineLength23 = lineLength(x2, y2, x3, y3);
+    //cout << lineLength23 << endl;
 
   // calculate the angles in the triangle - rounded to 1 decimal place
-  float angleA = roundf(
-      (calculateAngleA(lineLength12, lineLength13, lineLength23) * 10) / 10);
+  float angleA =
+    calculateAngleA(lineLength12, lineLength13, lineLength23);
+    //roundf(
+      //(calculateAngleA(lineLength12, lineLength13, lineLength23) * 10) / 10);
+    //cout << "anglea" << angleA << endl;
   float angleB = roundf(
       (calculateAngleB(lineLength12, lineLength13, lineLength23) * 10) / 10);
+    //cout << angleB << endl;
   float angleC = roundf(((180.0f - angleA - angleB) * 10) / 10);
+    //cout << angleC << endl;
 
   // classify the triangle according to its side lengths or angles
   // right triangle: one 90 degree angle
@@ -74,7 +82,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
 
   // if any of the angles are 0 it is degenerate
   if ((angleA <= 0.0f) || (angleB <= 0.0f) || (angleC <= 0.0f)) {
-    cout << "degenerate\n";
+    cout << "howdydegenerate\n";
     // cout << "Degenerate. Not a triangle. One of the angles is 0.\n";
   } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f) {
     cout << "right\n";
