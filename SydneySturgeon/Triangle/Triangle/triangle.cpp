@@ -82,7 +82,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
 
   // if any of the angles are 0 it is degenerate
   if ((angleA <= 0.0f) || (angleB <= 0.0f) || (angleC <= 0.0f)) {
-    cout << "howdydegenerate\n";
+    cout << "degenerate\n";
     // cout << "Degenerate. Not a triangle. One of the angles is 0.\n";
   } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f) {
     cout << "right\n";
