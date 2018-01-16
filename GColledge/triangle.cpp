@@ -74,7 +74,7 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
   std::sort(sides.begin(),
             sides.end()); // sort the side lengths for further use.
   // the first is the smallest, the last is the largest
-  assert(sides[2] < sides[0] + [1]);
+  assert(sides[2] < sides[0] + sides[1]);
   // check for right triangles
   // test using the pythagorean theorem
   if (abs(sides[0] * sides[0] + sides[1] * sides[1] - sides[2] * sides[2]) <=
