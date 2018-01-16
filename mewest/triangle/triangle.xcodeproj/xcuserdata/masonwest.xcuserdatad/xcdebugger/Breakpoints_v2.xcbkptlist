@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "triangle/triangle.cpp"
-            timestampString = "537830626.28811"
+            timestampString = "537832439.4085521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "triangle/triangle.cpp"
-            timestampString = "537830626.288794"
+            timestampString = "537832439.40903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
             landmarkName = "isDegenerate(double x1, double y1, double x2, double y2, double x3, double y3)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "triangle/triangle.cpp"
+            timestampString = "537832439.409269"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
