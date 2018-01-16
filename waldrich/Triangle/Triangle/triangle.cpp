@@ -6,156 +6,140 @@
 //  Copyright © 2018 William Aldrich. All rights reserved.
 //
 
+#include <assert.h>
 #include <iostream>
 #include <math.h>
-#include <assert.h>
 
 using namespace std;
 
 struct point {
-    int x;
-    int y;
+  int x;
+  int y;
 };
 
 struct triangle {
-    point pointA;
-    point pointB;
-    point pointC;
-    float lengthSideC;
-    float lengthSideA;
-    float lengthSideB;
-    float angleA;
-    float angleB;
-    float angleC;
+  point pointA;
+  point pointB;
+  point pointC;
+  float lengthSideC;
+  float lengthSideA;
+  float lengthSideB;
+  float angleA;
+  float angleB;
+  float angleC;
 };
 
-
 double findLength(int firstx, int firsty, int secondx, int secondy) {
-    if(firstx < 0 || firstx > 100 || secondx < 0 || secondx > 100 ||
-       firsty < 0 || firsty > 100 || secondy < 0 || secondy > 100) {
-        return 0;
-    }
-
-    return sqrt((pow((secondx - firstx), 2)) + (pow((secondy - firsty), 2)));
+  return sqrt((pow((secondx - firstx), 2)) + (pow((secondy - firsty), 2)));
 }
 
-//Checks the first or second slope to ensure that it is a triangle
-bool checkSlopes(triangle tri){
+// Checks the first or second slope to ensure that it is a triangle
+bool checkSlopes(triangle tri) {
 
-    float slope;
+  // CHECK ALL SLOPES
+  float firstSlope = 0;
+  float secondSlope = 0;
+  float thirdSlope = 0;
 
-    //if the denominator of the first slope = 0 test the second slope
-    if ((tri.pointB.x - tri.pointA.x) != 0){
-    slope = ((tri.pointB.y - tri.pointA.y) / (tri.pointB.x - tri.pointA.x));
-    }
-    else if ((tri.pointC.x - tri.pointA.x) != 0){
-        slope = ((tri.pointC.y - tri.pointB.y) / (tri.pointC.x - tri.pointB.x));
-    }
-    else {
-        return false;
-    }
+  if ((tri.pointB.x - tri.pointA.x) != 0) {
+    firstSlope =
+        ((tri.pointB.y - tri.pointA.y) / (tri.pointB.x - tri.pointA.x));
+  }
+  if ((tri.pointC.x - tri.pointB.x) != 0) {
+    secondSlope =
+        ((tri.pointC.y - tri.pointB.y) / (tri.pointC.x - tri.pointB.x));
+  }
+  if ((tri.pointA.x - tri.pointC.x) != 0) {
+    thirdSlope =
+        ((tri.pointA.y - tri.pointC.y) / (tri.pointA.x - tri.pointC.x));
+  }
 
-    if (slope == numeric_limits<float>::infinity()){
-        return true;
-    }
-    else if( slope == 1 || -1) {
-        return false;
-    }
+  if (firstSlope == secondSlope || secondSlope == thirdSlope ||
+      thirdSlope == firstSlope) {
+    return false;
+  }
 
+  return true;
 }
-
 
 string sidesWork(triangle tri) {
 
-    if(!checkSlopes(tri) || (tri.pointA.x == tri.pointB.x && tri.pointB.x == tri.pointC.x && tri.pointC.x == tri.pointA.x)){
-        return "unknown";
-    }
-
-    if(tri.lengthSideC == tri.lengthSideA && tri.lengthSideC == tri.lengthSideB && tri.lengthSideA == tri.lengthSideB){
-        return "equilateral";
-    }
-
-    if (tri.lengthSideC == tri.lengthSideA || tri.lengthSideA == tri.lengthSideB || tri.lengthSideB == tri.lengthSideC) {
-        return "isoceles";
-    }
-
+  if (!checkSlopes(tri)) {
     return "unknown";
+  }
+
+  if (tri.lengthSideC == tri.lengthSideA ||
+      tri.lengthSideA == tri.lengthSideB ||
+      tri.lengthSideB == tri.lengthSideC) {
+    return "isoceles";
+  }
+
+  return "unknown";
 }
 
 string findAngles(triangle tri) {
 
-    const double pi = 3.1415926535897;
+  const double pi = 3.1415926535897;
 
-    tri.angleA = acos((pow(tri.lengthSideB, 2) + pow(tri.lengthSideC, 2) - pow(tri.lengthSideA, 2)) / (2*tri.lengthSideB*tri.lengthSideC)) * (180/pi);
-    tri.angleB = acos((pow(tri.lengthSideC, 2) + pow(tri.lengthSideA, 2) - pow(tri.lengthSideB, 2)) / (2*tri.lengthSideC*tri.lengthSideA)) * (180/pi);
-    tri.angleC = 180 - tri.angleA - tri.angleB;
+  tri.angleA = acos((pow(tri.lengthSideB, 2) + pow(tri.lengthSideC, 2) -
+                     pow(tri.lengthSideA, 2)) /
+                    (2 * tri.lengthSideB * tri.lengthSideC)) *
+               (180 / pi);
+  tri.angleB = acos((pow(tri.lengthSideC, 2) + pow(tri.lengthSideA, 2) -
+                     pow(tri.lengthSideB, 2)) /
+                    (2 * tri.lengthSideC * tri.lengthSideA)) *
+               (180 / pi);
+  tri.angleC = 180 - tri.angleA - tri.angleB;
 
-    if (tri.angleA + tri.angleB + tri.angleC != 180 || tri.angleA < 0 || tri.angleB < 0 || tri.angleC < 0) {
-        return "degenerate";
-    }
-    else if (tri.angleA == 90 || tri.angleB == 90 || tri.angleC == 90){
-        return "right";
-    }
-    else if (tri.angleA > 90 || tri.angleB > 90 || tri.angleC > 90) {
-        return "obtuse";
-    }
-    else if (tri.angleA < 90 && tri.angleB < 90 && tri.angleC < 90) {
-        return "acute";
-    }
-
-    return "scalene";
+  if (tri.angleA + tri.angleB + tri.angleC != 180 || tri.angleA < 0 ||
+      tri.angleB < 0 || tri.angleC < 0) {
+    return "degenerate";
+  } else if (tri.angleA == 90 || tri.angleB == 90 || tri.angleC == 90) {
+    return "right";
+  } else if (tri.angleA > 90 || tri.angleB > 90 || tri.angleC > 90) {
+    return "obtuse";
+  } else {
+    return "acute";
+  }
 }
 
+string triangleComputations(triangle tri) {
 
-void triangleComputations(triangle allTriangles [], int numOfTriangles) {
+  // find the length of the sides
+  tri.lengthSideC =
+      findLength(tri.pointA.x, tri.pointA.y, tri.pointB.x, tri.pointB.y);
+  tri.lengthSideA =
+      findLength(tri.pointB.x, tri.pointB.y, tri.pointC.x, tri.pointC.y);
+  tri.lengthSideB =
+      findLength(tri.pointC.x, tri.pointC.y, tri.pointA.x, tri.pointA.y);
 
-    //find the length of the sides
-    for (int i = 0; i < numOfTriangles; i++){
-        allTriangles[i].lengthSideC = findLength(allTriangles[i].pointA.x, allTriangles[i].pointA.y, allTriangles[i].pointB.x, allTriangles[i].pointB.y);
-        allTriangles[i].lengthSideA = findLength(allTriangles[i].pointB.x, allTriangles[i].pointB.y, allTriangles[i].pointC.x, allTriangles[i].pointC.y);
-        allTriangles[i].lengthSideB = findLength(allTriangles[i].pointC.x, allTriangles[i].pointC.y, allTriangles[i].pointA.x, allTriangles[i].pointA.y);
-
-        string possibleTriangle = sidesWork(allTriangles[i]);
-        if (possibleTriangle.compare("unknown") == 0) {
-            possibleTriangle = findAngles(allTriangles[i]);
-        }
-        cout << "Triangle " << i + 1 << " is a: " << possibleTriangle << " triangle. \n";
-    }
-
+  string possibleTriangle = sidesWork(tri);
+  if (possibleTriangle.compare("unknown") == 0) {
+    possibleTriangle = findAngles(tri);
+  }
+  return possibleTriangle + " triangle";
 }
-
 
 void getInput() {
-    
-    int numberOfTriangles = -1;
-    
-    while (numberOfTriangles < 0){
-        cout << "Please enter how many triangles you would like to test: ";
-        cin >> numberOfTriangles;
+
+  cout << "Plese enter 6 coordinate points (x,y) for a triangle in the "
+          "format \"# # # # # #\" :  \n";
+
+  while (true) {
+    triangle currentTriangle;
+    if (cin >> currentTriangle.pointA.x >> currentTriangle.pointA.y >>
+        currentTriangle.pointB.x >> currentTriangle.pointB.y >>
+        currentTriangle.pointC.x >> currentTriangle.pointC.y) {
+
+      string displayTriangle = triangleComputations(currentTriangle);
+      cout << displayTriangle << "\n";
+    } else {
+      break;
     }
-    
-    triangle allTriangles[numberOfTriangles];
-    
-    for(int i = 0; i < numberOfTriangles; i++){
-        triangle newTriangle;
-        cout << "Please enter points for triangle " << i+1 << ": ";
-        cin >> newTriangle.pointA.x >> newTriangle.pointA.y >> newTriangle.pointB.x >> newTriangle.pointB.y >> newTriangle.pointC.x >> newTriangle.pointC.y;
-        allTriangles[i] = newTriangle;
-    }
-    
-    triangleComputations(allTriangles, numberOfTriangles);
+  }
 }
 
-
-int main(int argc, const char * argv[]) {
-    getInput();
-    
-//    testAcute();
-//    testObtuse();
-//    testRight();
-//    testAllPtDegen();
-//    testSamePlaneDegen();
-//    testIsoceles();
-//    testEqual();
-    return 0;
+int main(int argc, const char *argv[]) {
+  getInput();
+  return 0;
 }
