@@ -53,17 +53,17 @@ std::vector<double> angleCalculator (std::vector<double> lengths) {
 }
 void typeOfTriangle(std::vector<double> lineLengths, std::vector<double> angles) {
     if (x < 0 || x2 <0 || x3 < 0 || y < 0 || y2 < 0 || y3 < 0 || x > 100 || x2 > 100 || x3 > 100 || y > 100 || y2 > 100 || y3 > 100) {
-        std::cout << "This is an invalid input and will not be considered. Must be between 0 and 100. \n ";
+        std::cout << "degenerate \n ";
     } else if ((x == x2 && y == y2) || (x2 == x2 && y2 == y3) || (x3 == x && y3 == y)) {
-        std::cout << "This is a degenerate and cannot be a triangle! \n";
+        std::cout << "degenerate \n";
     } else if (lineLengths[0] == lineLengths[1] || lineLengths[1] == lineLengths[2] || lineLengths[0] == lineLengths[2]) {
-        std::cout << "This is an isosceles triangle. \n";
+        std::cout << "isosceles \n";
     } else if (angles[0] > 90 || angles[1] > 90 || angles[2] > 90) {
-        std::cout << "This is an obtuse triangle. \n";
+        std::cout << "obtuse \n";
     } else if (angles[0] == 90 || angles[1] == 90 || angles[2] == 90) {
-        std::cout << "This is a right triangle. \n";
+        std::cout << "right \n";
     }else if (angles[0] < 90 && angles[1] < 90 && angles[2] < 90) {
-        std::cout << "This is an acute triangle. \n";
+        std::cout << "acute \n";
     }
 }
 int main(int argc, const char * argv[]) {
