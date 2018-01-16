@@ -1,77 +1,156 @@
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 obtuse
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 degenerate
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 acute
+Please enter the coordinates of your triangle:
 isosceles
+Please enter the coordinates of your triangle:
 right
+Please enter the coordinates of your triangle:
+Please enter the coordinates of your triangle:
