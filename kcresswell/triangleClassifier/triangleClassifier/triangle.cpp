@@ -19,7 +19,7 @@ double calcDistance(int x1, int y1, int x2, int y2){
 //angle calc and radians conversion from doug
 double findAngle(double a, double b, double c){
     double math = (pow(a, 2) + pow(b, 2) - pow(c, 2)) / (2 * a * b);
-    double comp = acos( math ) * 180.0 / PI;
+    double comp = std::abs(acos( math ) * 180.0 / PI);
 
     return comp;
 }
@@ -39,8 +39,7 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     //if any sides are 0 then it is degenerate
     //have to check before calculating angles
     if(sideA == 0.0 || sideB == 0.0 || sideC == 0.0) {
-        std::cout << "degenerate\n";
-        return "";
+        return "degenerate\n";
     }
     
     // determine the three angles
