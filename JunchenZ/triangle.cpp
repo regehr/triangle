@@ -28,7 +28,13 @@ int main(int argc, const char *argv[]) {
     for (int i = 0; i < 6; i++) {
       cin >> p[i];
     }
-
+      
+    for (int i = 0; i < 6; i++) {
+        if(p[i] < 0 || p[i] > 100){
+            continue;
+        }
+    }
+      
     int s[3] = {};
 
     // calculate square of length of each side

@@ -1,49 +1,4 @@
 Enter Triangle x and y coordinates:
-<<<<<<< HEAD
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-Is an Obtuse Triangle!
-Is an Isoceles Triangle!
-=======
 degenerate
 degenerate
 obtuse
@@ -87,4 +42,3 @@ degenerate
 degenerate
 obtuse
 degenerate
->>>>>>> e19ba18835ece40112fa76ad8d0b6395d359ba0c

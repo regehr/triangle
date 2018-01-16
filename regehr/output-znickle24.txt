@@ -1,44 +1,44 @@
 Please enter the coordinates for your triangle (format: x1 y1 x2 y2 x3 y3): 
-This is a degenerate and cannot be a triangle! 
-This is a degenerate and cannot be a triangle! 
-This is an obtuse triangle. 
-This is an obtuse triangle. 
-This is a right triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an obtuse triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an obtuse triangle. 
-This is an obtuse triangle. 
-This is an isosceles triangle. 
-This is an acute triangle. 
-This is a degenerate and cannot be a triangle! 
-This is an isosceles triangle. 
-This is an acute triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an acute triangle. 
-This is an acute triangle. 
-This is an isosceles triangle. 
-This is a right triangle. 
-This is an isosceles triangle. 
-This is a degenerate and cannot be a triangle! 
-This is a degenerate and cannot be a triangle! 
-This is an isosceles triangle. 
-This is an obtuse triangle. 
-This is an obtuse triangle. 
-This is an acute triangle. 
-This is an obtuse triangle. 
-This is an obtuse triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an isosceles triangle. 
-This is an invalid input and will not be considered. Must be between 0 and 100. 
- This is an obtuse triangle. 
-This is an isosceles triangle. 
-This is an obtuse triangle. 
-This is a degenerate and cannot be a triangle! 
+degenerate 
+degenerate 
+obtuse 
+obtuse 
+right 
+isosceles 
+isosceles 
+isosceles 
+isosceles 
+isosceles 
+obtuse 
+isosceles 
+isosceles 
+obtuse 
+obtuse 
+isosceles 
+acute 
+degenerate 
+isosceles 
+acute 
+isosceles 
+isosceles 
+acute 
+acute 
+isosceles 
+right 
+isosceles 
+degenerate 
+degenerate 
+isosceles 
+obtuse 
+obtuse 
+acute 
+obtuse 
+obtuse 
+isosceles 
+isosceles 
+isosceles 
+degenerate 
+ obtuse 
+isosceles 
+obtuse 
+degenerate 
