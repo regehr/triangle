@@ -63,7 +63,6 @@ int main(int argc, const char *argv[]) {
     tri.sideB = sides[1];
     tri.sideC = sides[2];
     if (isTriangle(tri)) {
-
       if ((tri.sideA + tri.sideB) == tri.sideC) {
         std::cout << "right" << std::endl;
       } else if ((tri.sideA == tri.sideB) || (tri.sideB == tri.sideC)) {
