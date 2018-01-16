@@ -148,7 +148,7 @@ void testTriangle() {
   // 0 0 4 0 4 3
   // 0 0 1 0 1 1
 
-  // Test isoceles triangle
+  // Test isosceles triangle
   // 2 1 7 1 5 5
   // 5 5 2 1 7 1
   // 7 1 5 5 2 1
