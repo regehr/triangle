@@ -6,9 +6,9 @@
 //  Copyright © 2018 Sydney Sturgeon. All rights reserved.
 //
 
+#include <assert.h>
 #include <iostream>
 #include <math.h>
-#include <assert.h>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ float lineLength(int x1, int y1, int x2, int y2) {
   float x = pow((x2 - x1), 2);
   float y = pow((y2 - y1), 2);
   float length = sqrt(x + y);
-    assert(length >= 0.0); //checks for positive lengths
+  assert(length >= 0.0); // checks for positive lengths
   return length;
 }
 
@@ -80,8 +80,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
              (lineLength13 == lineLength23 && lineLength13 != lineLength12) ||
              (lineLength12 == lineLength23 && lineLength12 != lineLength13)) {
     cout << "isosceles\n";
-  }
-  else if (angleA > 90.0f || angleB > 90.0f || angleC > 90.0f) {
+  } else if (angleA > 90.0f || angleB > 90.0f || angleC > 90.0f) {
     cout << "obtuse\n";
   } else if (angleA < 90.0f && angleB < 90.0f && angleC < 90.0f) {
     cout << "acute\n";
@@ -99,7 +98,7 @@ void triangle() {
     }
     // if two or more points are the same (Degenerate)
     if ((x1 == x2 && y1 == y2) || (x2 == x3 && y2 == y3) ||
-             (x1 == x3 && y1 == y3)) {
+        (x1 == x3 && y1 == y3)) {
       cout << "degenerate\n";
     }
     // if points lie on the same line (Degenerate)
@@ -112,7 +111,6 @@ void triangle() {
     }
   } // end of while(true) loop
 }
-
 
 int main(int argc, const char *argv[]) {
   triangle();
