@@ -8,16 +8,16 @@
 
 #include <iostream>
 #include <cmath>
+#define PI 3.14159265;
 
 //Variables for the triangle
-double hypotenuse = -1;
-double side1 = -1;
-double side2 = -1;
+double hypotenuse, side1, side2 = -1;
+//double angleA, angleB, angleC = 0;
 
 //calculating the distance between two coordinates
 //Information found here: https://codereview.stackexchange.com/questions/144586/finding-the-distance-between-two-points-in-c
 double distance(double x1, double y1, double x2, double y2){
-    return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));
+    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
 //Looking for the Hypotenuse for the Triangle
 double findMax (double distance1, double distance2, double distance3){
@@ -27,16 +27,15 @@ double findMax (double distance1, double distance2, double distance3){
 }
 //calculate each angle
 //Information from classmate Kayla Cresswall
-void findAngle(double distance1, double distance2, double distance3){
+double findAngle(double distance1, double distance2, double distance3){
     // float angle1, angle2, angle3;
     //TODO: I need to finish this helper fucntion to get the angle for the obtuse and acute Triangle
-    double angleA, angleB, angleC = 0;
-    angleA = acos((pow(distance2, 2.0) + pow(distance3, 2.0) - pow(distance1, 2.0)) / 2 * distance2 * distance3);
-    angleB = acos((pow(distance3, 2.0) + pow(distance1, 2.0) - pow(distance2, 2.0)) / 2 * distance3 * distance1);
-    angleC = acos((pow(distance1, 2.0) + pow(distance2, 2.0) - pow(distance3, 2.0)) / 2 * distance1 * distance2);
+    double math =(pow(distance1,2)+ pow(distance2,2)-pow(distance3,2))/(2*distance1*distance2);
+    return acos(math)*180.0/PI;
 }
+//helper function that returns nothing this helps to find the maximum side which is the hypotenuse
 void findSides(double distance1, double distance2, double distance3){
-    double hypotenuse = findMax(distance1, distance2, distance3);
+    hypotenuse = findMax(distance1, distance2, distance3);
     if(distance1 == hypotenuse){
         side1 = distance2;
         side2 = distance3;
@@ -50,30 +49,44 @@ void findSides(double distance1, double distance2, double distance3){
         side2 = distance2;
     }
 }
+//this function helps with the precision when sides are equal
+bool isEqual(double d1, double d2) {
+    return abs(d1 - d2) < 10e-5;
+}
 //use the Distance found above to use in the Pythagorean Theroem
 bool isRightTriangle (double distance1, double distance2, double distance3){
     findSides(distance1, distance2, distance3);
     //std::cout <<//TODO: this is correct my precision is off I need to round these
     return (pow(side1, 2) + pow(side2, 2)) == pow(hypotenuse, 2);
 }
+//use the helper function and then find two sides that are equal
 bool isIsocelesTriangle(double distance1, double distance2, double distance3){
+    findSides(distance1, distance2, distance3);
     return distance1 == distance2 || distance2 == distance3 || distance1 == distance3;
 }
+//use the helper function and 
 bool isEquilateralTriangle(double distance1, double distance2, double distance3){
-    
+    findSides(distance1, distance2, distance3);
     return distance1 == distance2 && distance2 == distance3;
 }
 bool isAcuteTriangle(double distance1, double distance2, double distance3){
-    return true;
+    double angleA = findAngle(distance2, distance3, distance1);
+    double angleB = findAngle(distance3, distance1, distance2);
+    double angleC = findAngle(distance1, distance2, distance3);
+    
+    return (angleA < 90 && angleB < 90 && angleC < 90);
 }
 bool isObtuseTriangle(double distance1, double distance2, double distance3){
-    return true;
+    double angleA = findAngle(distance2, distance3, distance1);
+    double angleB = findAngle(distance3, distance1, distance2);
+    double angleC = findAngle(distance1, distance2, distance3);
+    return (angleA > 90 || angleB > 90 || angleC > 90);
 }
 bool isDegenerateTriangle(double distance1, double distance2, double distance3){
-    //TODO: I need the sides to be a helper function I can use the side1 and side2 in multiple  functions
+    //TODO: I need the sides to be a helper function I can use the side1 and side2 in multiple functions
     // return side1 + side2 < hypotenuse;
      findSides(distance1, distance2, distance3);
-    return side1 + side2 < hypotenuse;
+    return side1 + side2 < hypotenuse || isEqual(side1 + side2, hypotenuse);
 }
 
 int main(int argc, const char * argv[]) {
@@ -90,19 +103,28 @@ int main(int argc, const char * argv[]) {
         double distance2 = distance (x2, y2, x3, y3);
         double distance3 = distance(x1, y1, x3, y3);
         
-        if(isDegenerateTriangle(distance1, distance2, distance3)){
-            std::cout << "Is a degenerate!\n";
+        // integers entered should be between 0 and 100 inclusively
+        if (x1 < 0 || x2 < 0 || x3 < 0 || y1 < 0 || y2 < 0 || y3 < 0 ||x1 > 100 ||
+            x2 > 100 || x3 > 100||y1 > 100 ||y2 > 100 || y3 > 100) {
+            std::cout << "Error: Inputs out of data range. Points should be integers between 0 and 100.\n";
+        } else if(isDegenerateTriangle(distance1, distance2, distance3)){
+            std::cout << "degenerate\n";
         }else if(isRightTriangle(distance1, distance2, distance3)){
-            std::cout << "Is a right Triangle!\n";
+            std::cout << "right\n";
         }else if (isIsocelesTriangle(distance1, distance2, distance3)){
-            std::cout << "Is an Isoceles Triangle!\n";
-        }else if (isEquilateralTriangle(distance1, distance2, distance3)){
-            std:: cout << "Is an Equilateral Triagnle!\n";
-        }else if (isObtuseTriangle(distance1, distance2, distance3)){
-            std:: cout << "Is an Obtuse Triangle!\n";
+            std::cout << "isoceles\n";
+        }//removed the code will never reach the equilateral because always be acute
+        //else if (isEquilateralTriangle(distance1, distance2, distance3)){
+          //  std:: cout << "equilateral\n";
+        //}
+        else if (isObtuseTriangle(distance1, distance2, distance3)){
+            std:: cout << "obtuse\n";
         }else if (isAcuteTriangle(distance1, distance2, distance3)){
-            std:: cout << "Is an Acute Triangle!\n";
-        }
+            std:: cout << "acute\n";
+        }//removed the code will never reach the scalene because scalene is also a right triangle
+        //else if(isScaleneTriangle(distance1, distance2, distance3)){
+          //  std:: cout << "scalene\n";
+        //}
     }
     
     
