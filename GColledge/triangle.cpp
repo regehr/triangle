@@ -9,12 +9,12 @@
 //  https://stackoverflow.com/questions/1321137/convert-string-containing-several-numbers-into-integers
 
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <math.h>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 #define PI 3.14159265
 
@@ -27,10 +27,10 @@
  */
 float distanceBetweenTwoPoints(float firstX, float firstY, float secondX,
                                float secondY) {
-  float result =  sqrt((firstX - secondX) * (firstX - secondX) +
-              (firstY - secondY) * (firstY - secondY));
+  float result = sqrt((firstX - secondX) * (firstX - secondX) +
+                      (firstY - secondY) * (firstY - secondY));
   assert(result >= 0);
-    return result;
+  return result;
 }
 
 /*
