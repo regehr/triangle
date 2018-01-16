@@ -4,8 +4,6 @@
 //  Created by Ted Pochmara on 1/9/18.
 //  Copyright © 2018 Ted Pochmara. All rights reserved.
 //
-//  This solution inspired/adapted from one found at the following URL:
-//  https://www.geeksforgeeks.org/classify-a-triangle/
 
 #include <cmath>
 #include <iostream>
@@ -52,8 +50,7 @@ bool isTriangle(Triangle tri) {
 int main(int argc, const char *argv[]) {
   Point p1, p2, p3;
   int sides[3];
-  while (!std::cin.eof()) {
-    std::cin >> p1.x >> p1.y >> p2.x >> p2.y >> p3.x >> p3.y;
+    while (std::cin >> p1.x >> p1.y >> p2.x >> p2.y >> p3.x >> p3.y) {
     Triangle tri = {p1, p2, p3, 0, 0, 0};
     sides[0] = sideLength(p1, p2);
     sides[1] = sideLength(p1, p3);
