@@ -89,7 +89,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   } else if ((lineLength12 == lineLength13 && lineLength12 != lineLength23) ||
              (lineLength13 == lineLength23 && lineLength13 != lineLength12) ||
              (lineLength12 == lineLength23 && lineLength12 != lineLength13)) {
-    cout << "isoceles\n";
+    cout << "isosceles\n";
   }
   // EQUILATERAL will never be reached so it was removed
   //    else if(lineLength12 == lineLength13 && lineLength13 == lineLength23) {
