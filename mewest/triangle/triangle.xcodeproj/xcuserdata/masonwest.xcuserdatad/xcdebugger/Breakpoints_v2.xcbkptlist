@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "isRight (double A, double B, double C)"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
             endingLineNumber = "111"
-            landmarkName = "isDegenerate (double x1, double y1, double x2, double y2, double x3, double y3)"
+            landmarkName = "isDegenerate(double x1, double y1, double x2, double y2, double x3, double y3)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
