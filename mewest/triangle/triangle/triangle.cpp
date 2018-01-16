@@ -160,8 +160,8 @@ int main(int argc, const char *argv[]) {
     while (true) {
         // Get information from user
         int x1, y1, x2, y2, x3, y3;
-                std::cout << "Please enter the coordinates of your triangle:" <<
-                std::endl;
+//                std::cout << "Please enter the coordinates of your triangle:" <<
+//                std::endl;
         
         // Input Validation
         if (!(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
