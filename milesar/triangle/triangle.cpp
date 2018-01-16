@@ -193,7 +193,7 @@ vector<vector<double> > getTriangles () {
     string triangleInput = "";
     vector<vector<double> > triangles;
 
-    cout << "Enter a triangle, defined by 3 points, or six integers separated by spaces (ax ay bx by cx cy):" << endl;
+    //cout << "Enter a triangle, defined by 3 points, or six integers separated by spaces (ax ay bx by cx cy):" << endl;
 
     while (getline (cin, triangleInput)) {
         vector<double> points;
