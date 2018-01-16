@@ -26,10 +26,6 @@ acute
 isosceles 
 right 
 right 
-<<<<<<< HEAD
-degenerate 
-=======
->>>>>>> 3642a2d368368859d43f0cf774ebc71698f741b7
 degenerate 
 right 
 degenerate 
