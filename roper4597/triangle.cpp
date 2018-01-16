@@ -69,10 +69,10 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3) {
     else if ((angleA == angleB) || (angleB == angleC) || (angleC == angleA) || (lengthA == lengthB) || (lengthB==lengthC) || (lengthC==lengthA)) {
         return "isosceles";
     }
-    else if (angleA < 90 || angleB < 90 || angleC < 90) {
-        return "acute";
+    else if (angleA > 90 || angleB > 90 || angleC > 90) {
+        return "obtuse";
     }
-    else return "obtuse";
+    else return "acute";
 }
 
 int main(int argc, const char * argv[]) {
