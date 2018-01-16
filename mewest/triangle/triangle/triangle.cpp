@@ -50,7 +50,7 @@ double findAngleB(double c, double b, double a, double A) {
  one of the angles is greater than 90 degrees
  */
 bool isRight(double A, double B, double C) {
-    if (doublesEqual(A, 90.0) || doublesEqual(B, 90.0) || doublesEqual(C, 90.0)) {
+    if (round(A) || round(B) || round(C)) {
         return true;
     } else
         return false;
@@ -120,38 +120,38 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
     if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
         std::cout << "degenerate" << std::endl;
     } else {
-    double c = findDistance(x1, y1, x2, y2);
-    double b = findDistance(x1, y1, x3, y3);
-    double a = findDistance(x2, y2, x3, y3);
-    assert(a >= 0 && b >= 0 && c >= 0); // Chris Roper's great idea
-    
-    // Calculates angles in triangle
-    double A = (findAngleA(c, b, a) *
-                (180 / PI)); // was using Round here, and it was causing issues
-    double B = (findAngleB(c, b, a, A) *
-                (180 / PI)); // was using Round here, and it was causing issues
-    double C = 180.0 - A - B;
-    //        std::cout << "A = " << A << "B = " << B << "C = " << C << std::endl;
-    
-    // Checks triangle type
-    //  if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
-    //    std::cout << "degenerate" << std::endl;
-    //  }
-    if (isRight(A, B, C)) {
-        std::cout << "right" << std::endl;
-    }
-    //        else if(isEquilateral(A, B, C, a, b, c))
-    //        {
-    //            std::cout << "The input coordinates make an EQUILATERAL
-    //            TRIANGLE." << std::endl; continue;
-    //        }
-    else if (isIsosceles(A, B, C, a, b, c)) {
-        std::cout << "isosceles" << std::endl;
-    } else if (isObtuse(A, B, C)) {
-        std::cout << "obtuse" << std::endl;
-    } else if (isAcute(A, B, C)) {
-        std::cout << "acute" << std::endl;
-    }
+        double c = findDistance(x1, y1, x2, y2);
+        double b = findDistance(x1, y1, x3, y3);
+        double a = findDistance(x2, y2, x3, y3);
+        assert(a >= 0 && b >= 0 && c >= 0); // Chris Roper's great idea
+        
+        // Calculates angles in triangle
+        double A = (findAngleA(c, b, a) *
+                    (180 / PI)); // was using Round here, and it was causing issues
+        double B = (findAngleB(c, b, a, A) *
+                    (180 / PI)); // was using Round here, and it was causing issues
+        double C = 180.0 - A - B;
+        //        std::cout << "A = " << A << "B = " << B << "C = " << C << std::endl;
+        
+        // Checks triangle type
+        //  if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
+        //    std::cout << "degenerate" << std::endl;
+        //  }
+        if (isRight(A, B, C)) {
+            std::cout << "right" << std::endl;
+        }
+        //        else if(isEquilateral(A, B, C, a, b, c))
+        //        {
+        //            std::cout << "The input coordinates make an EQUILATERAL
+        //            TRIANGLE." << std::endl; continue;
+        //        }
+        else if (isIsosceles(A, B, C, a, b, c)) {
+            std::cout << "isosceles" << std::endl;
+        } else if (isObtuse(A, B, C)) {
+            std::cout << "obtuse" << std::endl;
+        } else if (isAcute(A, B, C)) {
+            std::cout << "acute" << std::endl;
+        }
     }
 }
 
@@ -160,8 +160,8 @@ int main(int argc, const char *argv[]) {
     while (true) {
         // Get information from user
         int x1, y1, x2, y2, x3, y3;
-//                std::cout << "Please enter the coordinates of your triangle:" <<
-//                std::endl;
+        std::cout << "Please enter the coordinates of your triangle:" <<
+        std::endl;
         
         // Input Validation
         if (!(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
