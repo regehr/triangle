@@ -28,15 +28,11 @@ double findDistance(double x1, double y1, double x2, double y2) {
 // Uses law of cosines to solve
 double findAngleA(double c, double b, double a) {
     double A = acos((pow(b, 2.0) + pow(c, 2.0) - pow(a, 2.0)) / (2.0 * b * c));
-//    double A = acos(cosA);
     return A;
-//    double angleC = (radiansToDegrees(acos((pow(lengthA,2)+pow(lengthB,2)-pow(lengthC,2))/(2*lengthA*lengthB))));
 }
 
 // uses law of sines to solve
-double findAngleB(double c, double b, double a, double A) {
-//    double B = asin((b * sin(A * (PI / 180.0))) / a);
-//    double B = asin(sinB);
+double findAngleB(double c, double b, double a) {
     double B = acos((pow(a,2)+pow(c,2)-pow(b,2))/(2*a*c));
     return B;
 }
@@ -123,7 +119,7 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
         // Calculates angles in triangle
         double A = (findAngleA(c, b, a) *
                     (180 / PI)); // was using Round here, and it was causing issues
-        double B = (findAngleB(c, b, a, A) *
+        double B = (findAngleB(c, b, a) *
                     (180 / PI)); // was using Round here, and it was causing issues
         double C = 180.0 - A - B;
         A = round(A);
