@@ -1,11 +1,19 @@
 Plese enter 6 coordinate points (x,y) for a triangle in the format "# # # # # #" :  
 degenerate triangle
 degenerate triangle
+<<<<<<< HEAD
 obtuse triangle
 obtuse triangle
 right triangle
 right triangle
 obtuse triangle
+=======
+degenerate triangle
+degenerate triangle
+right triangle
+right triangle
+degenerate triangle
+>>>>>>> e19ba18835ece40112fa76ad8d0b6395d359ba0c
 right triangle
 degenerate triangle
 degenerate triangle
@@ -14,21 +22,35 @@ isoceles triangle
 isoceles triangle
 obtuse triangle
 obtuse triangle
+<<<<<<< HEAD
 isoceles triangle
+=======
+right triangle
+>>>>>>> e19ba18835ece40112fa76ad8d0b6395d359ba0c
 acute triangle
 degenerate triangle
 right triangle
 acute triangle
+<<<<<<< HEAD
+degenerate triangle
+=======
+isoceles triangle
+>>>>>>> e19ba18835ece40112fa76ad8d0b6395d359ba0c
+right triangle
+acute triangle
+acute triangle
+isoceles triangle
+right triangle
+right triangle
+<<<<<<< HEAD
+obtuse triangle
+right triangle
+obtuse triangle
+=======
 degenerate triangle
 right triangle
-acute triangle
-acute triangle
-isoceles triangle
-right triangle
-right triangle
-obtuse triangle
-right triangle
-obtuse triangle
+degenerate triangle
+>>>>>>> e19ba18835ece40112fa76ad8d0b6395d359ba0c
 obtuse triangle
 obtuse triangle
 acute triangle
@@ -36,9 +58,16 @@ obtuse triangle
 obtuse triangle
 right triangle
 isoceles triangle
+<<<<<<< HEAD
 isoceles triangle
 obtuse triangle
 obtuse triangle
 degenerate triangle
+=======
+right triangle
+obtuse triangle
+degenerate triangle
+degenerate triangle
+>>>>>>> e19ba18835ece40112fa76ad8d0b6395d359ba0c
 obtuse triangle
 degenerate triangle
