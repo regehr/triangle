@@ -67,7 +67,8 @@ bool isDegenerate(std::vector<int> tri_pts) {
       (y2 == y3 && x3 == x2) || (x1 == x3 && y3 == y1)) {
     return true;
   } else if (x1 != x2 && x2 != x3 &&
-             fabs((y1 - y2) / (x1 - x2) - (y2 - y3) / (x2 - x3)) < 0.00001) {
+             fabs((y1 - y2) / (float)(x1 - x2) -
+                  (y2 - y3) / (float)(x2 - x3)) < 0.000001) {
     return true;
   }
 
