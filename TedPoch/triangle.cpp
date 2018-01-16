@@ -4,8 +4,6 @@
 //  Created by Ted Pochmara on 1/9/18.
 //  Copyright © 2018 Ted Pochmara. All rights reserved.
 //
-//  This solution inspired/adapted from one found at the following URL:
-//  https://www.geeksforgeeks.org/classify-a-triangle/
 
 #include <cmath>
 #include <iostream>
