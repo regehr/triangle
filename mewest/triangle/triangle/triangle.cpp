@@ -50,7 +50,7 @@ double findAngleB(double c, double b, double a, double A) {
  one of the angles is greater than 90 degrees
  */
 bool isRight(double A, double B, double C) {
-    if (round(A) || round(B) || round(C)) {
+    if (A == 90 || B == 90 || C == 90) {
         return true;
     } else
         return false;
@@ -131,6 +131,9 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
         double B = (findAngleB(c, b, a, A) *
                     (180 / PI)); // was using Round here, and it was causing issues
         double C = 180.0 - A - B;
+        A = round(A);
+        B = round(B);
+        C = round(C);
         //        std::cout << "A = " << A << "B = " << B << "C = " << C << std::endl;
         
         // Checks triangle type
@@ -160,9 +163,7 @@ int main(int argc, const char *argv[]) {
     while (true) {
         // Get information from user
         int x1, y1, x2, y2, x3, y3;
-//        std::cout << "Please enter the coordinates of your triangle:" <<
-//        std::endl;
-        
+0 0 1 5 1 6
         // Input Validation
         if (!(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
             break;

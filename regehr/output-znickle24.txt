@@ -26,8 +26,12 @@ acute
 isosceles 
 right 
 right 
+<<<<<<< HEAD
 degenerate 
+=======
+>>>>>>> 3642a2d368368859d43f0cf774ebc71698f741b7
 degenerate 
+right 
 degenerate 
 obtuse 
 obtuse 
@@ -48,7 +52,7 @@ isosceles
 acute 
 obtuse 
 isosceles 
-degenerate 
+acute 
 obtuse 
 acute 
 degenerate 
@@ -63,10 +67,10 @@ isosceles
 isosceles 
 isosceles 
 obtuse 
-degenerate 
+right 
 isosceles 
 obtuse 
-degenerate 
+isosceles 
 obtuse 
 obtuse 
 right 
