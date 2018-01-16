@@ -119,7 +119,7 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
   double c = findDistance(x1, y1, x2, y2);
   double b = findDistance(x1, y1, x3, y3);
   double a = findDistance(x2, y2, x3, y3);
-  assert(a > 0 && b > 0 && c > 0); // Chris Roper's great idea
+  assert(a >= 0 && b >= 0 && c >= 0); // Chris Roper's great idea
 
   // Calculates angles in triangle
   double A = (findAngleA(c, b, a) *
@@ -131,9 +131,9 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
 
   // Checks triangle type
   if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
-    std::cout << "Degenerate" << std::endl;
+    std::cout << "degenerate" << std::endl;
   } else if (isRight(A, B, C)) {
-    std::cout << "Right" << std::endl;
+    std::cout << "right" << std::endl;
   }
   //        else if(isEquilateral(A, B, C, a, b, c))
   //        {
@@ -141,11 +141,11 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
   //            TRIANGLE." << std::endl; continue;
   //        }
   else if (isIsosceles(A, B, C, a, b, c)) {
-    std::cout << "Isosceles" << std::endl;
+    std::cout << "isosceles" << std::endl;
   } else if (isObtuse(A, B, C)) {
-    std::cout << "Obtuse" << std::endl;
+    std::cout << "obtuse" << std::endl;
   } else if (isAcute(A, B, C)) {
-    std::cout << "Acute" << std::endl;
+    std::cout << "acute" << std::endl;
   }
 }
 
