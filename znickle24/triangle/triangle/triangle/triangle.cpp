@@ -75,7 +75,7 @@ int main(int argc, const char * argv[]) {
             || x2 > 100 || x3 > 100 || y > 100 || y2 > 100 || y3 > 100) {
             std::cout << "degenerate \n ";
             continue;
-        } else if ((x == x2 && y == y2) || (x2 == x2 && y2 == y3) || (x3 == x && y3 == y)) {
+        } else if ((x == x2 && y == y2) || (x2 == x3 && y2 == y3) || (x3 == x && y3 == y)) {
             std::cout << "degenerate \n";
             continue;
         } else if (abs(((x*(y3 - y2)) + (x2*(y3 - y)) +(x3*(y - y2)))/2) == 0) {
