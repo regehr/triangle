@@ -130,7 +130,7 @@ std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float a
     }
     
     if (floatsEqual(90, largestAngle)) {
-        return "right triangle\n";
+        return "right\n";
     } else if (lengthA == lengthB || lengthA == lengthC || lengthB == lengthC) {
         return "isosceles\n";
     } else if (largestAngle > 90.0) {
@@ -191,9 +191,6 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
         angleAB = sinAngle;
         angleAC = finalAngle;
     }
-    
-    longestLength = longestLength;
-    largestAngle = largestAngle;
     
     std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
     

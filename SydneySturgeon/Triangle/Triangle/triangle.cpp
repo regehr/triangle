@@ -82,22 +82,23 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
 
   // if any of the angles are 0 it is degenerate
   if ((angleA == 0.0f) || (angleB == 0.0f) || (angleC == 0.0f)) {
-    cout << "Degenerate. Not a triangle. One of the angles is 0.\n";
+    cout << "degenerate\n";
+    // cout << "Degenerate. Not a triangle. One of the angles is 0.\n";
   } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f) {
-    cout << "Right triangle\n";
+    cout << "right\n";
   } else if ((lineLength12 == lineLength13 && lineLength12 != lineLength23) ||
              (lineLength13 == lineLength23 && lineLength13 != lineLength12) ||
              (lineLength12 == lineLength23 && lineLength12 != lineLength13)) {
-    cout << "Isoceles\n";
+    cout << "isoceles\n";
   }
   // EQUILATERAL will never be reached so it was removed
   //    else if(lineLength12 == lineLength13 && lineLength13 == lineLength23) {
   //        cout << "Equilateral\n";
   //    }
   else if (angleA > 90.0f || angleB > 90.0f || angleC > 90.0f) {
-    cout << "Obtuse\n";
+    cout << "obtuse\n";
   } else if (angleA < 90.0f && angleB < 90.0f && angleC < 90.0f) {
-    cout << "Acute\n";
+    cout << "acute\n";
   }
   // SCALENE will never be reached so it was removed
   //    else {
@@ -119,17 +120,20 @@ void triangle() {
     // integers entered should be between 0 and 100 inclusively
     if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0 || x3 < 0 || y3 < 0 || x1 > 100 ||
         y1 > 100 || x2 > 100 || y2 > 100 || x3 > 100 || y3 > 100) {
-      cout << "Incorrect inputs. Points should be integers between 0 and 100 "
-              "inclusively.\n";
+      cout << "degenerate\n";
+      // cout << "Incorrect inputs. Points should be integers between 0 and 100
+      // " "inclusively.\n";
     }
     // if two or more points are the same (Degenerate)
     else if ((x1 == x2 && y1 == y2) || (x2 == x3 && y2 == y3) ||
              (x1 == x3 && y1 == y3)) {
-      cout << "Degenerate. Not a triangle. 2 or more points are the same.\n";
+      cout << "degenerate\n";
+      // cout << "Degenerate. Not a triangle. 2 or more points are the same.\n";
     }
     // if points lie on the same line (Degenerate)
     else if ((x1 == x2 && x2 == x3) || (y1 == y2 && y2 == y3)) {
-      cout << "Degenerate. Not a triangle. Points lie on the same line.\n";
+      cout << "degenerate\n";
+      // cout << "Degenerate. Not a triangle. Points lie on the same line.\n";
     }
     // if the three points are determined to be a triangle it is classified
     else {
