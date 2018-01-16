@@ -116,7 +116,11 @@ bool isDegenerate(double x1, double y1, double x2, double y2, double x3,
 }
 
 static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
-  double c = findDistance(x1, y1, x2, y2);
+ 
+    if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
+        std::cout << "degenerate" << std::endl;
+    }
+    double c = findDistance(x1, y1, x2, y2);
   double b = findDistance(x1, y1, x3, y3);
   double a = findDistance(x2, y2, x3, y3);
   assert(a >= 0 && b >= 0 && c >= 0); // Chris Roper's great idea
@@ -130,9 +134,10 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
   //        std::cout << "A = " << A << "B = " << B << "C = " << C << std::endl;
 
   // Checks triangle type
-  if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
-    std::cout << "degenerate" << std::endl;
-  } else if (isRight(A, B, C)) {
+//  if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
+//    std::cout << "degenerate" << std::endl;
+//  }
+  if (isRight(A, B, C)) {
     std::cout << "right" << std::endl;
   }
   //        else if(isEquilateral(A, B, C, a, b, c))
