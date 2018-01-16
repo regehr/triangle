@@ -78,7 +78,7 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
   // check for right triangles
   // test using the pythagorean theorem
   if (abs(sides[0] * sides[0] + sides[1] * sides[1] - sides[2] * sides[2]) <=
-      0.0001) {
+      0.005) {
     // above is the pythagorean theorem solved for zero
     std::cout << "right\n";
     return 1;
