@@ -33,6 +33,7 @@ double findAngle(double distance1, double distance2, double distance3){
     double math =(pow(distance1,2)+ pow(distance2,2)-pow(distance3,2))/(2*distance1*distance2);
     return acos(math)*180.0/PI;
 }
+//helper function that returns nothing this helps to find the maximum side which is the hypotenuse
 void findSides(double distance1, double distance2, double distance3){
     hypotenuse = findMax(distance1, distance2, distance3);
     if(distance1 == hypotenuse){
@@ -48,6 +49,7 @@ void findSides(double distance1, double distance2, double distance3){
         side2 = distance2;
     }
 }
+//this function helps with the precision when sides are equal
 bool isEqual(double d1, double d2) {
     return abs(d1 - d2) < 10e-5;
 }
@@ -57,10 +59,12 @@ bool isRightTriangle (double distance1, double distance2, double distance3){
     //std::cout <<//TODO: this is correct my precision is off I need to round these
     return (pow(side1, 2) + pow(side2, 2)) == pow(hypotenuse, 2);
 }
+//use the helper function and then find two sides that are equal
 bool isIsocelesTriangle(double distance1, double distance2, double distance3){
     findSides(distance1, distance2, distance3);
     return distance1 == distance2 || distance2 == distance3 || distance1 == distance3;
 }
+//use the helper function and 
 bool isEquilateralTriangle(double distance1, double distance2, double distance3){
     findSides(distance1, distance2, distance3);
     return distance1 == distance2 && distance2 == distance3;
