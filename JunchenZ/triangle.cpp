@@ -1,58 +1,80 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
-//while true loop?
-//check input?
-//delete unused cases?
+bool validInput(int p[]) {
+  for (int i = 0; i < 6; i++) {
+    if (p[i] < 0 || p[i] > 100) {
+      return false;
+    }
+  }
+  return true;
+}
 
-int main(int argc, const char * argv[]) {
-    
-    int x1, y1, x2, y2, x3, y3;
-    
-    cout << "please enter 6 integers from 0 to 100 as 3 pairs of corrdinates to form a triangle" << endl;
-    
-    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
-    
-    //calculate square of length of each side
-    int s1 = pow((x2 - x1), 2) + pow((y2 - y1), 2);
-    int s2 = pow((x3 - x1), 2) + pow((y3 - y1), 2);
-    int s3 = pow((x3 - x2), 2) + pow((y3 - y2), 2);
-    
-    if((sqrt(s1) + sqrt(s2) <= sqrt(s3)) || (sqrt(s3) + sqrt(s2) <= sqrt(s1)) || (sqrt(s1) + sqrt(s3) <= sqrt(s2))){
-        cout << "degenerate" << endl;
-        return 0;
+void sortS(int s[]) {
+  for (int i = 0; i < 2; i++) {
+    int min = i;
+    for (int j = i + 1; j < 3; j++) {
+      if (s[min] > s[j]) {
+        min = j;
+      }
     }
-    
-    if((s1 + s2 == s3) || (s1 + s3 == s2) || (s3 + s2 == s1)){
-        cout << "right triangle" << endl;
-        return 0;
+    int temp = s[min];
+    s[min] = s[i];
+    s[i] = temp;
+  }
+}
+
+int main(int argc, const char *argv[]) {
+  int p[6] = {};
+
+  cout << "please enter 6 integers from 0 to 100 as 3 pairs of corrdinates to "
+          "form a triangle: "
+       << endl;
+
+  while (!cin.eof()) {
+    for (int i = 0; i < 6; i++) {
+      cin >> p[i];
     }
-    
-    if(s1 == s2 || s3 == s2 || s3 == s1){
-        cout << "isosceles" << endl;
-        return 0;
+
+    if (!validInput(p)) {
+      cout << "invalid input" << endl;
+      continue;
     }
-    
-    if(s3 == s2 && s3 == s1){
-        cout << "equilateral" << endl;
-        return 0;
+
+    int s[3] = {};
+
+    // calculate square of length of each side
+    s[0] = pow((p[2] - p[0]), 2) + pow((p[3] - p[1]), 2);
+    s[1] = pow((p[4] - p[0]), 2) + pow((p[5] - p[1]), 2);
+    s[2] = pow((p[4] - p[2]), 2) + pow((p[5] - p[3]), 2);
+
+    sortS(s);
+
+    if (sqrt(s[0]) + sqrt(s[1]) <= sqrt(s[2])) {
+      cout << "degenerate" << endl;
+      continue;
     }
-    
-    if((s1 + s2 < s3) || (s1 + s3 < s2) || (s3 + s2 < s1)){
-        cout << "obtuse" << endl;
-        return 0;
+
+    if (s[0] + s[1] == s[2]) {
+      cout << "right triangle" << endl;
+      continue;
     }
-    
-    if((s1 + s2 > s3) && (s1 + s3 > s2) && (s3 + s2 > s1)){
-        cout << "acute" << endl;
-        return 0;
+
+    if (s[0] == s[1] || s[1] == s[2]) {
+      cout << "isosceles" << endl;
+      continue;
     }
-    
-    if(s3 != s2 && s3 != s1 && s2 != s1){
-        cout << "scalene" << endl;
-        return 0;
+
+    if (s[0] + s[1] < s[2]) {
+      cout << "obtuse" << endl;
+      continue;
     }
-    
+
+    if (s[0] + s[1] > s[2]) {
+      cout << "acute" << endl;
+      continue;
+    }
+  }
 }
