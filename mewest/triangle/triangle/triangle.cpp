@@ -27,22 +27,17 @@ double findDistance(double x1, double y1, double x2, double y2) {
 
 // Uses law of cosines to solve
 double findAngleA(double c, double b, double a) {
-    double cosA = (pow(b, 2.0) + pow(c, 2.0) - pow(a, 2.0)) / (2.0 * b * c);
-    double A = acos(cosA);
+    double A = acos((pow(b, 2.0) + pow(c, 2.0) - pow(a, 2.0)) / (2.0 * b * c));
+//    double A = acos(cosA);
     return A;
+//    double angleC = (radiansToDegrees(acos((pow(lengthA,2)+pow(lengthB,2)-pow(lengthC,2))/(2*lengthA*lengthB))));
 }
-
-/* Returns true if two doubles are equal to each other with
- * a margin of error of .000001
- Doug Garding's code snippet. I was using the built in Round and it was not
- working properly and cuasing issues
- */
-bool doublesEqual(double a, double b) { return std::abs(a - b) < 0.000001; }
 
 // uses law of sines to solve
 double findAngleB(double c, double b, double a, double A) {
-    double sinB = (b * sin(A * (PI / 180.0))) / a;
-    double B = asin(sinB);
+//    double B = asin((b * sin(A * (PI / 180.0))) / a);
+//    double B = asin(sinB);
+    double B = acos((pow(a,2)+pow(c,2)-pow(b,2))/(2*a*c));
     return B;
 }
 
