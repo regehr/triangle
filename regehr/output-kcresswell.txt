@@ -1,6 +1,4 @@
-Enter shape coordinates in the following format x1 y1 x2 y2 x3 y3: isosceles
-isosceles
-obtuse
+Enter shape coordinates in the following format x1 y1 x2 y2 x3 y3: obtuse
 obtuse
 right
 right
@@ -15,7 +13,6 @@ obtuse
 obtuse
 right
 acute
-isosceles
 right
 acute
 isosceles
@@ -37,7 +34,39 @@ right
 isosceles
 right
 obtuse
+isosceles
 obtuse
+obtuse
+right
+isosceles
+isosceles
+acute
+obtuse
+isosceles
+acute
+obtuse
+acute
+isosceles
+acute
+acute
+isosceles
+obtuse
+right
+obtuse
+isosceles
+isosceles
+isosceles
+obtuse
+right
 isosceles
 obtuse
 isosceles
+obtuse
+obtuse
+right
+obtuse
+isosceles
+acute
+right
+right
+right

@@ -1,43 +1,78 @@
-Degenerate. Not a triangle. 2 or more points are the same.
-Degenerate. Not a triangle. 2 or more points are the same.
-Degenerate. Not a triangle. One of the angles is 0.
-Degenerate. Not a triangle. Points lie on the same line.
-Right triangle
-Right triangle
-Degenerate. Not a triangle. Points lie on the same line.
-Right triangle
-Degenerate. Not a triangle. One of the angles is 0.
-Degenerate. Not a triangle. One of the angles is 0.
-Degenerate. Not a triangle. One of the angles is 0.
-Isoceles
-Isoceles
-Obtuse
-Obtuse
-Right triangle
-Acute
-Degenerate. Not a triangle. 2 or more points are the same.
-Right triangle
-Acute
-Isoceles
-Right triangle
-Acute
-Acute
-Isoceles
-Right triangle
-Right triangle
-Degenerate. Not a triangle. Points lie on the same line.
-Right triangle
-Degenerate. Not a triangle. One of the angles is 0.
-Obtuse
-Obtuse
-Acute
-Obtuse
-Obtuse
-Right triangle
-Isoceles
-Right triangle
-Incorrect inputs. Points should be integers between 0 and 100 inclusively.
-Degenerate. Not a triangle. Points lie on the same line.
-Degenerate. Not a triangle. One of the angles is 0.
-Obtuse
-Degenerate. Not a triangle. 2 or more points are the same.
+degenerate
+degenerate
+obtuse
+degenerate
+right
+right
+degenerate
+right
+degenerate
+degenerate
+degenerate
+isosceles
+isosceles
+obtuse
+obtuse
+right
+acute
+degenerate
+right
+acute
+isosceles
+right
+acute
+acute
+isosceles
+right
+right
+degenerate
+right
+degenerate
+obtuse
+obtuse
+acute
+obtuse
+obtuse
+right
+isosceles
+right
+degenerate
+degenerate
+obtuse
+degenerate
+obtuse
+right
+degenerate
+degenerate
+acute
+obtuse
+degenerate
+acute
+obtuse
+acute
+degenerate
+degenerate
+acute
+acute
+isosceles
+obtuse
+right
+obtuse
+isosceles
+isosceles
+isosceles
+obtuse
+right
+isosceles
+obtuse
+isosceles
+obtuse
+obtuse
+right
+degenerate
+degenerate
+isosceles
+acute
+right
+right
+right
