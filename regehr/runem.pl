@@ -9,10 +9,12 @@ while (my $line = <INF>) {
     chomp $line;
     die unless ($line =~ /\.\.\/([a-zA-Z0-9]+)\//);
     my $who = $1;
+    print "============================================================================\n";
     print "compiling $line to $who\n";
     my $exe = "triangle-${who}";
     system "clang++ -std=c++11 -Wall -Werror -O $line -o triangle-$who";
     push @whos, $who;
+    print "\n";
 }
 close INF;
 
@@ -31,6 +33,7 @@ while (my $line = <INF>) {
     %map = ();
     foreach my $who (@whos) {
         my $exe = "triangle-$who";
+        next unless (-x $exe);
         open PROG, "./$exe < one.txt |";
         my $output = <PROG>;
         close PROG;
