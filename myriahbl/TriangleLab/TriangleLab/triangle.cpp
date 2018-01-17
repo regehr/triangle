@@ -24,68 +24,109 @@
  assignement: write a triangle classifier in C++
  write 7 test cases
  
+ Notes to self:
+ Create text file for tests
+ Comment out things that shouldn't get printed
+ Comment out my testing function
+ Uncomment stuff in main
+ 
+ 
  */
 #include <cmath>
 #include <iostream>
 #include <string>
 using namespace std;
 
-double findLineLength(int x1, int y1, int x2, int y2){
+double findLineLength(double x1, double y1, double x2, double y2){
     
-    return pow((pow(x2 - x1, 2) + pow(y2 - y1, 2)), .5);
+    double X1 = x1/1.0;
+    double Y1 = y1/1.0;
+    double X2 = x2/1.0;
+    double Y2 = y2/1.0;
+    
+    return sqrt((pow(X2 - X1, 2) + pow(Y2 - Y1, 2)));
     
 }
 
 double findAngle(double side1, double side2, double side3){
     
-    return acos((pow(side2, 2) + pow(side3, 2) - pow(side1, 2)) / (2 * side2 * side3));
+    cout << "side1: " << side1 << endl;
+    cout << "side2: " << side2 << endl;
+    cout << "side3: " << side3 << endl;
+    
+    return abs(acos((pow(side2, 2) + pow(side3, 2) - pow(side1, 2)) / (2.0 * side2 * side3)) * (180.0/3.14159265359));
     
 }
 
 
 
-string classifyTriangle(int x1, int y1, int x2, int y2, int x3, int y3){
+string classifyTriangle(double x1, double y1, double x2, double y2, double x3, double y3){
     
     double side1 = findLineLength(x1, y1, x2, y2);
+    
     double side2 = findLineLength(x1, y1, x3, y3);
+    
     double side3 = findLineLength(x2, y2, x3, y3);
     
-    double firstAngle = findAngle(side1, side2, side3);
-    double secondAngle = findAngle(side2, side1, side3);
-    double thirdAngle = 180 - firstAngle - secondAngle;
     
-    if((x1 == x2 && x1 == x3 && x2 == x3) || (y1 == y2 && y1 == y3 && y2 == y3)){
-        //check to see if it is a triangle
-        cout << "degenerate: not a triangle" << endl;
-        return "degenerate: not a triangle";
+    double firstAngle = findAngle(side1, side2, side3);
+    //cout << "firstAngle: " << firstAngle << endl;
+    double secondAngle = findAngle(side2, side1, side3);
+    //cout << "secondAngle: " << secondAngle << endl;
+    double thirdAngle = findAngle(side3, side1, side2);
+    //cout << "thirdAngle: " << thirdAngle << endl;
+    
+    float slope;
+    if (x1 != x2) {//could be a possible divide by zero problem because I'm using doubles
+        slope = (y1 - y2) / (x1 - x2); //got this from Greg
+    } else {
+        slope = (y3 - y2) / (x3 - x2);
+    }
+    
+    float intercept = y1 - (slope * x1);//got this from Greg; ask him about it
+    
+    if((x1 - x2 == 0) && (x1 - x3 == 0)){
+        //check for verticle line Note: got this idea from Greg
+        //cout << "degenerate" << endl;
+        return "degenerate";
         
-    } else if(firstAngle == 90.0 || secondAngle == 90.0 || thirdAngle == 90.0){
+    } else if(y3 == (slope * x3 + intercept)){
+        //check to see if all points fall on a line
         
-        cout << "right triangle: one 90 degree angle" << endl;
-        return "right triangle: one 90 degree angle";
+            //std::cout << "degenerate\n"; // All points fall on a line.
         
-    } else if (side1 == side2 && side1 == side3 && side2 == side3){
-        
-        cout << "equilateral: all sides same length" << endl;
-        return "equilateral: all sides same length";
+            return "degenerate";
         
         
-    } else if((side1 == side2) || (side1 == side3) || (side2 == side3)){
-        cout << "isoceles: two sides same length" << endl;
-        return "isoceles: two sides same length";
+    } else if((firstAngle < 90.001 && firstAngle > 89.999) || (secondAngle < 90.001 && secondAngle > 89.999)|| (thirdAngle < 90.001 && thirdAngle > 89.999)){
         
-    } else if(firstAngle > 90 || secondAngle > 90 || thirdAngle > 90){
-        cout << "obtuse: one angle greater than 90 degrees" << endl;
-        return "obtuse: one angle greater than 90 degrees";
+        //cout << "right" << endl;
+        return "right";
         
-    } else if(firstAngle < 90 && secondAngle < 90 && thirdAngle < 90){
-        cout << "acute: all angles less than 90 degrees" << endl;
-        return "acute: all angles less than 90 degrees";
+    } else if ((abs(side1 - side2) < 0.001) && (abs(side1 - side3) < 0.001) && (abs(side2 - side3) < 0.001)){
+        
+       // cout << "equilateral" << endl;
+        return "equilateral";
+        
+        
+    } else if((abs(side1 - side2) < 0.001) || (abs(side1 - side3) < 0.001) || (abs(side2 - side3) < 0.001)){
+        cout << "isoceles" << endl;
+        return "isoceles";
+        
+    } else if(firstAngle > 90.0 || secondAngle > 90.0 || thirdAngle > 90.0){
+        
+        //cout << "obtuse" << endl;
+        return "obtuse";
+        
+    } else if(firstAngle < 90.0 && secondAngle < 90.0 && thirdAngle < 90.0){
+        
+        //cout << "acute" << endl;
+        return "acute";
         
     } else {
         
-        cout << "scalene: none of the above" << endl;
-        return "scalene: none of the above";
+        //cout << "scalene" << endl;
+        return "scalene";
     }
     
     
@@ -94,7 +135,7 @@ string classifyTriangle(int x1, int y1, int x2, int y2, int x3, int y3){
 
 void runTests(){
     
-    if(classifyTriangle(1, 0, 2, 0, 3, 0) == "degenerate: not a triangle"){
+    if(classifyTriangle(0, 1, 0, 2, 0, 3) == "degenerate"){
         
         cout << "Test1 passed" << endl;
         
@@ -104,7 +145,7 @@ void runTests(){
         
     }
     
-    if(classifyTriangle(0, 0, 0, 1, 1, 0) == "right triangle: one 90 degree angle"){
+    if(classifyTriangle(0, 0, 0, 1, 1, 0) == "right"){
         
         cout << "Test2 passed" << endl;
         
@@ -114,7 +155,17 @@ void runTests(){
         
     }
     
-    if(classifyTriangle(0, 0, -1, 2, 1, 2) == "isoceles: two sides same length" ){
+    if(classifyTriangle(0, 0, -4, 3, 0.598, 4.964) == "equilateral" ){
+        
+        cout << "Test2.5 passed" << endl;
+        
+    } else {
+        
+        cout << "Test2.5 failed" << endl;
+        
+    }
+    
+    if(classifyTriangle(0, 0, -1, 2, 1, 2) == "isoceles" ){
         
         cout << "Test3 passed" << endl;
         
@@ -124,7 +175,7 @@ void runTests(){
         
     }
     
-    if(classifyTriangle(0, 0, -2, 1, 2, 1) == "obtuse: one angle greater than 90 degrees" ){
+    if(classifyTriangle(0, 0, -2, 1, 4, 1) == "obtuse" ){
         
         cout << "Test4 passed" << endl;
         
@@ -133,7 +184,7 @@ void runTests(){
         cout << "Test4 failed" << endl;
         
     }
-    if(classifyTriangle(0, 0, -1, 2, 1, 3) == "acute: all angles less than 90 degrees" ){
+    if(classifyTriangle(0, 0, -1, 2, 2, 3) == "acute" ){
         
         cout << "Test5 passed" << endl;
         
@@ -142,7 +193,7 @@ void runTests(){
         cout << "Test5 failed" << endl;
         
     }
-    if(classifyTriangle(0, 0, -1, 2, 1, 3) != "scalene: none of the above" ){
+    if(classifyTriangle(0, 0, -1, 2, 2, 3) == "scalene" ){
         
         cout << "Test6 passed" << endl;
         
@@ -152,15 +203,7 @@ void runTests(){
         
     }
     
-    if(classifyTriangle(0, 0, -1, 2, 1, 3) != "equilateral: all sides same length" ){
-        
-        cout << "Test7 passed" << endl;
-        
-    } else {
-        
-        cout << "Test7 failed" << endl;
-        
-    }
+   
     
     
     
@@ -169,16 +212,16 @@ void runTests(){
 
 int main(int argc, const char * argv[]) {
     
-    runTests();
+    //runTests();
     
-    /*
-    int x1, y1, x2, y2, x3, y3;
+    
+    double x1, y1, x2, y2, x3, y3;
     
     cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
     
     cout << classifyTriangle(x1, y1, x2, y2, x3, y3) << endl;
     
-    */
+    
     
     return 0;
 }
