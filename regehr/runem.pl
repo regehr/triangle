@@ -35,7 +35,10 @@ while (my $line = <INF>) {
     %map = ();
     foreach my $who (@whos) {
         my $exe = "triangle-$who";
-        next unless (-x $exe);
+        if (!(-x $exe)) {
+            $bad = 1;
+            next;
+        }
         open PROG, "./$exe < one.txt |";
         my $output = <PROG>;
         close PROG;
