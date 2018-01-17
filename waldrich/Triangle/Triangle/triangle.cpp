@@ -63,7 +63,7 @@ string computeTypeOfTriangle(triangle tri) {
   } else if (tri.lengthSideC == tri.lengthSideA ||
              tri.lengthSideA == tri.lengthSideB ||
              tri.lengthSideB == tri.lengthSideC) {
-    return "isoceles";
+    return "isosceles";
   } else if (tri.angleA > 90 || tri.angleB > 90 || tri.angleC > 90) {
     return "obtuse";
   } else {
@@ -80,15 +80,16 @@ string displayTriangleType(triangle tri) {
       findLength(tri.pointB.x, tri.pointB.y, tri.pointC.x, tri.pointC.y);
   tri.lengthSideB =
       findLength(tri.pointC.x, tri.pointC.y, tri.pointA.x, tri.pointA.y);
+    
+    if(tri.lengthSideA == 0 || tri.lengthSideB == 0 || tri.lengthSideC == 0){
+        return "degenerate";
+    }
 
   string possibleTriangle = computeTypeOfTriangle(tri);
-  return possibleTriangle + " triangle";
+  return possibleTriangle;
 }
 
 void getInput() {
-
-  cout << "Plese enter 6 coordinate points (x,y) for a triangle in the "
-          "format \"# # # # # #\" :  \n";
 
   while (true) {
     triangle currentTriangle;

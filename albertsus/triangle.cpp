@@ -53,45 +53,33 @@ double getSidesDiff(Point p1, Point p2, Point p3) {
   }
 }
 
-/* Decide if the triangle is degenerate. If it is return true, otherwise, return
- * false */
+/* Decide if the triangle is degenerate. If it is return true, otherwise, return false */
 bool isDegenerate(Point p1, Point p2, Point p3) {
   return ((getDistance(p1, p2) + getDistance(p2, p3)) <= getDistance(p1, p3)) ||
          ((getDistance(p1, p2) + getDistance(p1, p3)) <= getDistance(p2, p3)) ||
          ((getDistance(p1, p3) + getDistance(p2, p3)) <= getDistance(p1, p2));
 }
 
-/* Decide if the triangle is right. If it is return true, otherwise, return
- * false */
+/* Decide if the triangle is right. If it is return true, otherwise, return false */
 bool isRight(Point p1, Point p2, Point p3) {
   return abs(getSidesDiff(p1, p2, p3)) < MARGIN_ERROR;
 }
 
-/* Decide if the triangle is obtuse. If it is return true, otherwise, return
- * false */
+/* Decide if the triangle is obtuse. If it is return true, otherwise, return false */
 bool isObtuse(Point p1, Point p2, Point p3) {
   return getSidesDiff(p1, p2, p3) > MARGIN_ERROR;
 }
 
-/* Decide if the triangle is acute. If it is return true, otherwise, return
- * false */
+/* Decide if the triangle is acute. If it is return true, otherwise, return false */
 bool isAcute(Point p1, Point p2, Point p3) {
   return getSidesDiff(p1, p2, p3) < MARGIN_ERROR;
 }
 
-/* Decide if the triangle is isosceles. If it is return true, otherwise, return
- * false */
+/* Decide if the triangle is isosceles. If it is return true, otherwise, return false */
 bool isIsosceles(Point p1, Point p2, Point p3) {
   return getDistance(p1, p2) == getDistance(p1, p3) ||
          getDistance(p1, p2) == getDistance(p2, p3) ||
          getDistance(p1, p3) == getDistance(p2, p3);
-}
-
-/* Decide if the triangle is equilateral. If it is return true, otherwise,
- * return false */
-bool isEquilateral(Point p1, Point p2, Point p3) {
-  return getDistance(p1, p2) == getDistance(p1, p3) &&
-         getDistance(p1, p2) == getDistance(p2, p3);
 }
 
 /* Decide the type of triangle with three points */
@@ -102,14 +90,10 @@ void testTriangleClassifier(Point p1, Point p2, Point p3) {
     cout << "right" << endl;
   } else if (isIsosceles(p1, p2, p3)) {
     cout << "isosceles" << endl;
-  } else if (isEquilateral(p1, p2, p3)) {
-    cout << "equilateral" << endl;
   } else if (isObtuse(p1, p2, p3)) {
     cout << "obtuse" << endl;
   } else if (isAcute(p1, p2, p3)) {
     cout << "acute" << endl;
-  } else {
-    cout << "scalene" << endl;
   }
 }
 

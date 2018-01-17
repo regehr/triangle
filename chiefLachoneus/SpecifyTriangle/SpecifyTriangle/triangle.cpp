@@ -72,11 +72,6 @@ float findLargestAngle(float longestSide, float side2, float side3) {
     return (radians * 180) / M_PI;
 }
 
-//final angle
-float calculateFinalAngle(float largestAngle, float angle2) {
-    return 180 - largestAngle - angle2;
-}
-
 //second angle
 float caluclateSINAngle(float largestAngle, float largestSide, float side2) {
     // convert to radians
@@ -89,6 +84,12 @@ float caluclateSINAngle(float largestAngle, float largestSide, float side2) {
     // convert back to degrees
     return (radians * 180) / M_PI;
 }
+
+//final angle
+float calculateFinalAngle(float largestAngle, float angle2) {
+    return 180 - largestAngle - angle2;
+}
+
 
 void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
                    float length1, float length2, float &sinAngle) {
@@ -130,7 +131,7 @@ std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float a
     }
     
     if (floatsEqual(90, largestAngle)) {
-        return "right triangle\n";
+        return "right\n";
     } else if (lengthA == lengthB || lengthA == lengthC || lengthB == lengthC) {
         return "isosceles\n";
     } else if (largestAngle > 90.0) {
@@ -166,38 +167,38 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
     float sinAngle;
     float finalAngle;
     
-    if (lengthB > lengthA && lengthB > lengthC) {
-        longestLength = lengthB;
-        findAllAngles(finalAngle, largestAngle, longestLength, lengthA, lengthC,
-                      sinAngle);
-        
-        angleAC = largestAngle;
-        angleBC = sinAngle;
-        angleAB = finalAngle;
-    } else if (lengthC > lengthA && lengthC > lengthB) {
-        longestLength = lengthC;
-        findAllAngles(finalAngle, largestAngle, longestLength, lengthA, lengthB,
-                      sinAngle);
-        
-        angleAB = largestAngle;
-        angleBC = sinAngle;
-        angleAC = finalAngle;
+    if (floatsEqual(lengthA, 0.0) || floatsEqual(lengthB, 0.0) || floatsEqual(lengthC, 0.0)) {
+        std::cout << "degenerate\n";
     } else {
-        longestLength = lengthA;
-        findAllAngles(finalAngle, largestAngle, longestLength, lengthC, lengthB,
-                      sinAngle);
+        if (lengthB > lengthA && lengthB > lengthC) {
+            longestLength = lengthB;
+            findAllAngles(finalAngle, largestAngle, longestLength, lengthA, lengthC,
+                          sinAngle);
+            
+            angleAC = largestAngle;
+            angleBC = sinAngle;
+            angleAB = finalAngle;
+        } else if (lengthC > lengthA && lengthC > lengthB) {
+            longestLength = lengthC;
+            findAllAngles(finalAngle, largestAngle, longestLength, lengthA, lengthB,
+                          sinAngle);
+            
+            angleAB = largestAngle;
+            angleBC = sinAngle;
+            angleAC = finalAngle;
+        } else {
+            longestLength = lengthA;
+            findAllAngles(finalAngle, largestAngle, longestLength, lengthC, lengthB,
+                          sinAngle);
+            
+            angleBC = largestAngle;
+            angleAB = sinAngle;
+            angleAC = finalAngle;
+        }
         
-        angleBC = largestAngle;
-        angleAB = sinAngle;
-        angleAC = finalAngle;
+        std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
+        //    printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
     }
-    
-    longestLength = longestLength;
-    largestAngle = largestAngle;
-    
-    std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
-    
-//    printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
 }
 
 // main method to run tests
