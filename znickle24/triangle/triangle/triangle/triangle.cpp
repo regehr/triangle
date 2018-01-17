@@ -66,7 +66,7 @@ void typeOfTriangle(std::vector<double> lineLengths, std::vector<double> angles)
 }
 int main(int argc, const char * argv[]) {
     //took this idea to loop through the number of triangles from Sydney
-    std::cout << "Please enter the coordinates for your triangle (format: x1 y1 x2 y2 x3 y3): \n";
+//    std::cout << "Please enter the coordinates for your triangle (format: x1 y1 x2 y2 x3 y3): \n";
     while (true) {
         if (!(std::cin >> x >> y >> x2 >> y2 >> x3 >> y3)) {
             break;
