@@ -21,7 +21,7 @@ private:
   void calc_lens(int x1, int y1, int x2, int y2, int x3, int y3);
   void calc_angs();
   bool is_valid();
-
+  
 public:
   Triangle(int x1, int y1, int x2, int y2, int x3, int y3);
   bool is_right();
@@ -34,7 +34,9 @@ public:
 // Calculates side length and angles (in degrees).
 Triangle::Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
   calc_lens(x1, y1, x2, y2, x3, y3);
-  calc_angs();
+  if (is_valid()) {
+    calc_angs();
+  }
 }
 
 // Determines the length of each of the three sides based on the three
@@ -49,11 +51,11 @@ void Triangle::calc_lens(int x1, int y1, int x2, int y2, int x3, int y3) {
 // cosines.
 void Triangle::calc_angs() {
   ang1 =
-      acos(((pow(len2, 2) + pow(len3, 2)) - pow(len1, 2)) / (2 * len2 * len3)) *
-      180 / PI;
+  acos(((pow(len2, 2) + pow(len3, 2)) - pow(len1, 2)) / (2 * len2 * len3)) *
+  180 / PI;
   ang2 =
-      acos(((pow(len3, 2) + pow(len1, 2)) - pow(len2, 2)) / (2 * len3 * len1)) *
-      180 / PI;
+  acos(((pow(len3, 2) + pow(len1, 2)) - pow(len2, 2)) / (2 * len3 * len1)) *
+  180 / PI;
   ang3 = 180 - (ang1 + ang2);
 }
 
@@ -70,7 +72,7 @@ bool Triangle::is_valid() {
 bool Triangle::is_right() {
   const double e = 0.0001;
   return is_valid() &&
-         (abs(ang1 - 90.0) < e || abs(ang2 - 90.0) < e || abs(ang3 - 90.0) < e);
+  (abs(ang1 - 90.0) < e || abs(ang2 - 90.0) < e || abs(ang3 - 90.0) < e);
 }
 
 // Returns true if a valid triangle and at least two of the three side lengths
@@ -115,7 +117,6 @@ std::string Triangle::classify() {
 // prints the classification of any valid triangle according to the Triangle's
 // classify() documentation.
 void triangle_util() {
-  std::cout << "Enter six integer coordinates (e.g. x1, y1, x2, y2, x3, y3):\n";
   int x1, y1, x2, y2, x3, y3;
   while (std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3) {
     std::cout << Triangle(x1, y1, x2, y2, x3, y3).classify() << "\n";
@@ -126,3 +127,5 @@ int main() {
   triangle_util();
   return 0;
 }
+
+
