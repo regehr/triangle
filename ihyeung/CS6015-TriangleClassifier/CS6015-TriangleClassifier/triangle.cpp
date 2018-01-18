@@ -35,7 +35,7 @@ void triangleClassifier() {
     } else {
       coordinates = getCoordinates(x1, y1, x2, y2, x3, y3);
       if (isDegenerate(coordinates)) {
-        std::cout << "Degenerate\n";
+        std::cout << "degenerate\n";
         continue;
       } else {
         std::cout << classifyTriangle(coordinates) << std::endl;
@@ -59,10 +59,8 @@ bool checkSlopeEq(std::vector<xycoordinate> coordinates) {
 }
 
 double getGradient(xycoordinate p1, xycoordinate p2) {
-  if (p1.x == p2.x) {
-    return -101; // Value to handle vertical lines with undef slope
-  }
-  return (p2.y - p1.y) / (p2.x - p1.x);
+  return p1.x == p2.x ? -101 : (p2.y - p1.y) / (p2.x - p1.x);
+    // return -101 to handle vertical lines with undef slope (ie check for division by zero)
 }
 
 bool isDegenerate(std::vector<xycoordinate> points) {
@@ -140,14 +138,16 @@ std::string classifyTriangle(std::vector<xycoordinate> vertices) {
   std::vector<double> sides = getLengths(vertices);
   std::vector<double> angles = getAngles(vertices);
   if (isRightAngle(angles)) {
-    return "Right";
+    return "right";
   } else if (isIsosc(sides, angles)) {
-    return "Isosceles";
+    return "isosceles";
   } else if (isObtuse(sides, angles)) {
-    return "Obtuse";
+    return "obtuse";
   } else {
-    return "Acute"; // If other conditions are false, triangle must be acute
+    return "acute"; // If other conditions are false, triangle must be acute
   }
 }
 
-int main() { triangleClassifier(); }
+int main() {
+  triangleClassifier();
+}
