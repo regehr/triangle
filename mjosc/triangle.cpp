@@ -72,7 +72,7 @@ bool Triangle::is_valid() {
 bool Triangle::is_right() {
   const double e = 0.0001;
   return is_valid() &&
-  (abs(ang1 - 90.0) < e || abs(ang2 - 90.0) < e || abs(ang3 - 90.0) < e);
+  (std::fabs(ang1 - 90.0) < e || std::fabs(ang2 - 90.0) < e || std::fabs(ang3 - 90.0) < e);
 }
 
 // Returns true if a valid triangle and at least two of the three side lengths
