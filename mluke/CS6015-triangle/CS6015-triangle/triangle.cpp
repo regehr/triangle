@@ -33,13 +33,13 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
     
 
   if (angleA == 90.0 || angleB == 90.0 || angleC == 90.0) {
-    std::cout << "right \n";
+    std::cout << "right\n";
   } else if (side1 == side2 || side1 == side3 || side2 == side3) {
-    std::cout << "isosceles \n";
+    std::cout << "isosceles\n";
   } else if (angleA > 90 || angleB > 90 || angleC > 90) {
-    std::cout << "obtuse \n";
+    std::cout << "obtuse\n";
   } else if (angleA < 90 && angleB < 90 && angleC < 90) {
-    std::cout << "acute \n";
+    std::cout << "acute\n";
   }
 }
 
@@ -55,11 +55,11 @@ int main(int argc, const char *argv[]) {
     if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0 || x3 < 0 || y3 < 0 ||
         x1 > 100 || y1 > 100 || x2 > 100 || y2 > 100 || x3 > 100 ||
         y3 > 100) {
-        std::cout << "degenerate \n" ;
+        std::cout << "degenerate\n" ;
         continue ;
     } else if ((x1 == x2 && y1 == y2) || (x1 == x3 && y1 == y3) ||
           (x2 == x3 && y2 == y3)) {
-          std::cout << "degenerate \n";
+          std::cout << "degenerate\n";
           continue ;
     } else if (abs(((x1*(y2 - y3)) + (x2*(y3 - y1)) +(x3*(y1 - y2)))/2) == 0) { // I got this from Zander (znickle24)
         std::cout << "degenerate\n";
