@@ -77,6 +77,13 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3) {
     return "degenerate";
   }
 
+  // If the length of a side is == the sum of the others, not a triangle
+  if (doublesEqual(sideA, (sideB + sideC)) ||
+      doublesEqual(sideB, (sideA + sideC)) ||
+      doublesEqual(sideC, (sideA + sideB))) {
+    return "degenerate";
+  }
+
   // If one of the angles is 90 degrees, right triangle
   if (doublesEqual(angleA, 90.0) || doublesEqual(angleB, 90.0) ||
       doublesEqual(angleC, 90.0)) {
