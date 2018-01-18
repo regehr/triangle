@@ -76,14 +76,17 @@ string classifyTriangle(double x1, double y1, double x2, double y2, double x3, d
     double thirdAngle = findAngle(side3, side1, side2);
     //cout << "thirdAngle: " << thirdAngle << endl;
     
-    float slope;
+    double slope;
+    double intercept;
     if (x1 != x2) {//could be a possible divide by zero problem because I'm using doubles
         slope = (y1 - y2) / (x1 - x2); //got this from Greg
+        
     } else {
         slope = (y3 - y2) / (x3 - x2);
+        
     }
     
-    float intercept = y1 - (slope * x1);//got this from Greg; ask him about it
+    intercept = y1 - (slope * x1);//got this from Greg; ask him about it
     
     if((x1 - x2 == 0) && (x1 - x3 == 0)){
         //check for verticle line Note: got this idea from Greg
@@ -110,7 +113,7 @@ string classifyTriangle(double x1, double y1, double x2, double y2, double x3, d
         
         
     } else if((abs(side1 - side2) < 0.001) || (abs(side1 - side3) < 0.001) || (abs(side2 - side3) < 0.001)){
-        cout << "isoceles" << endl;
+        cout << "isosceles" << endl;
         return "isoceles";
         
     } else if(firstAngle > 90.0 || secondAngle > 90.0 || thirdAngle > 90.0){
@@ -203,8 +206,23 @@ void runTests(){
         
     }
     
-   
+    if(classifyTriangle(15, 10, 30, 15, 45, 20) == "degenerate" ){
+        
+        cout << "Test7 passed" << endl;
+        
+    } else {
+        
+        cout << "Test7 failed" << endl;
+        
+    }
     
+    
+    
+    
+    
+   
+    //15 10 30 15 45 20
+    //this should be degenerate, but my code is making it isosceles
     
     
 }
@@ -212,9 +230,9 @@ void runTests(){
 
 int main(int argc, const char * argv[]) {
     
-    //runTests();
+   // runTests();
     
-    
+  
     double x1, y1, x2, y2, x3, y3;
     
     cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
