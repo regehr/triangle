@@ -61,7 +61,10 @@ int main(int argc, const char *argv[]) {
           (x2 == x3 && y2 == y3)) {
           std::cout << "degenerate \n";
           continue ;
-}
+    } else if (abs(((x1*(y2 - y3)) + (x2*(y3 - y1)) +(x3*(y1 - y2)))/2) == 0) { // I got this from Zander (znickle24)
+        std::cout << "degenerate\n";
+        continue;
+    }
       
     triangleClassifier(x1, y1, x2, y2, x3, y3);
   }

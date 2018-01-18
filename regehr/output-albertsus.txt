@@ -8,7 +8,11 @@ degenerate
 right
 degenerate
 degenerate
+<<<<<<< HEAD
 obtuse
+=======
+degenerate
+>>>>>>> 3735b572e911209cdb7a4bf85a81b7254bca550b
 isosceles
 isosceles
 obtuse
@@ -36,43 +40,11 @@ obtuse
 right
 isosceles
 right
+<<<<<<< HEAD
+obtuse
 degenerate
 degenerate
 obtuse
 degenerate
-obtuse
-right
-degenerate
-degenerate
-acute
-obtuse
-degenerate
-acute
-obtuse
-acute
-degenerate
-degenerate
-acute
-acute
-isosceles
-obtuse
-right
-obtuse
-isosceles
-isosceles
-isosceles
-obtuse
-right
-isosceles
-obtuse
-isosceles
-obtuse
-obtuse
-right
-degenerate
-degenerate
-isosceles
-acute
-right
-right
-right
+=======
+>>>>>>> 3735b572e911209cdb7a4bf85a81b7254bca550b

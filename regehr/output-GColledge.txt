@@ -2,10 +2,10 @@ degenerate
 degenerate
 obtuse
 degenerate
-right
-right
+right triangle
+right triangle
 degenerate
-right
+right triangle
 degenerate
 degenerate
 degenerate
@@ -13,66 +13,31 @@ isosceles
 isosceles
 obtuse
 obtuse
-right
+right triangle
 acute
 degenerate
-right
-acute
-isosceles
-right
-acute
+right triangle
 acute
 isosceles
-right
-right
-degenerate
-right
-degenerate
-obtuse
-obtuse
-acute
-obtuse
-obtuse
-right
-isosceles
-right
-degenerate
-degenerate
-obtuse
-degenerate
-obtuse
-right
-degenerate
-degenerate
-acute
-obtuse
-degenerate
-acute
-obtuse
-acute
-degenerate
-degenerate
+right triangle
 acute
 acute
 isosceles
-obtuse
-right
-obtuse
-isosceles
-isosceles
-isosceles
-obtuse
-right
-isosceles
-obtuse
-isosceles
-obtuse
-obtuse
-right
+right triangle
+right triangle
 degenerate
+right triangle
 degenerate
-isosceles
+obtuse
+obtuse
 acute
-right
-right
-right
+obtuse
+obtuse
+right triangle
+isosceles
+right triangle
+obtuse
+degenerate
+degenerate
+obtuse
+degenerate

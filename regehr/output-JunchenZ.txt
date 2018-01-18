@@ -1,4 +1,3 @@
-please enter 6 integers from 0 to 100 as 3 pairs of corrdinates to form a triangle: 
 degenerate
 degenerate
 obtuse
@@ -38,42 +37,9 @@ right triangle
 isosceles
 right triangle
 degenerate
+obtuse
+degenerate
 degenerate
 obtuse
 degenerate
 obtuse
-right triangle
-degenerate
-degenerate
-acute
-obtuse
-degenerate
-acute
-obtuse
-acute
-degenerate
-degenerate
-acute
-acute
-isosceles
-obtuse
-right triangle
-obtuse
-isosceles
-isosceles
-isosceles
-obtuse
-right triangle
-isosceles
-obtuse
-isosceles
-obtuse
-obtuse
-right triangle
-degenerate
-degenerate
-isosceles
-acute
-right triangle
-right triangle
-right triangle

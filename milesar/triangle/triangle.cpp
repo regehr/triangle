@@ -17,6 +17,7 @@
 #include <sstream>
 #include <cmath>
 #include <cassert>
+#include <algorithm>
 
 #define PI 3.14159265
 
@@ -35,6 +36,8 @@ vector<double> getLengths (vector<double> pts) {
     getLengths.push_back(sqrt(pow(pts[2] - pts[4], 2) + pow(pts[3] - pts[5], 2)));
     getLengths.push_back(sqrt(pow(pts[0] - pts[4], 2) + pow(pts[1] - pts[5], 2)));
 
+    sort(getLengths.begin(), getLengths.end());
+
     return getLengths;
 }
 
@@ -46,13 +49,15 @@ vector<double> getLengths (vector<double> pts) {
 vector<double> getAngles (vector<double> sides) {
     vector<double> angles (3, 0);
 
-    double B = acos((pow(sides[0], 2) + pow(sides[2], 2) - pow(sides[1], 2)) / (2 * sides[0] * sides[2]));
+    double A = acos((pow(sides[1], 2) + pow(sides[2], 2) - pow(sides[0], 2)) / (2 * sides[1] * sides[2]));
 
-    double A = asin(sides[0] * sin(B) / sides[1]);
+    double B = acos((pow(sides[0], 2) + pow(sides[2], 2) - pow(sides[1], 2)) / (2 * sides[2] * sides[0]));
+
+    double C = acos((pow(sides[0], 2) + pow(sides[1], 2) - pow(sides[2], 2)) / (2 * sides[0] * sides[1]));
 
     angles[0] = A * 180.0 / PI;
     angles[1] = B * 180.0 / PI;
-    angles[2] = 180 - (A + B) * 180.0 / PI;
+    angles[2] = C * 180.0 / PI;
 
     return angles;
 
@@ -112,14 +117,14 @@ string classify (vector<double> points) {
     /** debugging print statements
      *
      */
-    cout << "\n" << result + "triangle:" << endl;
-    cout << "points: ";
-    printVector(points);
-    cout << "sides: ";
-    printVector(sides);
-    cout << "angles: ";
-    printVector(angles);
-    cout << "congruent sides:" << congruentSides;
+//    cout << "\n" << result + "triangle:" << endl;
+//    cout << "points: ";
+//    printVector(points);
+//    cout << "sides: ";
+//    printVector(sides);
+//    cout << "angles: ";
+//    printVector(angles);
+//    cout << "congruent sides:" << congruentSides;
 
     /** once the input vertices have been validated to describe a triangle within the specified coordinate space,
      * classify the triangles based on the spec. NOTE: isosceles triangles will in fact only classify obtuse isoceles
@@ -132,14 +137,16 @@ string classify (vector<double> points) {
         if (round(angle) == 90.0) {
             return "right";
         }
-
-        else if (round(angle) > 90.0) {
-            return "obtuse";
-        }
     }
 
     if (congruentSides == 2) {
         return "isosceles";
+    }
+
+    for (double angle : angles) {
+        if (round(angle) > 90.0) {
+            return "obtuse";
+        }
     }
 
     if (!((round(sides[0]) == round(sides[1])) && (round(sides[1]) == round(sides[2])) &&
