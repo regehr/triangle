@@ -48,9 +48,9 @@ string computeTypeOfTriangle(triangle tri) {
                (180 / pi);
   tri.angleC = 180 - tri.angleA - tri.angleB;
     
-    tri.angleA = (round(tri.angleA) * 10 / 10);
-    tri.angleB = (roundf(tri.angleB) * 10 / 10);
-    tri.angleC = (roundf(tri.angleC)* 10 / 10);
+    tri.angleA = roundf(trunc(tri.angleA * 100 + .5)) / 100;
+    tri.angleB = roundf(trunc(tri.angleB * 100 + .5)) / 100;
+    tri.angleC = roundf(trunc(tri.angleC * 100 + .5)) / 100;
 
 
   if (tri.angleA <= 0.0f || isnan(tri.angleA) || tri.angleB <= 0.0f ||
