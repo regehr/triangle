@@ -57,7 +57,13 @@ bool isEqual(double d1, double d2) {
 bool isRightTriangle (double distance1, double distance2, double distance3){
     findSides(distance1, distance2, distance3);
     //std::cout <<//TODO: this is correct my precision is off I need to round these
-    return (pow(side1, 2) + pow(side2, 2)) == pow(hypotenuse, 2);
+    //double sidesTogether = round(pow(side1, 2) + pow(side2, 2));
+    //double hypotenuse2 = round(pow(hypotenuse, 2));
+    //std::cout << sidesTogether << std::endl;
+    //std::cout << hypotenuse2 << std::endl;
+    //std::cout << (sidesTogether == hypotenuse2) << std::endl;
+    
+    return round(pow(side1, 2) + pow(side2, 2)) == round(pow(hypotenuse, 2));
 }
 //use the helper function and then find two sides that are equal
 bool isIsocelesTriangle(double distance1, double distance2, double distance3){
@@ -92,13 +98,15 @@ bool isDegenerateTriangle(double distance1, double distance2, double distance3){
 
 int main(int argc, const char * argv[]) {
     //message to the user for the six different coordinates for the triangle
-    std::cout << "Enter Triangle x and y coordinates:\n";
+    //std::cout << "Enter Triangle x and y coordinates:\n";
     int x1, x2, x3, y1, y2, y3;
     //TODO: error message not enough coordiante points or too many inputs given
     //TODO: need to think about more than one triangle and get results back from each triangle in the same order as input and output
     //TODO: check for negative or decimals and the range is between 0-100
     //TODO: error checking for divide by zero
-    //TODO: add asserts of angle, length and all angles can only add up to 180 
+    //TODO: add asserts of angle, length and all angles can only add up to 180
+    //TODO: for some reason testing many at the same time I miss a few results at the end of the testing program bug
+    //TODO: I need to add assertion statements 
     
     //while loop to do mutliple inputs and outputs
     while (std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3){

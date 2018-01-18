@@ -10,7 +10,7 @@ while (my $line = <INF>) {
     die unless ($line =~ /\.\.\/([a-zA-Z0-9]+)\//);
     my $who = $1;
     print "============================================================================\n";
-    print "compiling $line to $who\n";
+    print "compiling $line to triangle-${who}\n";
     my $exe = "triangle-${who}";
     system "clang++ -std=c++11 -Wall -Werror -O $line -o triangle-$who";
     push @whos, $who;

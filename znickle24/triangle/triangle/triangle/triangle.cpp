@@ -78,7 +78,7 @@ int main(int argc, const char * argv[]) {
         } else if ((x == x2 && y == y2) || (x2 == x3 && y2 == y3) || (x3 == x && y3 == y)) {
             std::cout << "degenerate\n";
             continue;
-        } else if (abs(((x*(y2 - y3)) + (x2*(y3 - y)) +(x3*(y - y2)))/2) == 0) {
+        } else if (fabs(((x*(y2 - y3)) + (x2*(y3 - y)) +(x3*(y - y2)))/2) == 0) {
             std::cout << "degenerate\n";
             continue;
         }
