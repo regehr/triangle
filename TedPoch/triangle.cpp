@@ -7,6 +7,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <algorithm>
 
 /**
  Establishes a data type for points of a triangle on a 2d graph
@@ -44,13 +45,13 @@ int sideLength(Point a, Point b) {
  @return true if the triangle object is truly a triangle
  */
 bool isTriangle(Triangle tri) {
-  return !((sqrt(tri.sideA) + sqrt(tri.sideB)) == sqrt(tri.sideC));
+  return !((sqrt(tri.sideA*2) + sqrt(tri.sideB*2)) <= sqrt(tri.sideC*2));
 }
 
 int main(int argc, const char *argv[]) {
   Point p1, p2, p3;
   int sides[3];
-    while (std::cin >> p1.x >> p1.y >> p2.x >> p2.y >> p3.x >> p3.y) {
+  while (std::cin >> p1.x >> p1.y >> p2.x >> p2.y >> p3.x >> p3.y) {
     Triangle tri = {p1, p2, p3, 0, 0, 0};
     sides[0] = sideLength(p1, p2);
     sides[1] = sideLength(p1, p3);
