@@ -64,6 +64,7 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3) {
   double angleB = findAngle(sideC, sideA, sideB);
   double angleC = findAngle(sideA, sideB, sideC);
 
+  // This should be before the findAngle method to prevent a division by zero
   // If two or more points are the same, this isn't a triangle
   if ((x1 == x2 && y1 == y2) || (x2 == x3 && y2 == y3) ||
       (x3 == x1 && y3 == y1)) {
@@ -79,7 +80,7 @@ std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3) {
   // If one of the angles is 90 degrees, right triangle
   if (doublesEqual(angleA, 90.0) || doublesEqual(angleB, 90.0) ||
       doublesEqual(angleC, 90.0)) {
-    return "right triangle";
+    return "right";
   }
 
   // If two or more sides are the same, isosceles triangle
