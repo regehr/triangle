@@ -51,8 +51,10 @@ int main(int argc, const char *argv[]) {
     if (!(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
       break;
     }
-    
-    if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0 || x3 < 0 || y3 < 0 ||
+      
+    double area = (x1*(y2 - y3) + x2*(y3 - y1) +x3*(y1 - y2)) ;
+   
+      if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0 || x3 < 0 || y3 < 0 ||
         x1 > 100 || y1 > 100 || x2 > 100 || y2 > 100 || x3 > 100 ||
         y3 > 100) {
         std::cout << "degenerate\n" ;
@@ -61,7 +63,7 @@ int main(int argc, const char *argv[]) {
           (x2 == x3 && y2 == y3)) {
           std::cout << "degenerate\n";
           continue ;
-    } else if (fabs(((x1*(y2 - y3)) + (x2*(y3 - y1)) +(x3*(y1 - y2)))/2) == 0) {
+    } else if (area == 0) {
         // I got this from Zander (znickle24)
         std::cout << "degenerate\n";
         continue;
