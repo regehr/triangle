@@ -48,30 +48,17 @@ std::vector<int> stringToVec(std::string s) {
  */
 bool isDegenerate(std::vector<int> tri_pts) {
 
-  if (tri_pts.size() != 6) {
-    return true;
-  }
-
-  for (int c : tri_pts) {
-    if (c > 100 || c < 0) {
-      return true;
-    }
-  }
-
+  int x1 = tri_pts[0], x2 = tri_pts[2], x3 = tri_pts[4];
+  int y1 = tri_pts[1], y2 = tri_pts[3], y3 = tri_pts[5];
   // http://www.cplusplus.com/reference/cmath/fabs/
   // if all x values are the same, if any of the three points are the same, or
   // if the slope of two of the lines are the same it is not a triangle.
-  if ((std::abs(tri_pts[0] - tri_pts[2]) == 0 &&
-       std::abs(tri_pts[4] - tri_pts[2]) == 0) ||
-      (std::abs(tri_pts[0] - tri_pts[2]) == 0 &&
-       std::abs(tri_pts[1] - tri_pts[3]) == 0) ||
-      (std::abs(tri_pts[3] - tri_pts[5]) == 0 &&
-       std::abs(tri_pts[4] - tri_pts[2]) == 0) ||
-      (std::abs(tri_pts[0] - tri_pts[4]) == 0 &&
-       std::abs(tri_pts[5] - tri_pts[1]) == 0) ||
-      (fabs((tri_pts[1] - tri_pts[3]) / (tri_pts[0] - tri_pts[2] - 0.0) -
-            (tri_pts[3] - tri_pts[5]) / (tri_pts[2] - tri_pts[4] - 0.0)) <
-       0.00001)) {
+  if ((x1 == x2 && x3 == x2) || (x1 == x2 && y1 == y2) ||
+      (y2 == y3 && x3 == x2) || (x1 == x3 && y3 == y1)) {
+    return true;
+  } else if (x1 != x2 && x2 != x3 &&
+             fabs((y1 - y2) / (float)(x1 - x2) - (y2 - y3) / (float)(x2 - x3)) <
+                 0.0001) {
     return true;
   }
 
@@ -83,6 +70,7 @@ bool isDegenerate(std::vector<int> tri_pts) {
  */
 float triangleAngles(float a, float b, float c) {
   // reminder to check for radians/degrees from Mason.
+  // div/0?
   float angle_rad = acosf((-pow(a, 2) + pow(b, 2) + pow(c, 2)) / (2 * b * c));
   float angle_deg = angle_rad * 180 / 3.1415926;
   return angle_deg;
@@ -102,11 +90,13 @@ float triangleSides(int x1, int y1, int x2, int y2) {
  */
 void classifyTriangle(std::vector<int> tri_pts) {
 
+  int x1 = tri_pts[0], x2 = tri_pts[2], x3 = tri_pts[4];
+  int y1 = tri_pts[1], y2 = tri_pts[3], y3 = tri_pts[5];
   // I got the idea to calculate sides and angles
   // first and then do checks from Doug.
-  float side_a = triangleSides(tri_pts[0], tri_pts[1], tri_pts[2], tri_pts[3]);
-  float side_b = triangleSides(tri_pts[2], tri_pts[3], tri_pts[4], tri_pts[5]);
-  float side_c = triangleSides(tri_pts[4], tri_pts[5], tri_pts[0], tri_pts[1]);
+  float side_a = triangleSides(x1, y1, x2, y2);
+  float side_b = triangleSides(x2, y2, x3, y3);
+  float side_c = triangleSides(x3, y3, x1, y1);
 
   float angle_a = triangleAngles(side_a, side_b, side_c);
   float angle_b = triangleAngles(side_b, side_c, side_a);
@@ -117,7 +107,7 @@ void classifyTriangle(std::vector<int> tri_pts) {
   // order: right, isosceles, equilateral (impossible), obtuse,
   // acute, scalene (impossible). Equilateral and scalene are
   // therefore, omitted.
-  float tolerance = 0.00001; // arbitrarily assigned
+  float tolerance = 0.0001; // arbitrarily assigned
 
   if (fabs(angle_a - 90) < tolerance || fabs(angle_b - 90) < tolerance ||
       fabs(angle_c - 90) < tolerance) {

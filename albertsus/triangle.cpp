@@ -7,6 +7,7 @@
 //
 
 #include <algorithm>
+#include <assert.h>
 #include <cmath>
 #include <iostream>
 #include <vector>
@@ -22,6 +23,7 @@ struct Point {
 
 double getDistance(Point p1, Point p2);
 double getSidesDiff(Point p1, Point p2, Point p3);
+bool testBoundary(Point p);
 bool isDegenerate(Point p1, Point p2, Point p3);
 bool isRight(Point p1, Point p2, Point p3);
 bool isObtuse(Point p1, Point p2, Point p3);
@@ -53,18 +55,33 @@ double getSidesDiff(Point p1, Point p2, Point p3) {
   }
 }
 
+/* Make sure the input is in boundary [0, 100] */ /*
+bool testBoundary(Point p) {
+  return p.x >= 0 && p.x <= 100 && p.y >= 0 && p.y <= 100;
+} */
+
+/* Return true if the difference of two double numbers
+ are within certain margin error */
+bool isEqual(double d1, double d2) { return fabs(d1 - d2) < MARGIN_ERROR; }
+
 /* Decide if the triangle is degenerate. If it is return true, otherwise, return
  * false */
 bool isDegenerate(Point p1, Point p2, Point p3) {
-  return ((getDistance(p1, p2) + getDistance(p2, p3)) <= getDistance(p1, p3)) ||
-         ((getDistance(p1, p2) + getDistance(p1, p3)) <= getDistance(p2, p3)) ||
-         ((getDistance(p1, p3) + getDistance(p2, p3)) <= getDistance(p1, p2));
+  return ((getDistance(p1, p2) + getDistance(p2, p3)) < getDistance(p1, p3)) ||
+         (isEqual(getDistance(p1, p2) + getDistance(p2, p3),
+                  getDistance(p1, p3))) ||
+         ((getDistance(p1, p2) + getDistance(p1, p3)) < getDistance(p2, p3)) ||
+         (isEqual(getDistance(p1, p2) + getDistance(p1, p3),
+                  getDistance(p2, p3))) ||
+         ((getDistance(p1, p3) + getDistance(p2, p3)) < getDistance(p1, p2)) ||
+         (isEqual(getDistance(p1, p3) + getDistance(p2, p3),
+                  getDistance(p1, p2)));
 }
 
 /* Decide if the triangle is right. If it is return true, otherwise, return
  * false */
 bool isRight(Point p1, Point p2, Point p3) {
-  return abs(getSidesDiff(p1, p2, p3)) < MARGIN_ERROR;
+  return isEqual(getSidesDiff(p1, p2, p3), 0);
 }
 
 /* Decide if the triangle is obtuse. If it is return true, otherwise, return
@@ -82,16 +99,9 @@ bool isAcute(Point p1, Point p2, Point p3) {
 /* Decide if the triangle is isosceles. If it is return true, otherwise, return
  * false */
 bool isIsosceles(Point p1, Point p2, Point p3) {
-  return getDistance(p1, p2) == getDistance(p1, p3) ||
-         getDistance(p1, p2) == getDistance(p2, p3) ||
-         getDistance(p1, p3) == getDistance(p2, p3);
-}
-
-/* Decide if the triangle is equilateral. If it is return true, otherwise,
- * return false */
-bool isEquilateral(Point p1, Point p2, Point p3) {
-  return getDistance(p1, p2) == getDistance(p1, p3) &&
-         getDistance(p1, p2) == getDistance(p2, p3);
+  return isEqual(getDistance(p1, p2), getDistance(p1, p3)) ||
+         isEqual(getDistance(p1, p2), getDistance(p2, p3)) ||
+         isEqual(getDistance(p1, p3), getDistance(p2, p3));
 }
 
 /* Decide the type of triangle with three points */
@@ -102,14 +112,10 @@ void testTriangleClassifier(Point p1, Point p2, Point p3) {
     cout << "right" << endl;
   } else if (isIsosceles(p1, p2, p3)) {
     cout << "isosceles" << endl;
-  } else if (isEquilateral(p1, p2, p3)) {
-    cout << "equilateral" << endl;
   } else if (isObtuse(p1, p2, p3)) {
     cout << "obtuse" << endl;
   } else if (isAcute(p1, p2, p3)) {
     cout << "acute" << endl;
-  } else {
-    cout << "scalene" << endl;
   }
 }
 
@@ -119,6 +125,7 @@ int main(int argc, const char *argv[]) {
     if (!(cin >> p1.x >> p1.y >> p2.x >> p2.y >> p3.x >> p3.y)) {
       break;
     }
+    // assert(testBoundary(p1) && testBoundary(p2) && testBoundary(p3));
     testTriangleClassifier(p1, p2, p3);
   }
   return 0;

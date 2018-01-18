@@ -9,6 +9,7 @@
 //  https://stackoverflow.com/questions/1321137/convert-string-containing-several-numbers-into-integers
 
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <math.h>
 #include <sstream>
@@ -26,8 +27,10 @@
  */
 float distanceBetweenTwoPoints(float firstX, float firstY, float secondX,
                                float secondY) {
-  return sqrt((firstX - secondX) * (firstX - secondX) +
-              (firstY - secondY) * (firstY - secondY));
+  float result = sqrt((firstX - secondX) * (firstX - secondX) +
+                      (firstY - secondY) * (firstY - secondY));
+  assert(result >= 0);
+  return result;
 }
 
 /*
@@ -71,13 +74,13 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
   std::sort(sides.begin(),
             sides.end()); // sort the side lengths for further use.
   // the first is the smallest, the last is the largest
-
+  assert(sides[2] < sides[0] + sides[1]);
   // check for right triangles
   // test using the pythagorean theorem
   if (abs(sides[0] * sides[0] + sides[1] * sides[1] - sides[2] * sides[2]) <=
-      0.0001) {
+      0.005) {
     // above is the pythagorean theorem solved for zero
-    std::cout << "right triangle\n";
+    std::cout << "right\n";
     return 1;
   }
 

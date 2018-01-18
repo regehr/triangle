@@ -12,14 +12,16 @@
 
 //distance formula
 double calcDistance(int x1, int y1, int x2, int y2){
-    return sqrt( pow((x2 - x1), 2) + pow((y2 - y1), 2) );
+    return sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2) );
 }
 
 
 //angle calc and radians conversion from doug
 double findAngle(double a, double b, double c){
     double math = (pow(a, 2) + pow(b, 2) - pow(c, 2)) / (2 * a * b);
-    return acos( math ) * 180.0 / PI;
+    double comp = std::abs(acos( math ) * 180.0 / PI);
+
+    return comp;
 }
 
 //from doug, margin or error needed to get right triangle to work in my code.
@@ -33,6 +35,12 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     double sideA = calcDistance(x1, y1, x2, y2);
     double sideB = calcDistance(x2, y2, x3, y3);
     double sideC = calcDistance(x3, y3, x1, y1);
+    
+    //if any sides are 0 then it is degenerate
+    //have to check before calculating angles
+    if(sideA == 0.0 || sideB == 0.0 || sideC == 0.0) {
+        return "degenerate\n";
+    }
     
     // determine the three angles
     double angleA = findAngle(sideB, sideC, sideA);
@@ -54,7 +62,7 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     }
     
     // If one of the angles is > 90 degrees, obtuse triangle
-    else if (angleA > 90 || angleB > 90 || angleC > 90){
+    else if (angleA > 90.0 || angleB > 90.0 || angleC > 90.0){
         std::cout << "obtuse\n";
     }
     

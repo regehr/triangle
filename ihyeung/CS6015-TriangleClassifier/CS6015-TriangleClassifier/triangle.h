@@ -62,7 +62,9 @@ bool checkSlopeEq(std::vector<xycoordinate> coordinates);
  @result double side length */
 
 double getSideLength(xycoordinate p1, xycoordinate p2);
+
 const double PI();
+
 double radDegConv(double theta);
 
 /* checkEqual -- verifies if two doubles are equal to 1E-6 precision
