@@ -17,6 +17,7 @@
 #include <sstream>
 #include <cmath>
 #include <cassert>
+#include <algorithm>
 
 #define PI 3.14159265
 
