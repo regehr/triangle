@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 /*
  right triangle: one 90 degree angle
@@ -120,7 +120,7 @@ void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
  * Returns true if two floats are equal to each other with
  * a margin of error of .001
  */
-bool floatsEqual(float a, float b) { return abs(a - b) < 0.001; }
+bool floatsEqual(float a, float b) { return abs(a - b) < 0.001;}
 
 //analyze triangles
 std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle){

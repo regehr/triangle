@@ -47,24 +47,25 @@ string computeTypeOfTriangle(triangle tri) {
                     (2 * tri.lengthSideC * tri.lengthSideA)) *
                (180 / pi);
   tri.angleC = 180 - tri.angleA - tri.angleB;
+    
+    tri.angleA = roundf(trunc(tri.angleA * 100 + .5)) / 100;
+    tri.angleB = roundf(trunc(tri.angleB * 100 + .5)) / 100;
+    tri.angleC = roundf(trunc(tri.angleC * 100 + .5)) / 100;
 
-  tri.angleA = round(tri.angleA);
-  tri.angleB = round(tri.angleB);
-  tri.angleC = round(tri.angleC);
 
-  if (tri.angleA <= 0 || isnan(tri.angleA) || tri.angleB <= 0 ||
-      isnan(tri.angleB) || tri.angleC <= 0 || isnan(tri.angleC) ||
+  if (tri.angleA <= 0.0f || isnan(tri.angleA) || tri.angleB <= 0.0f ||
+      isnan(tri.angleB) || tri.angleC <= 0.0f || isnan(tri.angleC) ||
       (tri.pointA.x == tri.pointB.x && tri.pointA.y == tri.pointB.y) ||
       (tri.pointB.x == tri.pointC.x && tri.pointB.y == tri.pointC.y) ||
       (tri.pointC.x == tri.pointA.x && tri.pointC.y == tri.pointA.y)) {
     return "degenerate";
-  } else if (tri.angleA == 90 || tri.angleB == 90 || tri.angleC == 90) {
+  } else if (tri.angleA == 90.0f || tri.angleB == 90.0f || tri.angleC == 90.0f) {
     return "right";
   } else if (tri.lengthSideC == tri.lengthSideA ||
              tri.lengthSideA == tri.lengthSideB ||
              tri.lengthSideB == tri.lengthSideC) {
     return "isosceles";
-  } else if (tri.angleA > 90 || tri.angleB > 90 || tri.angleC > 90) {
+  } else if (tri.angleA > 90.0f || tri.angleB > 90.0f || tri.angleC > 90.0f) {
     return "obtuse";
   } else {
     return "acute";

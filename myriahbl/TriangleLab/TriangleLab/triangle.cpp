@@ -50,9 +50,9 @@ double findLineLength(double x1, double y1, double x2, double y2){
 
 double findAngle(double side1, double side2, double side3){
     
-    cout << "side1: " << side1 << endl;
-    cout << "side2: " << side2 << endl;
-    cout << "side3: " << side3 << endl;
+    //cout << "side1: " << side1 << endl;
+    //cout << "side2: " << side2 << endl;
+    //cout << "side3: " << side3 << endl;
     
     return abs(acos((pow(side2, 2) + pow(side3, 2) - pow(side1, 2)) / (2.0 * side2 * side3)) * (180.0/3.14159265359));
     
