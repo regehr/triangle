@@ -45,7 +45,7 @@ int sideLength(Point a, Point b) {
  @return true if the triangle object is truly a triangle
  */
 bool isTriangle(Triangle tri) {
-  return !((sqrt(tri.sideA) + sqrt(tri.sideB)) == sqrt(tri.sideC));
+  return !((sqrt(tri.sideA*2) + sqrt(tri.sideB*2)) <= sqrt(tri.sideC*2));
 }
 
 int main(int argc, const char *argv[]) {
