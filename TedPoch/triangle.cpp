@@ -7,6 +7,7 @@
 
 #include <cmath>
 #include <iostream>
+#include <algorithm>
 
 /**
  Establishes a data type for points of a triangle on a 2d graph
