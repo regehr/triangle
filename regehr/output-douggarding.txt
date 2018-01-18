@@ -36,10 +36,8 @@ obtuse
 right triangle
 isosceles
 right triangle
-degenerate
 obtuse
 degenerate
 degenerate
 obtuse
 degenerate
-obtuse
