@@ -77,8 +77,6 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
 
 int main(int argc, const char * argv[]) {
     
-    std::cout << "Enter shape coordinates in the following format x1 y1 x2 y2 x3 y3: ";
-    
     //while true loop and error check code from Doug
     while(true){
         // Get the three point coordinates
