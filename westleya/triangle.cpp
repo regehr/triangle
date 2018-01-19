@@ -48,16 +48,6 @@ std::vector<int> stringToVec(std::string s) {
  */
 bool isDegenerate(std::vector<int> tri_pts) {
 
-  if (tri_pts.size() != 6) {
-    return true;
-  }
-
-  for (int c : tri_pts) {
-    if (c > 100 || c < 0) {
-      return true;
-    }
-  }
-
   int x1 = tri_pts[0], x2 = tri_pts[2], x3 = tri_pts[4];
   int y1 = tri_pts[1], y2 = tri_pts[3], y3 = tri_pts[5];
   // http://www.cplusplus.com/reference/cmath/fabs/
@@ -67,7 +57,8 @@ bool isDegenerate(std::vector<int> tri_pts) {
       (y2 == y3 && x3 == x2) || (x1 == x3 && y3 == y1)) {
     return true;
   } else if (x1 != x2 && x2 != x3 &&
-             fabs((y1 - y2) / (x1 - x2) - (y2 - y3) / (x2 - x3)) < 0.00001) {
+             fabs((y1 - y2) / (float)(x1 - x2) - (y2 - y3) / (float)(x2 - x3)) <
+                 0.0001) {
     return true;
   }
 
@@ -116,7 +107,7 @@ void classifyTriangle(std::vector<int> tri_pts) {
   // order: right, isosceles, equilateral (impossible), obtuse,
   // acute, scalene (impossible). Equilateral and scalene are
   // therefore, omitted.
-  float tolerance = 0.00001; // arbitrarily assigned
+  float tolerance = 0.0001; // arbitrarily assigned
 
   if (fabs(angle_a - 90) < tolerance || fabs(angle_b - 90) < tolerance ||
       fabs(angle_c - 90) < tolerance) {
