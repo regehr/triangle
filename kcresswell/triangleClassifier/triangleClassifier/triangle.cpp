@@ -38,9 +38,9 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     
     //if any sides are 0 then it is degenerate
     //have to check before calculating angles
-    if(sideA == 0.0 || sideB == 0.0 || sideC == 0.0) {
-        return "degenerate\n";
-    }
+//    if(sideA == 0.0 || sideB == 0.0 || sideC == 0.0) {
+//        return "degenerate\n";
+//    }
     
     // determine the three angles
     double angleA = findAngle(sideB, sideC, sideA);
@@ -48,30 +48,28 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     double angleC = findAngle(sideA, sideB, sideC);
 
     
-    // value to return
-    std::string triangleType;
     
     // If one of the angles is 90 degrees, right triangle
     if (doublesEqual(angleA, 90.0) || doublesEqual(angleB, 90.0) || doublesEqual(angleC, 90.0)){
-        std::cout << "right\n";
+        return "right\n";
     }
     
     // If two or more sides are the same, isosceles triangle
     else if (doublesEqual(sideA, sideB) || doublesEqual(sideB, sideC) || doublesEqual(sideC, sideA)){
-        std::cout << "isosceles\n";
+        return "isosceles\n";
     }
     
     // If one of the angles is > 90 degrees, obtuse triangle
-    else if (angleA > 90.0 || angleB > 90.0 || angleC > 90.0){
-        std::cout << "obtuse\n";
+    else if (angleA > 90 || angleB > 90 || angleC > 90){
+        return "obtuse\n";
     }
     
     // If all angles are < 90 degrees
-    else if (angleA < 90.0 && angleB < 90.0 && angleC < 90.0){
-        std::cout << "acute\n";
+    else if (angleA < 90 && angleB < 90 && angleC < 90){
+        return "acute\n";
     }
     
-    return "";
+    return "degenerate";
 }
 
 
