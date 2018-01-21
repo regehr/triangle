@@ -124,7 +124,8 @@ int main(int argc, const char * argv[]) {
         }else if(isRightTriangle(distance1, distance2, distance3)){
             std::cout << "right\n";
         }else if (isIsocelesTriangle(distance1, distance2, distance3)){
-            std::cout << "isoceles\n";
+            std::cout << "isosceles\n";
+            //change in travis spelled isosceles wrong 
         }//removed the code will never reach the equilateral because always be acute
         //else if (isEquilateralTriangle(distance1, distance2, distance3)){
           //  std:: cout << "equilateral\n";
