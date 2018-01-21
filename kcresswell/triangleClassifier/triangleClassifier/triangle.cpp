@@ -42,7 +42,8 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     double angleC = findAngle(sideA, sideB, sideC);
 
     //degenerate check
-    if(sideA >= sideB + sideC || sideB >= sideA + sideC || sideC >= sideA + sideB || (angleA + angleB + angleC < 180)) {
+    //|| (angleA + angleB + angleC < 180)
+    if(sideA >= sideB + sideC || sideB >= sideA + sideC || sideC >= sideA + sideB) {
         return "degenerate\n";
     }
     
