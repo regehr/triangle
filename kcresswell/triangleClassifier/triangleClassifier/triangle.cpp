@@ -43,8 +43,14 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
 
     //degenerate check
     //|| (angleA + angleB + angleC < 180)
-    if(sideA >= sideB + sideC || sideB >= sideA + sideC || sideC >= sideA + sideB || (angleA + angleB + angleC) > 180) {
+    if(sideA >= sideB + sideC || sideB >= sideA + sideC || sideC >= sideA + sideB ) {
         return "degenerate\n";
+    }
+    // If the length of a side is == the sum of the others, not a triangle - from doug
+    if (doublesEqual(sideA, (sideB + sideC)) ||
+        doublesEqual(sideB, (sideA + sideC)) ||
+        doublesEqual(sideC, (sideA + sideB))) {
+        return "degenerate";
     }
     
     // If one of the angles is 90 degrees, right triangle
