@@ -128,7 +128,7 @@ std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float a
         return "degenerate\n";
     } else if (floatsEqual(180, largestAngle)) {
         return "degenerate\n";
-    } else if (lengthA + lengthB >= lengthC || lengthA + lengthC >= lengthB || lengthB + lengthC >= lengthC) {
+    } else if (lengthC >=lengthA + lengthB  || lengthB >= lengthA + lengthC || lengthC >= lengthB + lengthC) {
         //borrowed condition from Doug Garding
         return "degenerate\n";
     }
