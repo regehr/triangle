@@ -36,18 +36,15 @@ std::string determineTriangleType(int x1, int y1, int x2, int y2, int x3, int y3
     double sideB = calcDistance(x2, y2, x3, y3);
     double sideC = calcDistance(x3, y3, x1, y1);
     
-    //if any sides are 0 then it is degenerate
-    //have to check before calculating angles
-//    if(sideA == 0.0 || sideB == 0.0 || sideC == 0.0) {
-//        return "degenerate\n";
-//    }
-    
     // determine the three angles
     double angleA = findAngle(sideB, sideC, sideA);
     double angleB = findAngle(sideC, sideA, sideB);
     double angleC = findAngle(sideA, sideB, sideC);
 
-    
+    //if any sides are 0 then it is degenerate
+    if(sideA == 0.0 || sideB == 0.0 || sideC == 0.0 || (angleA + angleB + angleC < 180)) {
+        return "degenerate\n";
+    }
     
     // If one of the angles is 90 degrees, right triangle
     if (doublesEqual(angleA, 90.0) || doublesEqual(angleB, 90.0) || doublesEqual(angleC, 90.0)){
