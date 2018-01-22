@@ -37,9 +37,9 @@ int main(int argc, const char *argv[]) {
       s[i] = temp;
     }
 
-    if((p[3] - p[1]) * (p[4] - p[2]) == (p[2] - p[0]) * (p[5] - p[3])){
-        cout << "degenerate" << endl;
-        continue;
+    if ((p[3] - p[1]) * (p[4] - p[2]) == (p[2] - p[0]) * (p[5] - p[3])) {
+      cout << "degenerate" << endl;
+      continue;
     }
 
     if (s[0] + s[1] == s[2]) {
