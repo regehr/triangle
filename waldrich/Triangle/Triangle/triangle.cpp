@@ -22,9 +22,9 @@ struct triangle {
   point pointA;
   point pointB;
   point pointC;
-  float lengthSideC;
-  float lengthSideA;
-  float lengthSideB;
+  double lengthSideC; //Thanks Chris!!!!
+  double lengthSideA;
+  double lengthSideB;
   float angleA;
   float angleB;
   float angleC;
