@@ -42,6 +42,8 @@ float distanceBetweenTwoPoints(float firstX, float firstY, float secondX,
 
 int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
                      float y3) {
+    //allowed error
+    float eps = 0.005;
   // Test for a triangle
   // chekc for verticle line
   if (x1 - x2 == 0 && x1 - x3 == 0) {
@@ -57,7 +59,7 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
   }
   float intercept = y1 - slope * x1;
 
-  if (y3 == (slope * x3 + intercept)) {
+  if (fabs(y3 - (slope * x3 + intercept)) <= eps) {
     std::cout << "degenerate\n"; // All points fall on a line.
     return 0;
   }
@@ -78,7 +80,7 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
   // check for right triangles
   // test using the pythagorean theorem
     if (fabs(pow(sides[0],2) + pow(sides[1],2) - pow(sides[2],2)) <=
-      0.005) {
+      eps) {
     // above is the pythagorean theorem solved for zero
     std::cout << "right\n";
     return 1;
