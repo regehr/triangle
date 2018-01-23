@@ -50,7 +50,7 @@ std::vector<double> angleCalculator (std::vector<double> lengths) {
     if (angleC > 89.9999 && angleC < 90.0001){
         angleC = 90.0;
     }
-//    std::cout << "angle a: " << angleA << std::endl << "angle b: " << angleB << std::endl << "angle c: " << angleC << std::endl;
+    std::cout << "haha maddi";
     angles.push_back(angleA);
     angles.push_back(angleB);
     angles.push_back(angleC);
