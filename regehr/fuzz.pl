@@ -2,6 +2,8 @@
 
 use strict;
 
+srand($ARGV[0]);
+
 my @whos;
 
 open INF, "find .. -name triangle.cpp |" or die;
