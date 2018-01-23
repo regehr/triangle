@@ -38,7 +38,7 @@ float findAngleB(float c, float b, float a) {
 }
 
 //sets the precicion and sees if angles are equal withing 0.00001
-bool doublesEqual(double a, double b) { return std::abs(a - b) < 0.00001; }
+bool doublesEqual(double a, double b) { return std::abs(a - b) < 0.0001; }
 
 /* Checks if the triangle is a right triangle by checking if
  one of the angles is greater than 90 degrees
