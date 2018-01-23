@@ -74,8 +74,8 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   if ((angleA <= 0.0f) || (angleB <= 0.0f) || (angleC <= 0.0f)) {
     cout << "degenerate\n";
   } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f
-             || angleA == 89.9f || angleB == 89.9f || angleC == 89.9f
-             || angleA == 90.1f || angleB == 90.1f || angleC == 90.1f){
+             || angleA == 89.0f || angleB == 89.0f || angleC == 89.0f
+             || angleA == 91.0f || angleB == 91.0f || angleC == 91.0f){
     cout << "right\n";
   } else if ((lineLength12 == lineLength13 && lineLength12 != lineLength23) ||
              (lineLength13 == lineLength23 && lineLength13 != lineLength12) ||
