@@ -2,6 +2,10 @@
 
 use strict;
 
+if (scalar(@ARGV) != 1) {
+    die "please provide a random number seed on the command line";
+}
+
 srand($ARGV[0]);
 
 my @whos;
