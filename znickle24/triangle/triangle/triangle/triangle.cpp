@@ -44,9 +44,9 @@ std::vector<double> angleCalculator (std::vector<double> lengths) {
     const double pi = 3.141592653589793238463;
     //angle in radians
     //then convert from radians to degrees
-    angleA = round(acos(((pow(b,2) + pow(c,2) - pow(a,2)))/(2*b*c)) * 180./pi);
-    angleB = round(acos(((pow(c,2) + pow(a,2) - pow(b,2)))/(2*a*c)) * 180./pi);
-    angleC = 180 - angleA - angleB;
+    angleA = (acos(((pow(b,2) + pow(c,2) - pow(a,2)))/(2*b*c)) * 180.0/pi);
+    angleB = (acos(((pow(c,2) + pow(a,2) - pow(b,2)))/(2*a*c)) * 180.0/pi);
+    angleC = 180.0 - angleA - angleB;
 
     angles.push_back(angleA);
     angles.push_back(angleB);
@@ -78,6 +78,7 @@ int main(int argc, const char * argv[]) {
         } else if ((x == x2 && y == y2) || (x2 == x3 && y2 == y3) || (x3 == x && y3 == y)) {
             std::cout << "degenerate\n";
             continue;
+        //got this idea to test the area of the triangle (helps with straight lines) from Mason
         } else if (fabs(((x*(y2 - y3)) + (x2*(y3 - y)) +(x3*(y - y2)))/2) == 0) {
             std::cout << "degenerate\n";
             continue;
