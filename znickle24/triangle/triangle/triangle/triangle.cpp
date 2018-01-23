@@ -47,14 +47,17 @@ std::vector<double> angleCalculator (std::vector<double> lengths) {
     angleA = (acos(((pow(b,2) + pow(c,2) - pow(a,2)))/(2*b*c)) * 180.0/pi);
     angleB = (acos(((pow(c,2) + pow(a,2) - pow(b,2)))/(2*a*c)) * 180.0/pi);
     angleC = 180.0 - angleA - angleB;
-
+    if (angleC > 89.9999 && angleC < 90.0001){
+        angleC = 90.0;
+    }
+//    std::cout << "angle a: " << angleA << std::endl << "angle b: " << angleB << std::endl << "angle c: " << angleC << std::endl;
     angles.push_back(angleA);
     angles.push_back(angleB);
     angles.push_back(angleC);
     return angles;
 }
 void typeOfTriangle(std::vector<double> lineLengths, std::vector<double> angles) {
-    if (angles[0] == 90 || angles[1] == 90 || angles[2] == 90) {
+    if ((angles[0] > 89.9999999 && angles[0] < 90.0000001) || (angles[1] > 89.999999 && angles[1] < 90.000001) || (angles[2] > 89.999999 && angles[2] < 90.000001)) {
         std::cout << "right\n";
     }else if (lineLengths[0] == lineLengths[1] || lineLengths[1] == lineLengths[2] || lineLengths[0] == lineLengths[2]) {
         std::cout << "isosceles\n";
