@@ -22,9 +22,9 @@ struct triangle {
   point pointA;
   point pointB;
   point pointC;
-  float lengthSideC;
-  float lengthSideA;
-  float lengthSideB;
+  double lengthSideC; //Thanks Chris!!!!
+  double lengthSideA;
+  double lengthSideB;
   float angleA;
   float angleB;
   float angleC;
@@ -41,16 +41,16 @@ string computeTypeOfTriangle(triangle tri) {
   tri.angleA = acos((pow(tri.lengthSideB, 2) + pow(tri.lengthSideC, 2) -
                      pow(tri.lengthSideA, 2)) /
                     (2 * tri.lengthSideB * tri.lengthSideC)) *
-               (180 / pi);
+               (180.0 / pi);
   tri.angleB = acos((pow(tri.lengthSideC, 2) + pow(tri.lengthSideA, 2) -
                      pow(tri.lengthSideB, 2)) /
                     (2 * tri.lengthSideC * tri.lengthSideA)) *
-               (180 / pi);
-  tri.angleC = 180 - tri.angleA - tri.angleB;
+               (180.0 / pi);
+  tri.angleC = 180.0 - tri.angleA - tri.angleB;
     
-    tri.angleA = roundf(trunc(tri.angleA * 100 + .5)) / 100;
-    tri.angleB = roundf(trunc(tri.angleB * 100 + .5)) / 100;
-    tri.angleC = roundf(trunc(tri.angleC * 100 + .5)) / 100;
+    tri.angleA = roundf(trunc(tri.angleA * 1000 + .5)) / 1000;
+    tri.angleB = roundf(trunc(tri.angleB * 1000 + .5)) / 1000;
+    tri.angleC = roundf(trunc(tri.angleC * 1000 + .5)) / 1000;
 
 
   if (tri.angleA <= 0.0f || isnan(tri.angleA) || tri.angleB <= 0.0f ||
