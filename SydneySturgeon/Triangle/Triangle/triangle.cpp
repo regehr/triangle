@@ -62,7 +62,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   // calculate the angles in the triangle
   float angleA = calculateAngleA(lineLength12, lineLength13, lineLength23);
   float angleB = calculateAngleB(lineLength12, lineLength13, lineLength23);
-  float angleC = 180.0 - angleA - angleB;
+  float angleC = 180 - angleA - angleB;
 
   // classify the triangle according to its side lengths or angles
   // right: one 90 degree angle
@@ -73,7 +73,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   // if any of the angles are <= 0 it is degenerate
   if ((angleA <= 0.0f) || (angleB <= 0.0f) || (angleC <= 0.0f)) {
     cout << "degenerate\n";
-  } else if (angleA == 90.0 || angleB == 90.0 || angleC == 90.0) {
+  } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f) {
     cout << "right\n";
   } else if ((lineLength12 == lineLength13 && lineLength12 != lineLength23) ||
              (lineLength13 == lineLength23 && lineLength13 != lineLength12) ||
