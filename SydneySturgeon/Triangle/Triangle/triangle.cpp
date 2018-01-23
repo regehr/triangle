@@ -71,7 +71,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   // acute: all angles < 90 degrees
 
   // if any of the angles are <= 0 it is degenerate
-  if ((angleA <= 0.0) || (angleB <= 0.0) || (angleC < 0.0)) {
+  if ((angleA <= 0.0) || (angleB <= 0.0) || (angleC <= 0.0)) {
     cout << "degenerate\n";
 //  } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f
 //             || angleA == 89.0f || angleB == 89.0f || angleC == 89.0f
