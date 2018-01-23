@@ -62,7 +62,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   // calculate the angles in the triangle
   float angleA = calculateAngleA(lineLength12, lineLength13, lineLength23);
   float angleB = calculateAngleB(lineLength12, lineLength13, lineLength23);
-  float angleC = 180 - angleA - angleB;
+  float angleC = 180.0f - angleA - angleB;
 
   // classify the triangle according to its side lengths or angles
   // right: one 90 degree angle
