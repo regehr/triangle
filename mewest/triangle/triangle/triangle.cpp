@@ -37,15 +37,25 @@ float findAngleB(float c, float b, float a) {
     return B;
 }
 
+//sets the precicion and sees if angles are equal withing 0.00001
+bool doublesEqual(double a, double b) { return std::abs(a - b) < 0.00001; }
+
 /* Checks if the triangle is a right triangle by checking if
  one of the angles is greater than 90 degrees
  */
 bool isRight(float A, float B, float C) {
-    if (A == 90 || B == 90 || C == 90) {
+    if (doublesEqual(A, 90.0) || doublesEqual(B, 90.0) ||
+        doublesEqual(C, 90.0)) {
         return true;
     } else
         return false;
 }
+//bool isRight(float A, float B, float C) {
+//    if (A == 90 || B == 90 || C == 90) {
+//        return true;
+//    } else
+//        return false;
+//}
 
 /* Checks if the triangle is an Isosceles triangle
  */
