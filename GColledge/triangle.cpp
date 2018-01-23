@@ -27,8 +27,7 @@
  */
 float distanceBetweenTwoPoints(float firstX, float firstY, float secondX,
                                float secondY) {
-  float result = sqrt(pow((firstX - secondX),2) +
-                      pow((firstY - secondY),2));
+  float result = sqrt(pow((firstX - secondX), 2) + pow((firstY - secondY), 2));
   assert(result >= 0);
   return result;
 }
@@ -42,8 +41,8 @@ float distanceBetweenTwoPoints(float firstX, float firstY, float secondX,
 
 int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
                      float y3) {
-    //allowed error
-    float eps = 0.005;
+  // allowed error
+  float eps = 0.005;
   // Test for a triangle
   // chekc for verticle line
   if (x1 - x2 == 0 && x1 - x3 == 0) {
@@ -76,19 +75,20 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
   std::sort(sides.begin(),
             sides.end()); // sort the side lengths for further use.
   // the first is the smallest, the last is the largest
-  assert(sides[2] < sides[0] + sides[1]);
+
+  // add eps for floating point error
+  assert(sides[2] < sides[0] + sides[1] + eps);
   // check for right triangles
   // test using the pythagorean theorem
-    if (fabs(pow(sides[0],2) + pow(sides[1],2) - pow(sides[2],2)) <=
-      eps) {
+  if (fabs(pow(sides[0], 2) + pow(sides[1], 2) - pow(sides[2], 2)) <= eps) {
     // above is the pythagorean theorem solved for zero
     std::cout << "right\n";
     return 1;
   }
 
   // check for Isosceles triangle
-    if (fabs(sides[1] - sides[0]) <= 0.0001 ||
-        fabs(sides[2] - sides[1]) <= 0.0001) {
+  if (fabs(sides[1] - sides[0]) <= 0.0001 ||
+      fabs(sides[2] - sides[1]) <= 0.0001) {
     std::cout << "isosceles\n";
     return 1;
   }
@@ -100,11 +100,16 @@ int classifyTriangle(float x1, float y1, float x2, float y2, float x3,
            (-2 * sides[1] * sides[0]));
   /*the above line is the law of cosines solved for the angle. The largest angle
    *is solved for by the fact that the largest side is always opposite the
-   *largest angle.
+   *largest angle. In the case that the floating point round off error produces
+   * a NAN (as in 180 degrees), we will assign the largest angle to 179.995
+   *degrees.
    */
+  if (isnan(largeAngle)) {
+    largeAngle = 179.995;
+  }
 
   if (largeAngle * (180.0 / PI) >
-      90.0) { // convert to degrees before making the comparison.
+      90.0 - eps) { // convert to degrees before making the comparison.
     std::cout << "obtuse\n";
     return 1;
   } else { // if it isnt an obtuse or a right triangle then it must be acute
