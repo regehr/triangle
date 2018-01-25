@@ -74,20 +74,20 @@ void findAllAngles(double &finalAngle, double &largestAngle, double largestSide,
 }
 
 // used for evaluation of numbers to help produce testing.
-void printDetails(int coor1[], int coor2[], int coor3[], double lengthA, double lengthB, double lengthC, double angleAB, double angleAC, double angleBC, double largestAngle) {
-    // confirm points of triangle
-    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1] << ") ("
-    << coor2[0] << ", " << coor2[1] << ") (" << coor3[0] << ", "
-    << coor3[1] << ")" << "\n";
-
-    std::cout << lengthA << " " << lengthB << " " << lengthC << "\n";
-    std::cout << "Largest Angle: " << largestAngle << "\n";
-
-    // print all angles
-    std::cout << angleAB << "\n";
-    std::cout << angleAC << "\n";
-    std::cout << angleBC << "\n\n";
-}
+//void printDetails(int coor1[], int coor2[], int coor3[], double lengthA, double lengthB, double lengthC, double angleAB, double angleAC, double angleBC, double largestAngle) {
+//    // confirm points of triangle
+//    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1] << ") ("
+//    << coor2[0] << ", " << coor2[1] << ") (" << coor3[0] << ", "
+//    << coor3[1] << ")" << "\n";
+//
+//    std::cout << lengthA << " " << lengthB << " " << lengthC << "\n";
+//    std::cout << "Largest Angle: " << largestAngle << "\n";
+//
+//    // print all angles
+//    std::cout << angleAB << "\n";
+//    std::cout << angleAC << "\n";
+//    std::cout << angleBC << "\n\n";
+//}
 
 /*
  * Borrowed this code method from Doug Garding, and updated to doubles from doubles
@@ -174,7 +174,7 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
         }
         
         std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
-        printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
+//        printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
     }
 }
 
