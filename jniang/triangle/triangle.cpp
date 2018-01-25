@@ -51,7 +51,8 @@ void findSides(double distance1, double distance2, double distance3){
 }
 //this function helps with the precision when sides are equal
 bool isEqual(double d1, double d2) {
-    return abs(d1 - d2) < 10e-5;
+    return fabs(d1 - d2) < 10e-5;
+    //changed abs to fabs becuse the abs is for integers not double or floating points
 }
 //use the Distance found above to use in the Pythagorean Theroem
 bool isRightTriangle (double distance1, double distance2, double distance3){
@@ -106,7 +107,7 @@ int main(int argc, const char * argv[]) {
     //TODO: error checking for divide by zero
     //TODO: add asserts of angle, length and all angles can only add up to 180
     //TODO: for some reason testing many at the same time I miss a few results at the end of the testing program bug
-    //TODO: I need to add assertion statements 
+    
     
     //while loop to do mutliple inputs and outputs
     while (std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3){
@@ -123,7 +124,8 @@ int main(int argc, const char * argv[]) {
         }else if(isRightTriangle(distance1, distance2, distance3)){
             std::cout << "right\n";
         }else if (isIsocelesTriangle(distance1, distance2, distance3)){
-            std::cout << "isoceles\n";
+            std::cout << "isosceles\n";
+            //change in travis spelled isosceles wrong 
         }//removed the code will never reach the equilateral because always be acute
         //else if (isEquilateralTriangle(distance1, distance2, distance3)){
           //  std:: cout << "equilateral\n";

@@ -21,40 +21,15 @@
  x1 y1 x2 y2 x3 y3
  
  coordinates are integers in [0..100]
- 
  coordinates are separated by spaces
- 
  input is on stdin
- 
  output is on stdout
- 
  input is zero or more lines, each containing a triangle
- 
  behavior is undefined if input is malformed
- 
- 
- 
  assignment: write a triangle classifier in C++
  
  write 7 test cases
- 
- 
  */
-
-//define Triangle Struct
-//struct Triangle {
-//    Triangle();
-//
-//    Triangle(int coor1[], int coor2[], int coor3[]);
-//
-//    int *coor1 = new int[2];
-//    int *coor2 = new int[2];
-//    int *coor3 = new int[2];
-//    float lengthA, lengthB, lengthC;
-//    float longestLength;
-//    float angleAB, angleAC, angleBC;
-//    float largestAngle;
-//};
 
 // find lengths
 float findLength(int coorA[], int coorB[]) {
@@ -112,7 +87,6 @@ void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
 //    std::cout << angleAB << "\n";
 //    std::cout << angleAC << "\n";
 //    std::cout << angleBC << "\n\n";
-//
 //}
 
 /*
@@ -120,13 +94,16 @@ void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
  * Returns true if two floats are equal to each other with
  * a margin of error of .001
  */
-bool floatsEqual(float a, float b) { return abs(a - b) < 0.001;}
+bool floatsEqual(float a, float b) { return std::abs(a - b) < 0.000001;}
 
 //analyze triangles
 std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle){
     if (lengthA == 0 || lengthB == 0 || lengthC == 0) {
         return "degenerate\n";
     } else if (floatsEqual(180, largestAngle)) {
+        return "degenerate\n";
+    } else if (lengthC >=lengthA + lengthB  || lengthB >= lengthA + lengthC || lengthC >= lengthB + lengthC) {
+        //borrowed condition from Doug Garding
         return "degenerate\n";
     }
     
@@ -197,7 +174,7 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
         }
         
         std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
-        //    printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
+//        printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
     }
 }
 

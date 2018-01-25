@@ -18,38 +18,48 @@
 /* findDistance finds the length of each side of the triangle using
  the Pythagorean Theorem to solve
  */
-double findDistance(double x1, double y1, double x2, double y2) {
-    double xSquares = pow((x2 - x1), 2.0);
-    double ySquares = pow((y2 - y1), 2.0);
-    double distance = sqrt(xSquares + ySquares);
+float findDistance(float x1, float y1, float x2, float y2) {
+    float xSquares = pow((x2 - x1), 2.0);
+    float ySquares = pow((y2 - y1), 2.0);
+    float distance = sqrt(xSquares + ySquares);
     return distance;
 }
 
 // Uses law of cosines to solve
-double findAngleA(double c, double b, double a) {
-    double A = acos((pow(b, 2.0) + pow(c, 2.0) - pow(a, 2.0)) / (2.0 * b * c));
+float findAngleA(float c, float b, float a) {
+    float A = acos((pow(b, 2.0) + pow(c, 2.0) - pow(a, 2.0)) / (2.0 * b * c));
     return A;
 }
 
 // uses law of sines to solve
-double findAngleB(double c, double b, double a) {
-    double B = acos((pow(a,2)+pow(c,2)-pow(b,2))/(2*a*c));
+float findAngleB(float c, float b, float a) {
+    float B = acos((pow(a,2)+pow(c,2)-pow(b,2))/(2*a*c));
     return B;
 }
+
+//sets the precicion and sees if angles are equal withing 0.00001
+bool doublesEqual(double a, double b) { return std::abs(a - b) < 0.0001; }
 
 /* Checks if the triangle is a right triangle by checking if
  one of the angles is greater than 90 degrees
  */
-bool isRight(double A, double B, double C) {
-    if (A == 90 || B == 90 || C == 90) {
+bool isRight(float A, float B, float C) {
+    if (doublesEqual(A, 90.0) || doublesEqual(B, 90.0) ||
+        doublesEqual(C, 90.0)) {
         return true;
     } else
         return false;
 }
+//bool isRight(float A, float B, float C) {
+//    if (A == 90 || B == 90 || C == 90) {
+//        return true;
+//    } else
+//        return false;
+//}
 
 /* Checks if the triangle is an Isosceles triangle
  */
-bool isIsosceles(double A, double B, double C, double a, double b, double c) {
+bool isIsosceles(float A, float B, float C, float a, float b, float c) {
     if (((A == B) || (A == C) || (B == C)) ||
         ((a == b) || (a == c) || (b == c))) {
         return true;
@@ -59,7 +69,7 @@ bool isIsosceles(double A, double B, double C, double a, double b, double c) {
 
 ///* Checks if the triangle is an Equilateral triangle
 // */
-// bool isEquilateral (double A, double B, double C, double a, double b, double
+// bool isEquilateral (float A, float B, float C, float a, float b, float
 // c)
 //{
 //    if(((A == B) && (A == C) && (B == C)) || ((a == b) && (a == c) && (b ==
@@ -72,7 +82,7 @@ bool isIsosceles(double A, double B, double C, double a, double b, double c) {
 
 /* Checks if the triangle is an Obtuse triangle
  */
-bool isObtuse(double A, double B, double C) {
+bool isObtuse(float A, float B, float C) {
     if ((A > 90) || (B > 90) || (C > 90)) {
         return true;
     } else
@@ -81,7 +91,7 @@ bool isObtuse(double A, double B, double C) {
 
 /* Checks if the triangle is an Acute triangle
  */
-bool isAcute(double A, double B, double C) {
+bool isAcute(float A, float B, float C) {
     if ((A < 90) && (B < 90) && (C < 90)) {
         return true;
     } else
@@ -90,8 +100,8 @@ bool isAcute(double A, double B, double C) {
 
 // Checks tp make sure two entered points are not the same as well as checks the
 // triangles area  Returns degenerate it area is 0 or two points are the same
-bool isDegenerate(double x1, double y1, double x2, double y2, double x3,
-                  double y3) {
+bool isDegenerate(float x1, float y1, float x2, float y2, float x3,
+                  float y3) {
     // Check to see if any two points entered are the same.
     if ((x1 == x2 && y1 == y2) || (x1 == x3 && y1 == y3) ||
         (x3 == x2 && y3 == y2)) {
@@ -111,20 +121,20 @@ static void triangleClassifier(int x1, int x2, int x3, int y1, int y2, int y3) {
     if (isDegenerate(x1, y1, x2, y2, x3, y3)) {
         std::cout << "degenerate" << std::endl;
     } else {
-        double c = findDistance(x1, y1, x2, y2);
-        double b = findDistance(x1, y1, x3, y3);
-        double a = findDistance(x2, y2, x3, y3);
+        float c = findDistance(x1, y1, x2, y2);
+        float b = findDistance(x1, y1, x3, y3);
+        float a = findDistance(x2, y2, x3, y3);
         assert(a >= 0 && b >= 0 && c >= 0); // Chris Roper's great idea
         
         // Calculates angles in triangle
-        double A = (findAngleA(c, b, a) *
+        float A = (findAngleA(c, b, a) *
                     (180 / PI)); // was using Round here, and it was causing issues
-        double B = (findAngleB(c, b, a) *
+        float B = (findAngleB(c, b, a) *
                     (180 / PI)); // was using Round here, and it was causing issues
-        double C = 180.0 - A - B;
-        A = round(A);
-        B = round(B);
-        C = round(C);
+        float C = 180.0 - A - B;
+//        A = round(A);
+//        B = round(B);
+//        C = round(C);
         //        std::cout << "A = " << A << "B = " << B << "C = " << C << std::endl;
         
         // Checks triangle type
@@ -156,7 +166,7 @@ int main(int argc, const char *argv[]) {
         int x1, y1, x2, y2, x3, y3;
 //        std::cout << "Please enter the coordinates of your triangle:" <<
 //        std::endl;
-        
+
         // Input Validation
         if (!(std::cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3)) {
             break;

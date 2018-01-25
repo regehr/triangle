@@ -16,10 +16,10 @@ using namespace std;
 // Uses distance formula to calculate the length between 2 x,y pts
 // Takes four ints as 2 x,y pts as parameters
 // Returns a float as the length between the two input pts
-float lineLength(int x1, int y1, int x2, int y2) {
-  float x = pow((x2 - x1), 2);
-  float y = pow((y2 - y1), 2);
-  float length = sqrt(x + y);
+double lineLength(int x1, int y1, int x2, int y2) {
+  double x = pow((x2 - x1), 2);
+  double y = pow((y2 - y1), 2);
+  double length = sqrt(x + y);
   assert(length >= 0.0); // checks for positive lengths
   return length;
 }
@@ -28,10 +28,10 @@ float lineLength(int x1, int y1, int x2, int y2) {
 // Uses the law of cosines to calculate an angle in degrees in a triangle
 // Takes lengths of three lines as floats as parameters
 // Returns an angle in degrees as a float
-float calculateAngleA(float line1, float line2, float line3) {
-  float numeratorA = (pow(line2, 2)) + (pow(line3, 2)) - (pow(line1, 2));
-  float denominatorA = 2 * line2 * line3;
-  float angleA = acos(numeratorA / denominatorA); // calculates angle in radians
+double calculateAngleA(double line1, double line2, double line3) {
+  double numeratorA = (pow(line2, 2)) + (pow(line3, 2)) - (pow(line1, 2));
+  double denominatorA = 2 * line2 * line3;
+  double angleA = acos(numeratorA / denominatorA); // calculates angle in radians
   const float PI = 3.141592653589793238463f;
   return angleA * (180.0f / PI); // convert angle from radians to degrees
 }
@@ -40,10 +40,10 @@ float calculateAngleA(float line1, float line2, float line3) {
 // Uses law of cosines to calculate an angle in degrees in a triangle
 // Takes lengths of three lines as floats as parameters
 // Returns an angle in degrees as a float
-float calculateAngleB(float line1, float line2, float line3) {
-  float numeratorB = (pow(line3, 2)) + (pow(line1, 2)) - (pow(line2, 2));
-  float denominatorB = 2 * line3 * line1;
-  float angleB = acos(numeratorB / denominatorB); // calculates angle in radians
+double calculateAngleB(double line1, double line2, double line3) {
+  double numeratorB = (pow(line3, 2)) + (pow(line1, 2)) - (pow(line2, 2));
+  double denominatorB = 2 * line3 * line1;
+  double angleB = acos(numeratorB / denominatorB); // calculates angle in radians
   const float PI = 3.141592653589793238463f;
   return angleB * (180.0f / PI); // convert angle from radians to degrees
 }
@@ -55,15 +55,14 @@ float calculateAngleB(float line1, float line2, float line3) {
 void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
 
   // calculate the lengths of the sides of the triangle
-  float lineLength12 = lineLength(x1, y1, x2, y2);
-  float lineLength13 = lineLength(x1, y1, x3, y3);
-  float lineLength23 = lineLength(x2, y2, x3, y3);
+  double lineLength12 = lineLength(x1, y1, x2, y2);
+  double lineLength13 = lineLength(x1, y1, x3, y3);
+  double lineLength23 = lineLength(x2, y2, x3, y3);
 
   // calculate the angles in the triangle
-  float angleA = calculateAngleA(lineLength12, lineLength13, lineLength23);
-  float angleB = roundf(
-      (calculateAngleB(lineLength12, lineLength13, lineLength23) * 10) / 10);
-  float angleC = roundf(((180.0f - angleA - angleB) * 10) / 10);
+  double angleA = calculateAngleA(lineLength12, lineLength13, lineLength23);
+  double angleB = calculateAngleB(lineLength12, lineLength13, lineLength23);
+  double angleC = 180.0f - angleA - angleB;
 
   // classify the triangle according to its side lengths or angles
   // right: one 90 degree angle
@@ -72,9 +71,10 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   // acute: all angles < 90 degrees
 
   // if any of the angles are <= 0 it is degenerate
-  if ((angleA <= 0.0f) || (angleB <= 0.0f) || (angleC <= 0.0f)) {
+  if ((angleA <= 0.0) || (angleB <= 0.0) || (angleC <= 0.0)) {
     cout << "degenerate\n";
-  } else if (angleA == 90.0f || angleB == 90.0f || angleC == 90.0f) {
+  } else if ((angleA > 89.95 && angleA < 90.02 ) || (angleB > 89.95
+             && angleB < 90.02) || (angleC > 89.95 && angleC < 90.02)){
     cout << "right\n";
   } else if ((lineLength12 == lineLength13 && lineLength12 != lineLength23) ||
              (lineLength13 == lineLength23 && lineLength13 != lineLength12) ||
