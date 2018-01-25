@@ -30,10 +30,7 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   angleC = findAngle(side1, side2, side3);
   angleA = findAngle(side2, side3, side1);
   angleB = findAngle(side3, side1, side2);
-    std::cout << angleA << "\n" ;
-    std::cout << angleB << "\n" ;
-    std::cout << angleC << "\n" ;
-
+    
   if ((angleA < 90.999 && angleA > 89.9999) || (angleB < 90.999 && angleB > 89.9999) ||
       (angleC < 90.999 && angleC > 89.9999)) {
     std::cout << "right\n";
