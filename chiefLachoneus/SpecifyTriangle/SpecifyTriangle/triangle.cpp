@@ -32,49 +32,49 @@
  */
 
 // find lengths
-float findLength(int coorA[], int coorB[]) {
+double findLength(int coorA[], int coorB[]) {
     return sqrtf(pow((coorA[0] - coorB[0]), 2) + pow((coorA[1] - coorB[1]), 2));
 }
 
 // first angle, being the largest
-float findLargestAngle(float longestSide, float side2, float side3) {
+double findLargestAngle(double longestSide, double side2, double side3) {
     // use cos rule to calculate largest angle
-    float cosValue = (pow(side2, 2) + pow(side3, 2) - pow(longestSide, 2)) /
+    double cosValue = (pow(side2, 2) + pow(side3, 2) - pow(longestSide, 2)) /
     (2 * side2 * side3);
-    float radians = acos(cosValue);
+    double radians = acos(cosValue);
     
     // convert to degrees
     return (radians * 180) / M_PI;
 }
 
 //second angle
-float caluclateSINAngle(float largestAngle, float largestSide, float side2) {
+double caluclateSINAngle(double largestAngle, double largestSide, double side2) {
     // convert to radians
-    float degreesOfLargestAngle = largestAngle * M_PI / 180;
+    double degreesOfLargestAngle = largestAngle * M_PI / 180;
     
     // use sin rule to calcualte second side
-    float sinValue = side2 * sin(degreesOfLargestAngle) / largestSide;
-    float radians = asin(sinValue);
+    double sinValue = side2 * sin(degreesOfLargestAngle) / largestSide;
+    double radians = asin(sinValue);
     
     // convert back to degrees
     return (radians * 180) / M_PI;
 }
 
 //final angle
-float calculateFinalAngle(float largestAngle, float angle2) {
+double calculateFinalAngle(double largestAngle, double angle2) {
     return 180 - largestAngle - angle2;
 }
 
 
-void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
-                   float length1, float length2, float &sinAngle) {
+void findAllAngles(double &finalAngle, double &largestAngle, double largestSide,
+                   double length1, double length2, double &sinAngle) {
     largestAngle = findLargestAngle(largestSide, length1, length2);
     sinAngle = caluclateSINAngle(largestAngle, largestSide, length1);
     finalAngle = calculateFinalAngle(largestAngle, sinAngle);
 }
 
 // used for evaluation of numbers to help produce testing.
-//void printDetails(int coor1[], int coor2[], int coor3[], float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle) {
+//void printDetails(int coor1[], int coor2[], int coor3[], double lengthA, double lengthB, double lengthC, double angleAB, double angleAC, double angleBC, double largestAngle) {
 //    // confirm points of triangle
 //    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1] << ") ("
 //    << coor2[0] << ", " << coor2[1] << ") (" << coor3[0] << ", "
@@ -90,24 +90,24 @@ void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
 //}
 
 /*
- * Borrowed this code method from Doug Garding, and updated to floats from doubles
- * Returns true if two floats are equal to each other with
+ * Borrowed this code method from Doug Garding, and updated to doubles from doubles
+ * Returns true if two doubles are equal to each other with
  * a margin of error of .001
  */
-bool floatsEqual(float a, float b) { return std::abs(a - b) < 0.000001;}
+bool doublesEqual(double a, double b) { return std::abs(a - b) < 0.0001;}
 
 //analyze triangles
-std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle){
+std::string analyzeTrinagle(double lengthA, double lengthB, double lengthC, double angleAB, double angleAC, double angleBC, double largestAngle){
     if (lengthA == 0 || lengthB == 0 || lengthC == 0) {
         return "degenerate\n";
-    } else if (floatsEqual(180, largestAngle)) {
+    } else if (doublesEqual(180, largestAngle)) {
         return "degenerate\n";
     } else if (lengthC >=lengthA + lengthB  || lengthB >= lengthA + lengthC || lengthC >= lengthB + lengthC) {
         //borrowed condition from Doug Garding
         return "degenerate\n";
     }
     
-    if (floatsEqual(90, largestAngle)) {
+    if (doublesEqual(90, largestAngle)) {
         return "right\n";
     } else if (lengthA == lengthB || lengthA == lengthC || lengthB == lengthC) {
         return "isosceles\n";
@@ -134,17 +134,17 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
     coor3[0] = x3;
     coor3[1] = y3;
     
-    float lengthA = findLength(coor1, coor2);
-    float lengthB = findLength(coor2, coor3);
-    float lengthC = findLength(coor1, coor3);
-    float longestLength;
+    double lengthA = findLength(coor1, coor2);
+    double lengthB = findLength(coor2, coor3);
+    double lengthC = findLength(coor1, coor3);
+    double longestLength;
     
-    float angleAB, angleAC, angleBC;
-    float largestAngle;
-    float sinAngle;
-    float finalAngle;
+    double angleAB, angleAC, angleBC;
+    double largestAngle;
+    double sinAngle;
+    double finalAngle;
     
-    if (floatsEqual(lengthA, 0.0) || floatsEqual(lengthB, 0.0) || floatsEqual(lengthC, 0.0)) {
+    if (doublesEqual(lengthA, 0.0) || doublesEqual(lengthB, 0.0) || doublesEqual(lengthC, 0.0)) {
         std::cout << "degenerate\n";
     } else {
         if (lengthB > lengthA && lengthB > lengthC) {

@@ -21,13 +21,6 @@ float slope(float x1, float x2, float y1, float y2) {
     return (x1-x2)/(y1-y2);
 }
 
-float degreesToRadians(float degrees) {
-    return degrees*pi/180.0f;
-}
-
-float radiansToDegrees(float radians) {
-    return radians*180.0f/pi;
-}
 std::string getTriangleType(int x1, int y1, int x2, int y2, int x3, int y3) {
     //equal points check
     if((x1 == x2 && y1 == y2) || (x2 == x3 && y2 == y3) || (x1 == x3 && y1 == y3)) {
