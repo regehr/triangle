@@ -21,40 +21,15 @@
  x1 y1 x2 y2 x3 y3
  
  coordinates are integers in [0..100]
- 
  coordinates are separated by spaces
- 
  input is on stdin
- 
  output is on stdout
- 
  input is zero or more lines, each containing a triangle
- 
  behavior is undefined if input is malformed
- 
- 
- 
  assignment: write a triangle classifier in C++
  
  write 7 test cases
- 
- 
  */
-
-//define Triangle Struct
-//struct Triangle {
-//    Triangle();
-//
-//    Triangle(int coor1[], int coor2[], int coor3[]);
-//
-//    int *coor1 = new int[2];
-//    int *coor2 = new int[2];
-//    int *coor3 = new int[2];
-//    float lengthA, lengthB, lengthC;
-//    float longestLength;
-//    float angleAB, angleAC, angleBC;
-//    float largestAngle;
-//};
 
 // find lengths
 float findLength(int coorA[], int coorB[]) {
@@ -99,28 +74,27 @@ void findAllAngles(float &finalAngle, float &largestAngle, float largestSide,
 }
 
 // used for evaluation of numbers to help produce testing.
-void printDetails(int coor1[], int coor2[], int coor3[], float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle) {
-    // confirm points of triangle
-    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1] << ") ("
-    << coor2[0] << ", " << coor2[1] << ") (" << coor3[0] << ", "
-    << coor3[1] << ")" << "\n";
-
-    std::cout << lengthA << " " << lengthB << " " << lengthC << "\n";
-    std::cout << "Largest Angle: " << largestAngle << "\n";
-
-    // print all angles
-    std::cout << angleAB << "\n";
-    std::cout << angleAC << "\n";
-    std::cout << angleBC << "\n\n";
-
-}
+//void printDetails(int coor1[], int coor2[], int coor3[], float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle) {
+//    // confirm points of triangle
+//    std::cout << "Your points: (" << coor1[0] << ", " << coor1[1] << ") ("
+//    << coor2[0] << ", " << coor2[1] << ") (" << coor3[0] << ", "
+//    << coor3[1] << ")" << "\n";
+//
+//    std::cout << lengthA << " " << lengthB << " " << lengthC << "\n";
+//    std::cout << "Largest Angle: " << largestAngle << "\n";
+//
+//    // print all angles
+//    std::cout << angleAB << "\n";
+//    std::cout << angleAC << "\n";
+//    std::cout << angleBC << "\n\n";
+//}
 
 /*
  * Borrowed this code method from Doug Garding, and updated to floats from doubles
  * Returns true if two floats are equal to each other with
  * a margin of error of .001
  */
-bool floatsEqual(float a, float b) { return std::abs(a - b) < 0.001;}
+bool floatsEqual(float a, float b) { return std::abs(a - b) < 0.000001;}
 
 //analyze triangles
 std::string analyzeTrinagle(float lengthA, float lengthB, float lengthC, float angleAB, float angleAC, float angleBC, float largestAngle){
@@ -200,7 +174,7 @@ static void buildTriangles(int x1, int y1, int x2, int y2, int x3, int y3) {
         }
         
         std::cout << analyzeTrinagle(lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
-        printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
+//        printDetails(coor1, coor2, coor3, lengthA, lengthB, lengthC, angleAB, angleAC, angleBC, largestAngle);
     }
 }
 
