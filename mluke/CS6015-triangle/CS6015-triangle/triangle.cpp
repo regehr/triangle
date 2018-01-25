@@ -30,9 +30,6 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   angleC = round(findAngle(side1, side2, side3));
   angleA = round(findAngle(side2, side3, side1));
   angleB = round(findAngle(side3, side1, side2));
-    std::cout << angleA << "\n" ;
-    std::cout << angleB << "\n" ;
-    std::cout << angleC << "\n" ;
     
   if ((angleA < 90.0001 && angleA > 89.9999) || (angleB < 90.0001 && angleB > 89.9999) ||
       (angleC < 90.0001 && angleC > 89.9999)) {
