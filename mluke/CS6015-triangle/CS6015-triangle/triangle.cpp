@@ -15,8 +15,8 @@ double findDistance(int x, int y, int x1, int y1) {
   return sqrt(value);
 }
 
-float findAngle(double x, double y, double z) {
-  float val = ((pow(x, 2) + pow(y, 2) - pow(z, 2))) / (2 * x * y);
+double findAngle(double x, double y, double z) {
+  double val = ((pow(x, 2) + pow(y, 2) - pow(z, 2))) / (2 * x * y);
   return acos(val) * (180.0 / 3.14);
 }
 
@@ -26,17 +26,20 @@ void triangleClassifier(int x1, int y1, int x2, int y2, int x3, int y3) {
   side2 = findDistance(x1, y1, x3, y3);
   side3 = findDistance(x2, y2, x3, y3);
 
-  float angleA, angleB, angleC;
-  angleC = findAngle(side1, side2, side3);
-  angleA = findAngle(side2, side3, side1);
-  angleB = findAngle(side3, side1, side2);
+  double angleA, angleB, angleC;
+  angleC = round(findAngle(side1, side2, side3));
+  angleA = round(findAngle(side2, side3, side1));
+  angleB = round(findAngle(side3, side1, side2));
+    std::cout << angleA << "\n" ;
+    std::cout << angleB << "\n" ;
+    std::cout << angleC << "\n" ;
     
-  if ((angleA < 90.999 && angleA > 89.9999) || (angleB < 90.999 && angleB > 89.9999) ||
-      (angleC < 90.999 && angleC > 89.9999)) {
+  if ((angleA < 90.0001 && angleA > 89.9999) || (angleB < 90.0001 && angleB > 89.9999) ||
+      (angleC < 90.0001 && angleC > 89.9999)) {
     std::cout << "right\n";
   } else if (side1 == side2 || side1 == side3 || side2 == side3) {
     std::cout << "isosceles\n";
-  } else if (angleA > 90.999 || angleB > 90.999 || angleC > 90.999) {
+  } else if (angleA > 90.0001 || angleB > 90.0001 || angleC > 90.0001) {
     std::cout << "obtuse\n";
   } else if (angleA < 89.9999 && angleB < 89.9999 && angleC < 89.9999) {
     std::cout << "acute\n";
